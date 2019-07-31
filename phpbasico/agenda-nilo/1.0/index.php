@@ -1,9 +1,11 @@
 <?php
+// include diz que inclui a conexao com o banco
+// require diz que a pagina requer a conexao com o banco
+
 // requirir conexao com a base
 require_once('include/connectaBD.php');
 
-// include diz que inclui a conexao com o banco
-// require diz que a pagina requer a conexao com o banco
+
 
 
 // acessar a tabela e pegar os dados de contatos
@@ -11,8 +13,8 @@ $sql = "SELECT * FROM contatos";
 $result = $banco->query($sql);
 
 
-// select da buscar oc contatos
 
+// select da buscar oc contatos
 if(isset($_GET['btSerach'])){
 	// letras que foi escrita no campo
 	$letras = $_GET['txtBusca'];
@@ -51,12 +53,15 @@ if(isset($_GET['btSerach'])){
 		</div>
 	</header>
 	<nav>
-		<a href="index.php">Home</a> | <a href="cadastrar.php">Cadastrar</a>
+		<button class="btnNav"><a href="index.php">Home</a></button> 
+		<button class="btnNav"> <a href="cadastrar.php">Cadastrar</a></button>
 	</nav>
 	<main>
 		<article>
-			<h1>Agenda de clientes/contato</h1>
+
+			
 			<section id="menuAlfabeto">
+			<h1>Agenda de clientes/contato</h1>
 				<div id="alfabeto">
 					<ul>
 						<li><a href="#">A</a></li>
@@ -89,8 +94,10 @@ if(isset($_GET['btSerach'])){
 					</ul>
 				</div>
 			</section>
+
+			
 			<section id="listar">
-				<h2>Listando todos os Contatos</h2>
+			<h2>Listando todos os Contatos</h2>
 				<!-- loop começa -->
 				<?php while($row = mysqli_fetch_array($result)){ ?>
 
@@ -100,9 +107,12 @@ if(isset($_GET['btSerach'])){
 					<div class="listEmail">Email: <?php echo $row['email']?></div>
 					<br>
 
-				
-        	
-				<div class="del"><a href="contatoDel.php?id=<?php echo $row['idcontatos']?>">Excluir</a></div> <--! tarefa criar o botao de excluir -->
+			
+					<div class="del">
+						<button class="btnLista">
+							<a href="contatoDel.php?id=<?php echo $row['idcontatos']?>">Excluir</a>
+						</button>
+					</div> <!-- tarefa criar o botao de excluir -->
 				</div>
 				<?php } ?>
 				<!-- loop termina -->
@@ -123,6 +133,6 @@ if(isset($_GET['btSerach'])){
 			</section>
 		</article>
 	</main>
-	<footer>Desenvolvido por seres supremos &reg; &copy;</footer>
+	<footer><h2>Desenvolvido por seres supremos &reg; &copy;</h2></footer>
 </body>
 </html>
