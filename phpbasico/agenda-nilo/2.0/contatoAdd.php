@@ -1,3 +1,36 @@
+<?php
+  require_once('include/connectaBD.php');
+  $sql2 = "SELECT * FROM  users";
+  $return = $banco->query($sql2);
+
+  // cadastrar novo contato
+
+  if(isset($_POST['btCad'])){
+
+    $nome = $_POST['txtNome'];
+    $tel = $_POST['txtTelefone'];
+    $email = $_POST['txtEmail'];
+    $star = '0';
+    $iduser = $_POST['selUser'];
+
+  
+    $execute = "INSERT INTO contatos VALUES (NULL, '$nome', '$tel', '$email','$star', '$iduser')";
+
+    if(mysqli_query($banco, $execute)){
+      
+      header("location: index.php");
+    }else{
+      echo ("deu ruim". mysqli_connect_errno($banco));
+    }
+
+  }
+
+  
+
+  
+  
+?>
+
 <!doctype html>
 <html lang="pt-br">
 <head>
@@ -11,19 +44,10 @@
 </head>
 <body>
 <header>
-  <div id="logo"><img src="image/logoTwo.png" alt="Logo PokeAgenda"></div>
-  <div id="search">
-    <form action="#" method="get" name="formBusca" id="formBusca">
-      <input type="text" name="txtBusca" id="txtBusca" placeholder="Digite parte de um nome">
-      <input type="submit" name="btSerach" id="btSearch" value="Buscar">
-    </form>
-  </div>
+<?php include('include/inc_topo.php');?>
 </header>
 <nav>
-<ul>
-<li><a href="index.php">Contatos</a></li>
-<li><a href="usersList.php">Usuários</a></li>
-<li><a href="javascript:history.back();">Voltar</a></li>
+<?php include('include/inc_menu.php');?>
 </nav>
 <main>
   <article>
@@ -37,6 +61,17 @@
           <input type="text" name="txtEmail" id="txtEMail" placeholder="E-Mail">
           <select name="selUser" id="selUser">
             <option value="">Selecione</option>
+
+            <!-- loop começa aqui -->
+            <?php
+              while($row2 = mysqli_fetch_assoc($return)){
+            ?>
+            <option value="<?php echo ($row2['idusers']);?>"><?php echo ($row2['nome']);?></option>
+            
+            <?php
+              }
+            ?>
+            <!-- loop termina -->
           </select>
           <input type="submit" name="btCad" id="btCad" value="Cadastrar">
         </form>
@@ -44,6 +79,6 @@
     </section>
   </article>
 </main>
-<footer>Desenvolvido por seres supremos &reg; &copy;</footer>
+<footer><?php  include('include/inc_rodape.php');?></footer>
 </body>
 </html>

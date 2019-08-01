@@ -11,19 +11,10 @@
 </head>
 <body>
 <header>
-  <div id="logo"><img src="image/logoTwo.png" alt="Logo PokeAgenda"></div>
-  <div id="search">
-    <form action="#" method="get" name="formBusca" id="formBusca">
-      <input type="text" name="txtBusca" id="txtBusca" placeholder="Digite parte de um nome">
-      <input type="submit" name="btSerach" id="btSearch" value="Buscar">
-    </form>
-  </div>
+<?php include('include/inc_topo.php');?>
 </header>
 <nav>
-<ul>
-<li><a href="index.php">Contatos</a></li>
-<li><a href="usersList.php">Usuários</a></li>
-<li><a href="javascript:history.back();">Voltar</a></li>
+<?php include('include/inc_menu.php');?>
 </nav>
 <main>
   <article>
@@ -40,6 +31,6 @@
     </section>
   </article>
 </main>
-<footer>Desenvolvido por seres supremos &reg; &copy;</footer>
+<footer><?php  include('include/inc_rodape.php');?></footer>
 </body>
 </html>

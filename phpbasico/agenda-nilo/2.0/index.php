@@ -1,3 +1,17 @@
+<?php
+// requerimento para conectar com o include
+  require_once('include/connectaBD.php');
+
+
+  $sql = "SELECT * FROM contatos";
+
+  $resultado = $banco->query($sql);
+
+  // $retorno = mysqli_fetch_assoc($resultado);
+  // echo $retorno['nome'];
+
+?>
+
 <!doctype html>
 <html lang="pt-br">
 <head>
@@ -11,19 +25,10 @@
 </head>
 <body>
 <header>
-  <div id="logo"><img src="image/logoTwo.png" alt="Logo PokeAgenda"></div>
-  <div id="search">
-    <form action="#" method="get" name="formBusca" id="formBusca">
-      <input type="text" name="txtBusca" id="txtBusca" placeholder="Digite parte de um nome">
-      <input type="submit" name="btSerach" id="btSearch" value="Buscar">
-    </form>
-  </div>
+  <?php include('include/inc_topo.php');?>
 </header>
 <nav>
-<ul>
-<li><a href="index.php">Contatos</a></li>
-<li><a href="usersList.php">Usuários</a></li>
-<li><a href="javascript:history.back();">Voltar</a></li>
+	<?php include('include/inc_menu.php');?>
 </nav>
 <main>
   <article>
@@ -63,18 +68,35 @@
     </section>
     <section id="listar">
       <h2>Listando todos os Contatos</h2>
-      <h3><a href="contatoAdd.php">Cadastrar Contato</a></h3>
+			<h3><a href="contatoAdd.php">Cadastrar Contato</a></h3>
+			
+			<!-- incio do loop -->
+			<?php
+
+				
+				while($row = mysqli_fetch_array($resultado)){
+					
+			?>
+
       <div class="list">
-        <div class="listNome">Nome:</div>
-        <div class="listTel">Telefone:</div>
-        <div class="listEmail">Email:</div>
+
+        <div class="listNome">Nome: <?php echo ($row['nome']);?></div>
+        <div class="listTel">Telefone: <?php echo ($row['tel']);?></div>
+        <div class="listEmail">Email: <?php echo ($row['email']);?></div>
         <div class="star"><a href="favoritar.php">Favoritar</a></div>
         <div class="up"><a href="contatoUp.php">Editar</a></div>
-        <div class="del"><a href="contatoDel.php">Excluir</a></div>
-      </div>
+        <div class="del"><a href="contatoDel.php?id=<?php echo($row['idcontatos'])?>">Excluir</a></div>
+			</div> <br>
+
+			<?php
+				}
+			?>
+			<!-- fim do loop -->
+
+
     </section>
   </article>
 </main>
-<footer>Desenvolvido por seres supremos &reg; &copy;</footer>
+<footer><?php  include('include/inc_rodape.php');?></footer>
 </body>
 </html>

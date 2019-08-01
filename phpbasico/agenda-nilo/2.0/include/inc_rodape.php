@@ -1,0 +1,1 @@
+<h2>Desenvolvido por seres supremos &reg; &copy;</h2>
