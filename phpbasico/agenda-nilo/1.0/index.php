@@ -16,14 +16,20 @@ $result = $banco->query($sql);
 
 // select da buscar oc contatos
 if(isset($_GET['btSerach'])){
+
 	// letras que foi escrita no campo
 	$letras = $_GET['txtBusca'];
 
-	// faz o select em sql
+	// faz o select de palavras no sql
 	$sqlBusca = "SELECT * FROM contatos where nome LIKE '%".$letras."%' ORDER BY nome asc";
+
+	// faz o select das no sql
+	
+	
+
 	// executa o select
 	$resultBusca = $banco->query($sqlBusca);
-
+	
 	
 }
 
@@ -96,15 +102,15 @@ if(isset($_GET['btSerach'])){
 			</section>
 
 			
-			<section id="listar">
+			<section class="listar">
 			<h2>Listando todos os Contatos</h2>
 				<!-- loop começa -->
 				<?php while($row = mysqli_fetch_array($result)){ ?>
 
 				<div class="list">
-					<div class="listNome">Nome: <?php echo $row['nome']?></div>
-					<div class="listTel">Telefone: <?php echo $row['tel']?></div>
-					<div class="listEmail">Email: <?php echo $row['email']?></div>
+					<div class="listNome">Nome: <?php echo $row['nome'];?></div>
+					<div class="listTel">Telefone: <?php echo $row['tel'];?></div>
+					<div class="listEmail">Email: <?php echo $row['email'];?></div>
 					<br>
 
 			
@@ -116,21 +122,35 @@ if(isset($_GET['btSerach'])){
 				</div>
 				<?php } ?>
 				<!-- loop termina -->
+				</section>
 
 
 				<?php
 					if(isset($_GET['btSerach'])){
 
-						
-						echo "<h2>Listando todos os Contatos</h2>";
+						echo ("<section class='listar'>");
+						echo ("<h2>Resultado da busca de contatos</h2>");
+
+						//loop da busca começa 
 						while($row2 = mysqli_fetch_array($resultBusca)){
-							
-							echo $row2["nome"];
-							echo "<br>";
-						}
-					}
+
 				?>
-			</section>
+					
+					<div class="list">
+						<div class="listNome">Nome: <?php echo $row2['nome'];?></div>
+						<div class="listTel">Telefone: <?php echo $row2['tel'];?></div>
+						<div class="listEmail">E-mail: <?php echo $row2['email'];?></div>
+					</div>
+						
+					
+				<?php
+						}
+						echo ("</section>");
+					}
+					//loop da busca termina 
+				?>
+				
+			
 		</article>
 	</main>
 	<footer><h2>Desenvolvido por seres supremos &reg; &copy;</h2></footer>

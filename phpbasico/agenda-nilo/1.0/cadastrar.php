@@ -1,3 +1,29 @@
+<?php
+
+	// requerimento de conexao com banco
+	require_once('include/connectaBD.php');
+
+	// cadastrar um contato
+
+	if(isset($_POST['btCad'])){
+
+		$nome = $_POST['txtNome'];
+		$tel = $_POST['txtTelefone'];
+		$email = $_POST['txtEmail'];
+
+		$execute_insert = "INSERT INTO contatos VALUES (null, '$nome','$tel','$email')";
+
+		if(mysqli_query($banco, $execute_insert)) {
+			header("location: index.php");
+		}else{
+			echo ("deu errado");
+		}
+	}
+
+?>
+
+
+
 <!doctype html>
 <html lang="pt-br">
 <head>
@@ -18,28 +44,29 @@
 		</div>
 	</header>
 	<nav>
-		<a href="index.php">Home</a> | <a href="cadastrar.php">Cadastrar</a>
+		<button class="btnNav"><a href="index.php">Home</a></button> 
+		<button class="btnNav"> <a href="cadastrar.php">Cadastrar</a></button>
 	</nav>
 	<main>
 		<article>
-			<h1>Agenda de clientes/contato</h1>
 			
-			<section id="listar">
+			
+			<section class="listar">
 				<h2>Novo cadastro</h2>
 				
 				<div id="newCad">
-				<form action="#" method="post" name="formCad" id="formCad">
-					<input type="text" name="txtNome" id="txtNome" placeholder="Nome">
-					<input type="text" name="txtTelefone" id="txtTelefone" placeholder="Telefone">
-					<input type="text" name="txtEmail" id="txtEMail" placeholder="E-Mail">
-					<input type="submit" name="btCad" id="btCad" value="Cadastrar">
+					<form action="#" method="post" name="formCad" id="formCad">
+						<input type="text" name="txtNome" id="txtNome" placeholder="Nome">
+						<input type="text" name="txtTelefone" id="txtTelefone" placeholder="Telefone">
+						<input type="text" name="txtEmail" id="txtEMail" placeholder="E-Mail">
+						<input type="submit" name="btCad" id="btCad" value="Cadastrar">
 					</form>
 				</div>
 				
 			</section>
 		</article>
 	</main>
-	<footer>Desenvolvido por seres supremos &reg; &copy;</footer>
+	<footer><h2>Desenvolvido por seres supremos &reg; &copy;</h2></footer>
 
 
 </body>
