@@ -7,7 +7,6 @@ require_once('include/connectaBD.php');
 
 
 
-
 // acessar a tabela e pegar os dados de contatos
 $sql = "SELECT * FROM contatos";
 $result = $banco->query($sql);
@@ -32,6 +31,16 @@ if(isset($_GET['btSerach'])){
 	
 	
 }
+
+// busca de contatos com as letras do alfabeto
+
+if(isset($_GET['id'])){
+	$letrasAlfa = $_GET['id'];
+	$sqlBusca2 = "SELECT * FROM contatos WHERE nome LIKE '".$letrasAlfa."%' ORDER BY nome ASC";
+	$resultBuscaAlfa = $banco->query($sqlBusca2);
+}
+
+
 
 ?>
 <!doctype html>
@@ -70,36 +79,64 @@ if(isset($_GET['btSerach'])){
 			<h1>Agenda de clientes/contato</h1>
 				<div id="alfabeto">
 					<ul>
-						<li><a href="#">A</a></li>
-						<li><a href="#">B</a></li>
-						<li><a href="#">C</a></li>
-						<li><a href="#">D</a></li>
-						<li><a href="#">E</a></li>
-						<li><a href="#">F</a></li>
-						<li><a href="#">G</a></li>
-						<li><a href="#">H</a></li>
-						<li><a href="#">I</a></li>
-						<li><a href="#">J</a></li>
-						<li><a href="#">K</a></li>
-						<li><a href="#">L</a></li>
-						<li><a href="#">M</a></li>
-						<li><a href="#">N</a></li>
-						<li><a href="#">O</a></li>
-						<li><a href="#">P</a></li>
-						<li><a href="#">Q</a></li>
-						<li><a href="#">R</a></li>
-						<li><a href="#">S</a></li>
-						<li><a href="#">T</a></li>
-						<li><a href="#">U</a></li>
-						<li><a href="#">V</a></li>
-						<li><a href="#">W</a></li>
-						<li><a href="#">X</a></li>
-						<li><a href="#">Y</a></li>
-						<li><a href="#">Z</a></li>
+						
+						<li><a href="index.php?id=<?php echo $letrasAlfa='A';?>">A</a></li>
+						<li><a href="index.php?id=<?php echo $letrasAlfa='B';?>">B</a></li>
+						<li><a href="index.php?id=<?php echo $letrasAlfa='C';?>">C</a></li>
+						<li><a href="index.php?id=<?php echo $letrasAlfa='D';?>">D</a></li>
+						<li><a href="index.php?id=<?php echo $letrasAlfa='E';?>">E</a></li>
+						<li><a href="index.php?id=<?php echo $letrasAlfa='F';?>">F</a></li>
+						<li><a href="index.php?id=<?php echo $letrasAlfa='G';?>">G</a></li>
+						<li><a href="index.php?id=<?php echo $letrasAlfa='H';?>">H</a></li>
+						<li><a href="index.php?id=<?php echo $letrasAlfa='I';?>">I</a></li>
+						<li><a href="index.php?id=<?php echo $letrasAlfa='J';?>">J</a></li>
+						<li><a href="index.php?id=<?php echo $letrasAlfa='K';?>">K</a></li>
+						<li><a href="index.php?id=<?php echo $letrasAlfa='L';?>">L</a></li>
+						<li><a href="index.php?id=<?php echo $letrasAlfa='M';?>">M</a></li>
+						<li><a href="index.php?id=<?php echo $letrasAlfa='N';?>">N</a></li>
+						<li><a href="index.php?id=<?php echo $letrasAlfa='O';?>">O</a></li>
+						<li><a href="index.php?id=<?php echo $letrasAlfa='P';?>">P</a></li>
+						<li><a href="index.php?id=<?php echo $letrasAlfa='Q';?>">Q</a></li>
+						<li><a href="index.php?id=<?php echo $letrasAlfa='R';?>">R</a></li>
+						<li><a href="index.php?id=<?php echo $letrasAlfa='S';?>">S</a></li>
+						<li><a href="index.php?id=<?php echo $letrasAlfa='T';?>">T</a></li>
+						<li><a href="index.php?id=<?php echo $letrasAlfa='U';?>">U</a></li>
+						<li><a href="index.php?id=<?php echo $letrasAlfa='V';?>">V</a></li>
+						<li><a href="index.php?id=<?php echo $letrasAlfa='W';?>">W</a></li>
+						<li><a href="index.php?id=<?php echo $letrasAlfa='X';?>">X</a></li>
+						<li><a href="index.php?id=<?php echo $letrasAlfa='Y';?>">Y</a></li>
+						<li><a href="index.php?id=<?php echo $letrasAlfa='Z';?>">Z</a></li>
 					
 					</ul>
 				</div>
 			</section>
+
+			
+			<?php
+				if(isset($_GET['id'])){
+
+					echo ("<section class='listar'>");
+					echo ("<h2>Resultado da busca de contatos pelas letras alfalbeto</h2>");
+
+					//loop da busca do alfabeto começa 
+					while($row3 = mysqli_fetch_array($resultBuscaAlfa)){
+
+				?>
+					
+				<div class="list">
+					<div class="listNome">Nome: <?php echo $row3['nome'];?></div>
+					<div class="listTel">Telefone: <?php echo $row3['tel'];?></div>
+					<div class="listEmail">E-mail: <?php echo $row3['email'];?></div>
+				</div>
+						
+					
+				<?php
+					}
+					echo ("</section>");
+					
+				}
+					//loop da busca termina 
+				?>
 
 			
 			<section class="listar">
