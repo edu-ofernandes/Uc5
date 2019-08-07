@@ -1,3 +1,24 @@
+<?php
+
+require_once("include/connectaBD.php");
+
+if(isset($_POST['btCad'])){
+    $nome = $_POST['txtNome'];
+    $cargo = $_POST['txtCargo'];
+
+
+    $sqlAddUser = "INSERT INTO users VALUES (NULL, '$nome', '$cargo')";
+
+    if(mysqli_query($banco, $sqlAddUser)){
+        header("location: usersList.php");
+    }else{
+        echo "Erro ao inserir ".mysqli_erro($banco);
+    }
+}
+
+
+?>
+
 <!doctype html>
 <html lang="pt-br">
 

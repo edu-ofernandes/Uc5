@@ -35,8 +35,7 @@ if(isset($_GET['btSerach'])){
 // busca de contatos com as letras do alfabeto
 
 if(isset($_GET['id'])){
-	$letrasAlfa = $_GET['id'];
-	$sqlBusca2 = "SELECT * FROM contatos WHERE nome LIKE '".$letrasAlfa."%' ORDER BY nome ASC";
+	$sqlBusca2 = "SELECT * FROM contatos WHERE nome LIKE '".$_GET['id']."%' ORDER BY nome ASC";
 	$resultBuscaAlfa = $banco->query($sqlBusca2);
 }
 
@@ -80,32 +79,32 @@ if(isset($_GET['id'])){
 				<div id="alfabeto">
 					<ul>
 						
-						<li><a href="index.php?id=<?php echo $letrasAlfa='A';?>">A</a></li>
-						<li><a href="index.php?id=<?php echo $letrasAlfa='B';?>">B</a></li>
-						<li><a href="index.php?id=<?php echo $letrasAlfa='C';?>">C</a></li>
-						<li><a href="index.php?id=<?php echo $letrasAlfa='D';?>">D</a></li>
-						<li><a href="index.php?id=<?php echo $letrasAlfa='E';?>">E</a></li>
-						<li><a href="index.php?id=<?php echo $letrasAlfa='F';?>">F</a></li>
-						<li><a href="index.php?id=<?php echo $letrasAlfa='G';?>">G</a></li>
-						<li><a href="index.php?id=<?php echo $letrasAlfa='H';?>">H</a></li>
-						<li><a href="index.php?id=<?php echo $letrasAlfa='I';?>">I</a></li>
-						<li><a href="index.php?id=<?php echo $letrasAlfa='J';?>">J</a></li>
-						<li><a href="index.php?id=<?php echo $letrasAlfa='K';?>">K</a></li>
-						<li><a href="index.php?id=<?php echo $letrasAlfa='L';?>">L</a></li>
-						<li><a href="index.php?id=<?php echo $letrasAlfa='M';?>">M</a></li>
-						<li><a href="index.php?id=<?php echo $letrasAlfa='N';?>">N</a></li>
-						<li><a href="index.php?id=<?php echo $letrasAlfa='O';?>">O</a></li>
-						<li><a href="index.php?id=<?php echo $letrasAlfa='P';?>">P</a></li>
-						<li><a href="index.php?id=<?php echo $letrasAlfa='Q';?>">Q</a></li>
-						<li><a href="index.php?id=<?php echo $letrasAlfa='R';?>">R</a></li>
-						<li><a href="index.php?id=<?php echo $letrasAlfa='S';?>">S</a></li>
-						<li><a href="index.php?id=<?php echo $letrasAlfa='T';?>">T</a></li>
-						<li><a href="index.php?id=<?php echo $letrasAlfa='U';?>">U</a></li>
-						<li><a href="index.php?id=<?php echo $letrasAlfa='V';?>">V</a></li>
-						<li><a href="index.php?id=<?php echo $letrasAlfa='W';?>">W</a></li>
-						<li><a href="index.php?id=<?php echo $letrasAlfa='X';?>">X</a></li>
-						<li><a href="index.php?id=<?php echo $letrasAlfa='Y';?>">Y</a></li>
-						<li><a href="index.php?id=<?php echo $letrasAlfa='Z';?>">Z</a></li>
+						<li><a href="index.php?id=A">A</a></li>
+						<li><a href="index.php?id=B">B</a></li>
+						<li><a href="index.php?id=C">C</a></li>
+						<li><a href="index.php?id=D">D</a></li>
+						<li><a href="index.php?id=E">E</a></li>
+						<li><a href="index.php?id=F">F</a></li>
+						<li><a href="index.php?id=G">G</a></li>
+						<li><a href="index.php?id=H">H</a></li>
+						<li><a href="index.php?id=I">I</a></li>
+						<li><a href="index.php?id=J">J</a></li>
+						<li><a href="index.php?id=K">K</a></li>
+						<li><a href="index.php?id=L">L</a></li>
+						<li><a href="index.php?id=M">M</a></li>
+						<li><a href="index.php?id=N">N</a></li>
+						<li><a href="index.php?id=O">O</a></li>
+						<li><a href="index.php?id=P">P</a></li>
+						<li><a href="index.php?id=Q">Q</a></li>
+						<li><a href="index.php?id=R">R</a></li>
+						<li><a href="index.php?id=S">S</a></li>
+						<li><a href="index.php?id=T">T</a></li>
+						<li><a href="index.php?id=U">U</a></li>
+						<li><a href="index.php?id=V">V</a></li>
+						<li><a href="index.php?id=W">W</a></li>
+						<li><a href="index.php?id=X">X</a></li>
+						<li><a href="index.php?id=Y">Y</a></li>
+						<li><a href="index.php?id=Z">Z</a></li>
 					
 					</ul>
 				</div>
