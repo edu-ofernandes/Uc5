@@ -1,0 +1,234 @@
+*{
+	list-style: none;
+	text-decoration: none;
+	border:0px;
+	margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body, html{font-size: 20px; font-family: Verdana, Geneva, Tahoma, sans-serif;  background-color: rgb(190, 190, 190);}
+h2{
+    color: rgb(0, 0, 0);
+    font-size: 1.5em;
+    margin: 5px;
+}
+a{color: rgb(0, 0, 0); font-weight: bold;}
+/* navegaçao */
+.nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+    width: 100%;
+    min-height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: rgb(211, 137, 0);
+}
+.container{display: flex;}
+/* menu ul */
+.nav ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav li {margin-right: 20px;}
+.nav li a{
+    font-size: 1.1em;
+    padding: 5px;
+    background-color: rgb(255, 255, 255);
+}
+.nav li a:hover{color: rgb(255, 255, 255); background-color: rgb(141, 141, 141);}
+/* busca */
+form{padding-right: 20px;}
+input[type=text]{
+	text-align: center;
+	width: 250px;
+	height: 35px;
+	font-size: .875em;
+}
+input[type=submit]{
+    font-weight: bold;
+    width: 80px;
+	height: 35px;
+	font-size: 1em;
+	cursor: pointer;
+	background-color: #eee;
+}
+input[type=submit]:hover{
+	background-color: rgb(146, 146, 146);
+	color: rgb(255, 255, 255);
+}
+
+/* conteudo */
+/* valores comum */
+main{
+    margin-top: 76px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+article{max-width: 100%; height: auto;}
+section{
+    box-shadow: 2px 3px 25px rgb(226, 224, 224);
+    padding: 10px;
+    width: 60%;
+    margin: 15px auto;
+    background-color: rgb(211, 137, 0);
+}
+/* alfabeto */
+.alfa-contatos{
+    display: flex;
+	flex-direction: column;
+	align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    padding: 15px 0;
+}
+.alfabeto{
+    padding: 5px;
+    background-color: rgba(170, 170, 170, 0.281);
+    width: 50%;
+    min-height: 200px;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.alfabeto li{
+    display: flex;
+	align-items: center;
+	text-align: center;
+	margin: 10px;
+}
+.alfabeto li a{
+    padding: 15px;
+    flex: 1;
+    border: 2px solid #ffffff;
+}
+.alfabeto li a:hover{ background-color: #eee; color: black;}
+
+
+/* todos-contatose todos-users */
+/* template area grid */
+.todos-contatos{
+    display: grid;
+    grid-template-areas:"titulo titulo titulo titulo"  
+                        "nome-tabela tel-tabela email-tabela vazio"
+                        "nome-registros tel-registros email-registros botoes" ;
+    grid-auto-rows: minmax(40px, auto);
+    grid-row-gap: 10px;
+
+}
+.todos-contatos > div, .todos-users > div{
+    background-color: #fff;
+    display: flex;
+    padding: 5px;
+}
+/* botoes de insert delete e favorito */
+.botoes, .botoes-users{ justify-content: space-around; font-size: 1.5em;}
+.botoes a i, .botoes-users a i, .todos-contatos .titulo .add-contatos a i{
+    color: rgb(0, 0, 0);
+    font-size: 1.1em;
+}
+.todos-contatos .titulo .add-contatos a i{
+    color: rgb(0, 0, 0);
+    font-size: 1.7em;
+}
+.botoes a i:hover, .todos-contatos .titulo .add-contatos a i:hover, .botoes-users a i:hover, .todos-users .titulo-users .add-contatos a i:hover{color: rgb(231, 231, 231);}
+
+/* template area dos grid */
+.todos-contatos div, .todos-users div{
+    display: flex;
+    align-items: center;
+}
+
+.todos-contatos > .titulo{
+    background-color: rgb(99, 99, 99);
+    grid-area: titulo;
+    justify-content: space-between;
+}
+.todos-contatos .nome-tabela, .todos-contatos .tel-tabela, .todos-contatos .email-tabela{
+    background-color: rgb(136, 136, 136);
+    border-right: 5px solid rgb(100, 100, 100);
+    font-weight: bold;
+}
+.todos-contatos .nomes-registros, .todos-contatos .tel-registros, .todos-contatos .email-registros{
+    background-color: rgb(216, 216, 216);
+    border-right: 5px solid rgb(100, 100, 100);
+}
+.todos-contatos .nome-tabela{ grid-area: nome-tabela;}
+.todos-contatos .tel-tabela{ grid-area: tel-tabela;}
+.todos-contatos .email-tabela{ grid-area: email-tabela; border: 0;}
+.todos-contatos .nomes-registros{ grid-area: nome-registros;}
+.todos-contatos .tel-registros{ grid-area: tel-registros;}
+.todos-contatos .email-registros{ grid-area: email-registros; border: 0;}
+.todos-contatos .botoes{ grid-area: botoes; background-color: rgb(34, 77, 112);}
+.todos-contatos .vazio{background-color: rgba(255, 0, 0, 0); grid-area: vazio;}
+
+/* grid template-area todos-users */
+.todos-users{
+    display: grid;
+    grid-template-areas:"titulo-users titulo-users titulo-users"  
+                        "nome-user-tabela cargo-user-tabela vazio-user"
+                        "nomes-user-registros cargo-user-registros botoes-users" ;
+    grid-auto-rows: minmax(40px, auto);
+    grid-row-gap: 10px;
+}
+.todos-users .nome-user-tabela, .todos-users .cargo-user-tabela{
+    background-color: rgb(136, 136, 136);
+    border-right: 5px solid rgb(100, 100, 100);
+    font-weight: bold;
+}
+.todos-users .nomes-user-registros, .todos-users .cargo-user-registros{ background-color: rgb(216, 216, 216); border-right: 5px solid rgb(100, 100, 100)}
+.todos-users .titulo-users{grid-area: titulo-users;}
+.todos-users .nome-user-tabela{grid-area: nome-user-tabela;}
+.todos-users .cargo-user-tabela{grid-area: cargo-user-tabela;  border: 0;}
+.todos-users .vazio-user{grid-area: vazio-user; background-color: rgba(255, 0, 0, 0);}
+.todos-users .nomes-user-registros{grid-area: nomes-user-registros;}
+.todos-users .cargo-user-registros{grid-area: cargo-user-registros; border: 0;}
+.todos-users .botoes-users{grid-area: botoes-users; background-color: rgb(34, 77, 112);}
+
+
+
+/* contatoAdd e userAdd */
+#formCad, #formUser{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 200px;
+    width: 40%;
+    height: 400px;
+    background-color: rgb(211, 137, 0);
+}
+#formCad input[type=text], #formUser input[type=text]{
+    outline: none;
+    margin: 10px;
+	text-align: center;
+	width: 350px;
+	height: 40px;
+    font-size: .875em;
+    box-shadow: 1px 4px 20px rgba(177, 177, 177, 0.527);
+}
+#formCad input[type=submit], #formUser input[type=submit]{
+    margin: 15px;
+    font-weight: bold;
+    width: 150px;
+	height: 35px;
+	font-size: 1em;
+	cursor: pointer;
+	background-color: #eee;
+}
+#formCad input[type=submit]:hover, #formUser input[type=submit]:hover{ background-color: rgb(146, 146, 146); color: rgb(255, 255, 255);}
+#formCad select{
+    margin: 5px;
+    width: 200px;
+    height: 30px;
+}
+#formCad h2, #formUser h2{margin-bottom: 30px;}
+

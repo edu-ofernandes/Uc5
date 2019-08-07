@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://kit.fontawesome.com/8e7c1629c9.js"></script>
+
+    <title>Agenda</title>
+</head>
+<body>
+    <div class="nav">
+        <h2>AnDaNilo</h2>
+        <div class="container">
+                <ul>
+                        <li><a href="index.html">Contatos</a></li>
+                        <li><a href="usersList.html">Usuários</a></li>
+                        <li><a href="javascript:history.back();">Voltar</a></li>
+                    </ul>
+                    <form action="#" method="get" name="formBusca" id="formBusca">
+                        <input type="text" name="txtBusca" id="txtBusca" placeholder="Digite parte de um nome">
+                        <input type="submit" name="btSerach" id="btSearch" value="Buscar">
+                    </form>
+        </div>
+    </div>
+<main>
+    <form action="#" method="post" name="formCad" id="formCad">
+        <h2>Novo cadastro</h2>
+        <input type="text" name="txtNome" id="txtNome" placeholder="Nome">
+        <input type="text" name="txtTelefone" id="txtTelefone" placeholder="Telefone">
+        <input type="text" name="txtEmail" id="txtEMail" placeholder="E-Mail">
+        <select name="selUser" id="selUser">
+            <option value="">Selecione</option>
+            <!-- loop começa aqui -->
+                <option value="idusers">idusers</option>
+            <!-- loop termina -->
+        </select>
+        <input type="submit" name="btCad" id="btCad" value="Cadastrar">
+    </form>
+</main>
+</body>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://kit.fontawesome.com/8e7c1629c9.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="nav">
+        <h2>AnDaNilo</h2>
+        <div class="container">
+                <ul>
+                        <li><a href="index.html">Contatos</a></li>
+                        <li><a href="usersList.html">Usuários</a></li>
+                        <li><a href="javascript:history.back();">Voltar</a></li>
+                    </ul>
+                    <form action="#" method="get" name="formBusca" id="formBusca">
+                        <input type="text" name="txtBusca" id="txtBusca" placeholder="Digite parte de um nome">
+                        <input type="submit" name="btSerach" id="btSearch" value="Buscar">
+                    </form>
+        </div>
+    </div>
+
+    <main>
+        <section class="todos-contatos todos-users">
+                <div class="titulo titulo-users">
+                    <h2>Lista de Users</h2>
+                    <div class="add-contatos"><a href="usersAdd.html"><i class="fas fa-user-plus"></i></a></div>
+                </div>
+                
+                <div class="nome-user-tabela">Nome</div>
+                <div class="cargo-user-tabela">Cargo</div>
+                <div class="vazio-user"></div>
+
+                <!-- loop começa -->
+                <div class="nomes-user-registros">Fulano</div>
+                <div class="cargo-user-registros">Cargo</div>
+                <div class="botoes-users">
+                    <a href="#"><i class="fas fa-edit"></i></a>
+                    <a href="#"><i class="fas fa-trash-alt"></i></a>
+                </div>
+                <!-- loop termina -->
+                
+            </section>
+    </main>
+    
+</body>
