@@ -35,7 +35,7 @@ $resultUsers = $banco->query($sqlUser);
             </div>
             <div class="container tabela-user">
                 <div class="nome-tabela"><p>Nome</p></div>
-                <div class="cargo-tabela"><p>E-mail</p></div>
+                <div class="cargo-tabela"><p>Cargo</p></div>
                 <div class="vazio"></div>
             </div>
             <!-- loop começa -->

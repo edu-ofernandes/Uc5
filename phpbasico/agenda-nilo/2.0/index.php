@@ -77,7 +77,11 @@ if(isset($_GET['id'])){
                 <?php }else{ ?>
 
                 <?php if(mysqli_num_rows($resultadoBuscaAlfa) != 0){  ?>
-                <h2>Resultado da busca pelas letras</h2>
+
+            <section class="todos-contatos lista-busca">
+                <div class="container titulo titulo-busca">
+                    <h2>Resultado da Pesquisa</h2>
+                </div>
 
 
                 <div class="container tabela">
@@ -106,16 +110,17 @@ if(isset($_GET['id'])){
                         <a href="contatoDel.php?id=<?php echo $row3['idcontatos']; ?>"><i class="fas fa-trash"></i></a>
                     </div>
                 </div>
-
-                <?php }} else {  ?> 
+                <?php  }?>
+            </section>
+                <?php } else {  ?> 
                     <h2>Nenhum resultado</h2>
                 <?php }} ?>
                 
                 <!-- loop termina -->
 
 
-                <section class="todos-contatos alfa-contatos">
-                <ul class="alfabeto">
+                <section class="todos-contatos alfa-contatos alfa-lista">
+                <ul class="alfabeto alfabeto-lista">
                     <li><a href="index.php?id=A">A</a></li>
                     <li><a href="index.php?id=B">B</a></li>
                     <li><a href="index.php?id=C">C</a></li>
@@ -144,8 +149,6 @@ if(isset($_GET['id'])){
                     <li><a href="index.php?id=Z">Z</a></li>
                     <li><a href="index.php">Favoritos</a></li>
                 </ul>
-
-                <h2>Resultado da busca</h2>
         
             </section>
     </main>
