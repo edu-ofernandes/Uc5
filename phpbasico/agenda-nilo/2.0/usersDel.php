@@ -6,7 +6,7 @@ $idusers = "SELECT * FROM users INNER JOIN contatos ON contatos.users_idusers = 
 
 $resultadoDelUser = $banco->query($idusers);
 if(mysqli_num_rows($resultadoDelUser) == 0){
-    $sqlDel = "SELECT FROM users WHERE idusers = $idusers";
+    $sqlDel = "DELETE FROM users WHERE idusers = $idusers";
 
     if(mysqli_query($banco, $idusers)){
         header("location: usersList.php");

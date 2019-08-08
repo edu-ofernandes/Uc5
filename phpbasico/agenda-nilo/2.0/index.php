@@ -88,9 +88,9 @@ if(isset($_GET['id'])){
                         <div class="listNome">Nome: <?php echo ($row['nome']); ?></div>
                         <div class="listTel">Telefone: <?php echo ($row['tel']); ?></div>
                         <div class="listEmail">Email: <?php echo ($row['email']); ?></div>
-                        <div class="star"><a href="favoritar.php">Favoritar</a></div>
-                        <div class="up"><a href="contatoUp.php">Editar</a></div>
-                        <div class="del"><a href="contatoDel.php?id=<?php echo ($row['idcontatos']) ?>">Excluir</a></div>
+                        <div class="star"><a href="favoritar.php?id=<?php echo ($row['idcontatos']) ?>">Favoritar</a></div>
+                        <div class="up"><a href="contatoUp.php?id=<?php echo ($row['idcontatos']) ?>">Editar</a></div>
+                        <div class="del"><a href="contatoDel.php?id=<?php echo $row['idcontatos']; ?>">Excluir</a></div>
                     </div> <br>
 
                 <?php } ?>
