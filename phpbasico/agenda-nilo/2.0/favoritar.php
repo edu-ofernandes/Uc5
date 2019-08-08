@@ -2,7 +2,7 @@
 require_once("include/connectaBD.php");
 
 $idContato = $_GET['id'];
-$sqlContato = "SELECT favoritos FROM contatos";
+$sqlContato = "SELECT favoritos FROM contatos WHERE idcontatos='$idContato'";
 $resultSql = $banco->query($sqlContato);
 $row = mysqli_fetch_array($resultSql);
 

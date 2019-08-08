@@ -35,8 +35,9 @@ if (isset($_POST['btCad'])) {
 
 <head>
     <meta charset="utf-8">
-    <title>PokeAgenda2.0 - AnDaNilo - Cadastrar</title>
-    <link rel="stylesheet" href="css/folha.css" type="text/css">
+    <title>PokeAgenda2.0 - AnDaNilo</title>
+    <link rel="stylesheet" href="./css/folha.css" type="text/css">
+    <script src="https://kit.fontawesome.com/8e7c1629c9.js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
     <meta name="keywords" content="PokeAgenda">
     <meta name="autor" content="seu nome aqui">
@@ -44,43 +45,27 @@ if (isset($_POST['btCad'])) {
 </head>
 
 <body>
-    <header>
-        <?php include('include/inc_topo.php'); ?>
-    </header>
-    <nav>
-        <?php include('include/inc_menu.php'); ?>
-    </nav>
+    <?php include('include/inc_menu.php'); ?>
     <main>
-        <article>
-            <h1>Agenda de clientes/contato</h1>
-            <section id="listar">
-                <h2>Novo cadastro</h2>
-                <div id="newCad">
-                    <form action="#" method="post" name="formCad" id="formCad">
-                        <input type="text" name="txtNome" id="txtNome" placeholder="Nome">
-                        <input type="text" name="txtTelefone" id="txtTelefone" placeholder="Telefone">
-                        <input type="text" name="txtEmail" id="txtEMail" placeholder="E-Mail">
-                        <select name="selUser" id="selUser">
-                            <option value="">Selecione</option>
 
-                            <!-- loop começa aqui -->
-                            <?php
-                            while ($row2 = mysqli_fetch_assoc($return)) {
-                                ?>
-                                <option value="<?php echo ($row2['idusers']); ?>"><?php echo ($row2['nome']); ?></option>
+        <form action="#" method="post" name="formCad" id="formCad">
+            <h2>Novo cadastro</h2>
+            <input type="text" name="txtNome" id="txtNome" placeholder="Nome">
+            <input type="text" name="txtTelefone" id="txtTelefone" placeholder="Telefone">
+            <input type="text" name="txtEmail" id="txtEMail" placeholder="E-Mail">
+            <select name="selUser" id="selUser">
+                <option value="">Selecione</option>
+                <!-- loop começa aqui -->
+                <?php while ($row2 = mysqli_fetch_assoc($return)) { ?>
+                    <option value="<?php echo ($row2['idusers']); ?>"><?php echo ($row2['nome']); ?></option>
+                <?php }?>
+                <!-- loop termina -->
+            </select>
+            <input type="submit" name="btCad" id="btCad" value="Cadastrar">
+        </form>
 
-                            <?php
-                            }
-                            ?>
-                            <!-- loop termina -->
-                        </select>
-                        <input type="submit" name="btCad" id="btCad" value="Cadastrar">
-                    </form>
-                </div>
-            </section>
-        </article>
     </main>
-    <footer><?php include('include/inc_rodape.php'); ?></footer>
+    
 </body>
 
 </html>

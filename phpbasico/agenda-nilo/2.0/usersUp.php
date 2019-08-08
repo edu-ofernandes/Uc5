@@ -1,4 +1,27 @@
+<?php
+require_once("include/connectaBD.php");
 
+$id = $_GET['id'];
+$sql = "SELECT * FROM users WHERE idusers =".$id;
+$result = $banco->query($sql);
+$row = mysqli_fetch_assoc($result);
+
+
+if(isset($_POST['btCad'])){
+    $idUser = $_POST['keyUser'];
+    $nomeUser = $_POST['txtNome'];
+    $cargoUser = $_POST['txtCargo'];
+    
+    $sqlUserUp = "UPDATE users SET idusers=$idUser, nome='$nomeUser', cargo='$cargoUser' WHERE idusers= $idUser";
+
+    if(mysqli_query($banco, $sqlUserUp)){
+        header("location: usersList.php");
+    }else {
+        echo "deu ruim ".mysqli_error($banco);
+    }
+}
+
+?>
 
 
 <!doctype html>
@@ -7,7 +30,8 @@
 <head>
     <meta charset="utf-8">
     <title>PokeAgenda2.0 - AnDaNilo</title>
-    <link rel="stylesheet" href="css/folha.css" type="text/css">
+    <link rel="stylesheet" href="./css/folha.css" type="text/css">
+    <script src="https://kit.fontawesome.com/8e7c1629c9.js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
     <meta name="keywords" content="PokeAgenda">
     <meta name="autor" content="seu nome aqui">
@@ -15,38 +39,16 @@
 </head>
 
 <body>
-    <header>
-        <div id="logo"><img src="image/logoTwo.png" alt="Logo PokeAgenda"></div>
-        <div id="search">
-            <form action="#" method="get" name="formBusca" id="formBusca">
-                <input type="text" name="txtBusca" id="txtBusca" placeholder="Digite parte de um nome">
-                <input type="submit" name="btSerach" id="btSearch" value="Buscar">
-            </form>
-        </div>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="index.php">Contatos</a></li>
-            <li><a href="usersList.php">Usuários</a></li>
-            <li><a href="javascript:history.back();">Voltar</a></li>
-    </nav>
+    <?php include('include/inc_menu.php'); ?>
+
     <main>
-        <article>
-            <h1>Agenda de clientes/contato</h1>
-            <section id="listar">
-                <h2>Cadastro Usuarios</h2>
-                <div id="newUser">
-                    <form action="#" method="post" id="formUser" name="formUser">
-                        <input type="text" name="txtNome" id="txtNome" placeholder="Nome User">
-                        <input type="text" name="txtCargo" id="txtCargo" placeholder="Cargo">
-                        <input type="hidden" name="keyUser" id="keyUser">
-                        <input type="submit" name="btCad" id="btCad" value="Cadastrar">
-                    </form>
-                </div>
-            </section>
-        </article>
+        <form action="#" method="post" id="formUser" name="formUser">
+            <input type="text" name="txtNome" id="txtNome" placeholder="Nome User" value="<?php echo $row['nome'];?>">
+            <input type="text" name="txtCargo" id="txtCargo" placeholder="Cargo" value="<?php echo $row['cargo'];?>">
+            <input type="hidden" name="keyUser" id="keyUser" value="<?php echo $row['idusers'];?>">
+            <input type="submit" name="btCad" id="btCad" value="Cadastrar">
+        </form>
     </main>
-    <footer>Desenvolvido por seres supremos &reg; &copy;</footer>
 </body>
 
 </html>

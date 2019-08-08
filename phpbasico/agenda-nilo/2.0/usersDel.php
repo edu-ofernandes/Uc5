@@ -1,19 +1,22 @@
 <?php
 require_once("include/connectaBD.php");
 
-$quem = $_GET['id'];
-$idusers = "SELECT * FROM users INNER JOIN contatos ON contatos.users_idusers = users.idusers WHERE users.idusers = '$quem'";
+$id = $_GET['id'];
+$sqlIdUsers = "SELECT * FROM users INNER JOIN contatos ON contatos.users_idusers = users.idusers WHERE users.idusers = ".$id;
+$resultadoDelUser = $banco->query($sqlIdUsers);
 
-$resultadoDelUser = $banco->query($idusers);
-if(mysqli_num_rows($resultadoDelUser) == 0){
-    $sqlDel = "DELETE FROM users WHERE idusers = $idusers";
 
-    if(mysqli_query($banco, $idusers)){
+if($row = mysqli_num_rows($resultadoDelUser) == 0){
+    $sqlDelUser = "DELETE FROM users WHERE idusers =".$id;
+
+    if(mysqli_query($banco, $sqlDelUser)){
         header("location: usersList.php");
-    }else{
-        echo "erro ao deletar arquivo ".mysqli_error($banco);
+    }else {
+        echo "teste nao deu certo";
     }
-}else{
-    echo "Usuarios possui contatos vinculados à sua conta, nao é possivel apagar registro";
-    header("refresh:4;url=usersList.php");
+}else {
+    echo "Nao é possivel excluir usuarios com contatos";
+    header("refresh: 3; url=usersList.php");
 }
+
+

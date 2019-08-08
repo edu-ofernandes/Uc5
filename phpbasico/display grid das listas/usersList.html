@@ -12,7 +12,7 @@
 <body>
     <div class="nav">
         <h2>AnDaNilo</h2>
-        <div class="container">
+        <div class="container-nav">
                 <ul>
                         <li><a href="index.html">Contatos</a></li>
                         <li><a href="usersList.html">Usuários</a></li>
@@ -26,26 +26,30 @@
     </div>
 
     <main>
-        <section class="todos-contatos todos-users">
-                <div class="titulo titulo-users">
-                    <h2>Lista de Users</h2>
-                    <div class="add-contatos"><a href="usersAdd.html"><i class="fas fa-user-plus"></i></a></div>
-                </div>
-                
-                <div class="nome-user-tabela">Nome</div>
-                <div class="cargo-user-tabela">Cargo</div>
-                <div class="vazio-user"></div>
-
-                <!-- loop começa -->
-                <div class="nomes-user-registros">Fulano</div>
-                <div class="cargo-user-registros">Cargo</div>
-                <div class="botoes-users">
+        <section class="todos-users">
+            <div class="container titulo">
+                <h2>Lista de Usuarios</h2>
+                <div class="add-users"><a href="usersAdd.html"><i class="fas fa-user-plus"></i></a></div>
+            </div>
+            <div class="container tabela-user">
+                <div class="nome-tabela"><p>Nome</p></div>
+                <div class="cargo-tabela"><p>E-mail</p></div>
+                <div class="vazio"></div>
+            </div>
+            <!-- loop começa -->
+            <div class="container registros-user">
+                <div class="nomes-registros"><p>Fulano</p></div>
+                <div class="cargo-registros"><p>Cargo</p></div>
+                <div class="botoes">
                     <a href="#"><i class="fas fa-edit"></i></a>
                     <a href="#"><i class="fas fa-trash-alt"></i></a>
                 </div>
-                <!-- loop termina -->
-                
-            </section>
+            </div>
+            
+            
+            <!-- loop termina -->
+            
+        </section>
     </main>
     
 </body>

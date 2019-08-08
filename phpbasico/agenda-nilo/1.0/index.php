@@ -154,7 +154,7 @@ if(isset($_GET['id'])){
 						<button class="btnLista">
 							<a href="contatoDel.php?id=<?php echo $row['idcontatos']?>">Excluir</a>
 						</button>
-					</div> <!-- tarefa criar o botao de excluir -->
+					</div> 
 				</div>
 				<?php } ?>
 				<!-- loop termina -->

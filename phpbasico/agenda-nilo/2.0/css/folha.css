@@ -1,3 +1,5 @@
+
+
 @charset "utf-8";
 /* CSS Document */
 *{
@@ -5,67 +7,194 @@
 	text-decoration: none;
 	border:0px;
 	margin: 0px;
-	padding: 0px;
+    padding: 0px;
+    box-sizing: border-box;
 }
-body{
-	background-color:#f1f5f9;
-	font-family:Tahoma;
-	font-size: 16px;
-	background-image: url("../image/backgroundOne.jpg");
-	background-attachment: fixed;
-	background-position: bottom right;
-	background-repeat: no-repeat;
-	background-size: cover;
+body, html{font-size: 20px; font-family: Verdana, Geneva, Tahoma, sans-serif;  background-color: rgb(190, 190, 190);}
+h2{
+    color: rgb(0, 0, 0);
+    font-size: 1.5em;
+    margin: 10px;
 }
-header{
-	width: 100%;
-	margin-bottom: 10px;
-	padding: 3px;
-	border-bottom: 1px solid #999999;
-	display: inline-flex;
-	justify-content:space-between;
-	
+a{color: rgb(0, 0, 0); font-weight: bold;}
+p{display: inline-block;}
+/* navegaçao */
+.nav{
+    max-width: 100%;
+    width: 100%;
+    min-height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: rgb(211, 137, 0);
 }
-nav{
-	width: auto;
-	margin-bottom: 10px;
-	padding: 3px;
-	border-bottom: 1px solid #999999;
+.container-nav{display: flex;}
+/* menu ul */
+.nav ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-nav ul{
-	display: inline-flex;
-	justify-content: center;
+.nav li {margin-right: 20px;}
+.nav li a{
+    font-size: 1.1em;
+    padding: 5px;
+    background-color: rgb(255, 255, 255);
 }
-nav ul li{
-	margin: 5px;
-}
-main{
-	width: auto;
-	margin-bottom: 10px;
-	padding: 3px;
-	border-bottom: 1px solid #999999;
-}
-footer{
-	width: auto;
-	margin-bottom: 10px;
-	padding: 3px;
-	border-bottom: 1px solid #999999;
-}
-#alfabeto{
-	background-color: #B3C6C2;
-}
-#alfabeto ul{
-	padding: 5px;
-	width: 100%;
-	display: inline-flex;
-	justify-content: center;
-	flex-wrap: wrap;
-}
-#alfabeto ul li {
-	display: block;
+.nav li a:hover{color: rgb(255, 255, 255); background-color: rgb(141, 141, 141);}
+/* busca */
+form{padding-right: 20px;}
+input[type=text]{
 	text-align: center;
-	margin: 2px;
-	padding: 2px;
-	width: 6%;
-	border: 1px solid #888888;
+	width: 250px;
+	height: 35px;
+	font-size: .875em;
 }
+input[type=submit]{
+    font-weight: bold;
+    width: 80px;
+	height: 35px;
+	font-size: 1em;
+	cursor: pointer;
+	background-color: #eee;
+}
+input[type=submit]:hover{
+	background-color: rgb(146, 146, 146);
+	color: rgb(255, 255, 255);
+}
+
+/* conteudo */
+main{
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+section{
+    padding: 10px;
+    width: 60%;
+    margin: 10px auto;
+    background-color: rgb(211, 137, 0);
+}
+/* todos os users e todos contatos */
+.todos-users .tabela-user, .registros-user{
+    display: grid;
+    grid-template-columns: 3fr 3fr 1fr;
+    margin-bottom: 5px;
+}
+
+.titulo{
+    width: 100%;
+    height: auto;
+    background-color: rgb(138, 138, 138);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+.tabela, .tabela-user{font-weight: bold;}
+.titulo h2{margin: 0;}
+.tabela, .registros{
+    display: grid;
+    grid-template-columns: 3fr 3fr 3fr 2fr;
+    margin-bottom: 10px;
+}
+.tabela > div, .registros > div, .tabela-user > div, .registros-user > div{
+    background-color: #fff; 
+    border-right: 3px solid rgb(165, 165, 165);
+    padding: 7px;
+}
+
+.tabela .email-tabela,.registros .email-registros, .tabela-user .cargo-tabela, .registros-user .cargo-registros{border-right: none;}
+.registros > :nth-last-child(1), .registros-user > :nth-last-child(1){
+    justify-content: space-around;
+    border-right: none; 
+    display: flex;
+}
+.tabela .vazio, .tabela-user .vazio{ 
+    display: none;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+}
+.todos-contatos i, .todos-users i{font-size: 1.5em;}
+.todos-contatos i:hover, .todos-users i:hover{ color: rgb(221, 221, 221);}
+.todos-contatos .botoes, .todos-users .botoes{background-color: rgb(23, 73, 131);}
+.tabela > div, .tabela-user > div{background-color: rgb(185, 185, 185);}
+/*=============para quando favoritar======== */
+.favorito-on{color: rgb(255, 196, 0);}
+.botoes .star > i:hover{color: rgb(255, 196, 0);}
+
+
+/* alfabeto */
+.alfa-contatos{
+    display: flex;
+	flex-direction: column;
+	align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    padding: 15px 0;
+}
+.alfabeto{
+    padding: 5px;
+    background-color: rgba(170, 170, 170, 0.281);
+    width: 50%;
+    min-height: 200px;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.alfabeto li{
+    display: flex;
+	align-items: center;
+	text-align: center;
+	margin: 10px;
+}
+.alfabeto li a{
+    padding: 15px;
+    flex: 1;
+    border: 2px solid #ffffff;
+}
+.alfabeto li a:hover{ background-color: #eee; color: black;}
+
+/* contatoAdd e userAdd */
+#formCad, #formUser{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 200px;
+    width: 40%;
+    height: 400px;
+    background-color: rgb(211, 137, 0);
+}
+#formCad input[type=text], #formUser input[type=text]{
+    outline: none;
+    margin: 10px;
+	text-align: center;
+	width: 350px;
+	height: 40px;
+    font-size: .875em;
+    box-shadow: 1px 4px 20px rgba(177, 177, 177, 0.527);
+}
+#formCad input[type=submit], #formUser input[type=submit]{
+    margin: 15px;
+    font-weight: bold;
+    width: 150px;
+	height: 35px;
+	font-size: 1em;
+	cursor: pointer;
+	background-color: #eee;
+}
+#formCad input[type=submit]:hover, #formUser input[type=submit]:hover{ background-color: rgb(146, 146, 146); color: rgb(255, 255, 255);}
+#formCad select{
+    margin: 5px;
+    width: 200px;
+    height: 30px;
+}
+#formCad h2, #formUser h2{margin-bottom: 30px;}
+

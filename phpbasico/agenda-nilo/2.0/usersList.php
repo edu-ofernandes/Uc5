@@ -17,7 +17,8 @@ $resultUsers = $banco->query($sqlUser);
 <head>
     <meta charset="utf-8">
     <title>PokeAgenda2.0 - AnDaNilo</title>
-    <link rel="stylesheet" href="css/folha.css" type="text/css">
+    <link rel="stylesheet" href="./css/folha.css" type="text/css">
+    <script src="https://kit.fontawesome.com/8e7c1629c9.js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
     <meta name="keywords" content="PokeAgenda">
     <meta name="autor" content="seu nome aqui">
@@ -25,42 +26,36 @@ $resultUsers = $banco->query($sqlUser);
 </head>
 
 <body>
-    <header>
-        <div id="logo"><img src="image/logoTwo.png" alt="Logo PokeAgenda"></div>
-        <div id="search">
-            <form action="#" method="get" name="formBusca" id="formBusca">
-                <input type="text" name="txtBusca" id="txtBusca" placeholder="Digite parte de um nome">
-                <input type="submit" name="btSerach" id="btSearch" value="Buscar">
-            </form>
-        </div>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="index.php">Contatos</a></li>
-            <li><a href="usersList.php">Usuários</a></li>
-            <li><a href="javascript:history.back();">Voltar</a></li>
-    </nav>
+    <?php include('include/inc_menu.php'); ?>
     <main>
-        <article>
-            <h1>Agenda de clientes/contato</h1>
-            <section id="listar">
-                <h2>Listando Usuarios</h2>
-                <h3><a href="usersAdd.php">Cadastrar novos Usuários</a></h3>
-
-                <!-- loop começa -->
-                <?php while($rowUser = mysqli_fetch_array($resultUsers)){?>
-                <div class="listUsers">
-                    <div class="listNome">Nome: <?php echo $rowUser['nome'];?></div>
-                    <div class="listTel">Cargo: <?php echo $rowUser['cargo'];?></div>
-                    <div class="up"><a href="usersUp.php">Editar</a></div>
-                    <div class="del"><a href="usersDel.php?id=<?php echo $rowUser['idusers'];?>">Excluir</a></div>
+        <section class="todos-users">
+            <div class="container titulo">
+                <h2>Lista de Usuarios</h2>
+                <div class="add-users"><a href="usersAdd.php"><i class="fas fa-user-plus"></i></a></div>
+            </div>
+            <div class="container tabela-user">
+                <div class="nome-tabela"><p>Nome</p></div>
+                <div class="cargo-tabela"><p>E-mail</p></div>
+                <div class="vazio"></div>
+            </div>
+            <!-- loop começa -->
+            <?php while($rowUser = mysqli_fetch_array($resultUsers)){ ?>
+            <div class="container registros-user">
+                <div class="nomes-registros"><p><?php echo $rowUser['nome'];?></p></div>
+                <div class="cargo-registros"><p><?php echo $rowUser['cargo'];?></p></div>
+                <div class="botoes">
+                    <a href="usersUp.php?id=<?php echo $rowUser['idusers'];?>"><i class="fas fa-edit"></i></a>
+                    <a href="usersDel.php?id=<?php echo $rowUser['idusers'];?>"><i class="fas fa-trash-alt"></i></a>
                 </div>
-                <?php }?>
-                <!-- loop termina  -->
-            </section>
-        </article>
+            </div>
+            <?php }?>
+            
+            <!-- loop termina -->
+            
+        </section>
+
     </main>
-    <footer>Desenvolvido por seres supremos &reg; &copy;</footer>
+    
 </body>
 
 </html>

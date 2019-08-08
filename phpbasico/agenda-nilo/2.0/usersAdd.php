@@ -25,7 +25,8 @@ if(isset($_POST['btCad'])){
 <head>
     <meta charset="utf-8">
     <title>PokeAgenda2.0 - AnDaNilo</title>
-    <link rel="stylesheet" href="css/folha.css" type="text/css">
+    <link rel="stylesheet" href="./css/folha.css" type="text/css">
+    <script src="https://kit.fontawesome.com/8e7c1629c9.js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
     <meta name="keywords" content="PokeAgenda">
     <meta name="autor" content="seu nome aqui">
@@ -33,28 +34,18 @@ if(isset($_POST['btCad'])){
 </head>
 
 <body>
-    <header>
-        <?php include('include/inc_topo.php'); ?>
-    </header>
-    <nav>
-        <?php include('include/inc_menu.php'); ?>
-    </nav>
+    
+    <?php include('include/inc_menu.php'); ?>
     <main>
-        <article>
-            <h1>Agenda de clientes/contato</h1>
-            <section id="listar">
-                <h2>Cadastro Usuarios</h2>
-                <div id="newUser">
-                    <form action="#" method="post" id="formUser" name="formUser">
-                        <input type="text" name="txtNome" id="txtNome" placeholder="Nome User">
-                        <input type="text" name="txtCargo" id="txtCargo" placeholder="Cargo">
-                        <input type="submit" name="btCad" id="btCad" value="Cadastrar">
-                    </form>
-                </div>
-            </section>
-        </article>
+        <form action="#" method="post" id="formUser" name="formUser">
+            <h2>Cadastro Usuarios</h2>
+            <input type="text" name="txtNome" id="txtNome" placeholder="Nome User">
+            <input type="text" name="txtCargo" id="txtCargo" placeholder="Cargo">
+            <input type="submit" name="btCad" id="btCad" value="Cadastrar">
+        </form>
+
     </main>
-    <footer><?php include('include/inc_rodape.php'); ?></footer>
+    
 </body>
 
 </html>
