@@ -3,7 +3,7 @@
     // classe gera um objeto
     // toda classe tem construtores e metodos de acesso
 
-    class ClasseBase{
+    class ClasseBase {
 
         // propriedades
         private $id;

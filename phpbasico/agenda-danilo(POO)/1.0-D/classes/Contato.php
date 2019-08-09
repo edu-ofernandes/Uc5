@@ -1,7 +1,7 @@
 <?php
     // conexao com ClasseBase para usar a herança dela nessa classe 
     require_once("ClasseBase.php");
-
+    
     // criar classe para tabela contato, "extends" pega a herança de outra classe e cria nesta nova 
     class Contato extends ClasseBase {
         // propriedades(campos da tabela)
