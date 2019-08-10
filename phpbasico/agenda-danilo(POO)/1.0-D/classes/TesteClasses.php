@@ -9,30 +9,48 @@
 <body>
     <?php
         // requerimento de conexao com esta pagina de classes
-        require("ClasseBase.php");
+        require_once("ClasseBase.php");
+        require_once("Conexao.php");
+        require_once("Contato.php");
+        require_once("DALContato.php");
 
-        // variavel recebe a classe 
-        $obj = new ClasseBase();
 
-        // variavel obj executa o id da classe q é privado dando um valor para ele 
-        //$obj->id = 10;
+        // objeto contato 
+        $contato = new Contato();
+        $contato->SetId(0);
+        $contato->SetNome('Teste2');
+        $contato->SetTel('18998042941');
+        $contato->SetEmail('teste2@gmail.com');
+
+
+        // conexao com o banco
+       $conexao = new Conexao();
+
+
+        // DAL
+        $dal = new DALContato($conexao);
+        //$dal->inserir($contato);
+        $listar = $dal->ListarTabela();
+
+
         
-        // NAO SE FAZ ASSIM
-        //$obj->oi = "kkkk";
-
-        // imprime a variavel executando o id
-        //echo $obj->id;
-
-       
-
-        //$obj->SetId(10);
-        //$obj->SetNome("Eduardo");
-
+        while($row = mysqli_fetch_array($listar)){
         echo "<pre>";
-
-        var_dump($obj);
-
+        var_dump($row['idcontatos']);
+        var_dump($row['nome']);
+        var_dump($row['tel']);
+        var_dump($row['email']);
         echo "</pre>";
+    }
+
+
+    
+
+
+
+
+
+        
 
         
 

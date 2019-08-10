@@ -134,7 +134,11 @@ section{
 .tabela > div, .tabela-user > div{background-color: rgb(185, 185, 185);}
 /*=============para quando favoritar======== */
 .favorito-on{color: rgb(255, 196, 0);}
+<<<<<<< HEAD
 .botoes .fa-star:hover{color: rgb(255, 196, 0);}
+=======
+.botoes  .fa-star:hover{color: rgb(255, 196, 0);}
+>>>>>>> b6cf60314b1ecf67cf09534b4f562c8dd7817f55
 
 
 /* alfabeto */

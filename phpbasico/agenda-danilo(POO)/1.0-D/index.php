@@ -1,3 +1,29 @@
+<?php
+
+require_once("classes/ClasseBase.php");
+require_once("classes/Conexao.php");
+require_once("classes/Contato.php");
+require_once("classes/DALContato.php");
+
+$conexao = new Conexao();
+$dal = new DALContato($conexao);
+
+$result = $dal->listar();
+
+
+
+
+
+
+
+
+
+
+?>
+
+
+
+
 <!doctype html>
 <html lang="pt-br">
 <head>
@@ -60,11 +86,14 @@
 				<h2>Listando todos os Contatos</h2>
 				
 				<div class="list">
-					<div class="listNome">Nome:</div>
-					<div class="listTel">Telefone:</div>
-					<div class="listEmail">Email:</div>
+					<?php $count = count($result);
+					for ($i = 0; $i < $count; $i++) { $obj = $result[$i];?>
+					<div class="listNome">Nome: <?php echo $obj->GetNome();?></div>
+					<div class="listTel">Telefone: <?php echo $obj->GetTel();?></div>
+					<div class="listEmail">Email: <?php echo $obj->GetEmail();?></div>
 					
-        <div class="del"><a href="contatoDel.php">Excluir</a></div>
+					<div class="del"><a href="contatoDel.php?id=<?php echo $obj->GetId();?>">Excluir</a></div>
+					<?php }?>
 				</div>
 				
 			</section>
