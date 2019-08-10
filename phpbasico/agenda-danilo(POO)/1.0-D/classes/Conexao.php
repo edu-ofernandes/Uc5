@@ -68,8 +68,7 @@ class Conexao {
         if($this->banco->connect_errno){
             die("Deu ruim, SQL: (".$this->banco->connect_errno.")");
         }else{
-            echo("Deu certo");
-
+            
             return $this->getBanco();
         }
 

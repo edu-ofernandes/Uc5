@@ -134,7 +134,7 @@ section{
 .tabela > div, .tabela-user > div{background-color: rgb(185, 185, 185);}
 /*=============para quando favoritar======== */
 .favorito-on{color: rgb(255, 196, 0);}
-.botoes .star > i:hover{color: rgb(255, 196, 0);}
+.botoes  .fa-star:hover{color: rgb(255, 196, 0);}
 
 
 /* alfabeto */

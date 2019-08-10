@@ -29,12 +29,22 @@
 
         // DAL
         $dal = new DALContato($conexao);
-        $dal->inserir($contato);
+        //$dal->inserir($contato);
+        $listar = $dal->ListarTabela();
 
 
+        
+        while($row = mysqli_fetch_array($listar)){
+        echo "<pre>";
+        var_dump($row['idcontatos']);
+        var_dump($row['nome']);
+        var_dump($row['tel']);
+        var_dump($row['email']);
+        echo "</pre>";
+    }
 
 
-
+    
 
 
 

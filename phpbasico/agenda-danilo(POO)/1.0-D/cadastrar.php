@@ -1,3 +1,36 @@
+<?php
+
+require_once("classes/ClasseBase.php");
+require_once("classes/Conexao.php");
+require_once("classes/Contato.php");
+require_once("classes/DALContato.php");
+
+
+
+if(isset($_POST['btCad'])){
+	$conexao = new Conexao();
+	$dal = new DALContato($conexao);
+
+	$obj = new Contato();
+	$obj->SetNome($_POST['txtNome']);
+	$obj->SetTel($_POST['txtTelefone']);
+	$obj->SetEmail($_POST['txtEmail']);
+
+	$dal->inserir($obj);
+
+	header("location: index.php");
+}
+
+
+
+
+
+
+
+
+
+
+?>
 <!doctype html>
 <html lang="pt-br">
 <head>
