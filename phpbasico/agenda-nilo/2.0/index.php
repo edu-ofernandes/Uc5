@@ -104,7 +104,7 @@ if(isset($_GET['id'])){
                         <?php if($row3['favoritos'] != 0 ){?>
                         <a href="favoritar.php?id=<?php echo ($row3['idcontatos']) ?>" class=""><i class="fas fa-star <?php echo "favorito-on";?>"></i></a>
                         <?php }else{ ?>
-                        <a href="favoritar.php?id=<?php echo ($row3['idcontatos']) ?>" class=""><i class="fas fa-star <?php echo '';?>"></i></a>
+                        <a href="favoritar.php?id=<?php echo ($row3['idcontatos']) ?>" class=""><i class="fas fa-star"></i></a>
                         <?php }?>
 
                         <a href="contatoDel.php?id=<?php echo $row3['idcontatos']; ?>"><i class="fas fa-trash"></i></a>
