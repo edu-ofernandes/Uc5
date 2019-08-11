@@ -38,7 +38,7 @@ class DALContato {
         $banco =  $this->conexao->getBanco();
         $result = $banco->query($sql);
 
-        $vetor = array();
+        $vetor = [];
 
         while($row = mysqli_fetch_array($result)){
             $obj = new Contato();
@@ -51,6 +51,27 @@ class DALContato {
         }
         return ($vetor);
     }
+
+
+      public function listarBusca ($letra){
+        $sql = "SELECT * FROM contatos WHERE nome LIKE '".$letra."%'";
+        $banco =  $this->conexao->getBanco();
+        $result = $banco->query($sql);
+
+        $vetor = [];
+
+        while($row = mysqli_fetch_array($result)){
+            $obj = new Contato();
+            $obj->SetId($row['idcontatos']);
+            $obj->SetNome($row['nome']);
+            $obj->SetTel($row['tel']);
+            $obj->SetEmail($row['email']);
+
+            $vetor[] = $obj;
+        }
+        return ($vetor);
+    }
+
 
     public function deletar($contato){
         $sql = "DELETE FROM contatos WHERE idcontatos= ".$contato->GetId();

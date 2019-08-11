@@ -49,7 +49,7 @@ if (isset($_POST['btCad'])) {
     <main>
 
         <form action="#" method="post" name="formCad" id="formCad">
-            <h2>Novo cadastro</h2>
+            <h2>Novo Contato</h2>
             <input type="text" name="txtNome" id="txtNome" placeholder="Nome">
             <input type="text" name="txtTelefone" id="txtTelefone" placeholder="Telefone">
             <input type="text" name="txtEmail" id="txtEMail" placeholder="E-Mail">

@@ -16,7 +16,12 @@ if(isset($_GET['id'])){
     
 }
 
+if(isset($_GET['btSerach'])){
 
+    $letras = $_GET['txtBusca'];
+    $sqlBusca = "SELECT * FROM contatos WHERE nome LIKE '". $letras."%'";
+    $resultadoBusca = $banco->query($sqlBusca);
+}
 ?>
 
 <!doctype html>
@@ -149,7 +154,42 @@ if(isset($_GET['id'])){
                     <li><a href="index.php?id=Z">Z</a></li>
                     <li><a href="index.php">Favoritos</a></li>
                 </ul>
-        
+            </section>
+            
+            <?php if(isset($_GET['btSerach'])){ ?>
+            <section class="todos-contatos lista-busca">
+                <div class="container titulo titulo-busca">
+                    <h2>Resultado da Pesquisa</h2>
+                </div>
+
+
+                <div class="container tabela">
+                    <div class="nome-tabela"><p>Nome</p></div>
+                    <div class="tel-tabela"><p>Telefone</p></div>
+                    <div class="email-tabela"><p>E-mail</p></div>
+                    <div class="vazio"></div>
+                </div>
+
+                <?php while($row4 = mysqli_fetch_array($resultadoBusca)){ ?>
+                
+                    
+                <div class="container registros">
+                    <div class="nomes-registros"><p><?php echo ($row4['nome']); ?></p></div>
+                    <div class="tel-registros"><p> <?php echo ($row4['tel']); ?></p></div>
+                    <div class="email-registros"><p><?php echo ($row4['email']); ?></p></div>
+                    <div class="botoes">
+                        <a href="contatoUp.php?id=<?php echo ($row4['idcontatos']) ?>"><i class="fas fa-user-edit"></i></a>
+                        
+                        <?php if($row4['favoritos'] != 0 ){?>
+                        <a href="favoritar.php?id=<?php echo ($row4['idcontatos']) ?>" class=""><i class="fas fa-star <?php echo "favorito-on";?>"></i></a>
+                        <?php }else{ ?>
+                        <a href="favoritar.php?id=<?php echo ($row4['idcontatos']) ?>" class=""><i class="fas fa-star"></i></a>
+                        <?php }?>
+
+                        <a href="contatoDel.php?id=<?php echo $row4['idcontatos']; ?>"><i class="fas fa-trash"></i></a>
+                    </div>
+                </div>
+                <?php  }}?>
             </section>
     </main>
    
