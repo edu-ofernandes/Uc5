@@ -34,7 +34,7 @@ require_once("../include/connectaBD.php");
 				<div id="acesso">
 					<form action="../include/verificaBD.php" method="post" name="formAdmin" id="formAdmin">
 						<input type="text" name="txtLogin" id="txtAdmin" placeholder="Login">
-						<input type="text" name="txtSenha" id="txtSenha" placeholder="Senha">
+						<input type="password" name="txtSenha" id="txtSenha" placeholder="Senha">
 						<input type="submit" name="btEntrar" id="btEntrar" value="Entrar">
 
 					</form>

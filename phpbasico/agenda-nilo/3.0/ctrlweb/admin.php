@@ -5,7 +5,7 @@ require_once("../include/connectaBD.php");
 
 
 if($_SESSION['liberado'] == true){
-    $loginNome = $_SESSION['login'];
+    $nome = $_SESSION['nome'];
 };
 
 
@@ -44,7 +44,7 @@ if($_SESSION['liberado'] == true){
     <main>
         <article>
             <h1>DASHBOARD</h1>
-            <?php echo "<h2>Bem Vindo ".$loginNome?>
+            <?php echo "<h2>Bem Vindo ".$nome?>
             <section id="dashboard">
                 <div class="cxDash"><a href="users.php">Usuários</a></div>
                 <div class="cxDash"><a href="contatos.php">Contatos</a></div>
