@@ -4,7 +4,7 @@ $banco = new mysqli("localhost", "root", "", "agenda3.0");
         echo "deu ruim: (".$banco->connect_error.")";
     }
 
-    mysqli_set_charset($banco, "utf-08");
+    mysqli_set_charset($banco, "utf8");
     if(!isset($_SESSION)){
         session_start();
     }

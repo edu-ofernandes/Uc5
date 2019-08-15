@@ -85,7 +85,7 @@ if(isset($_POST['btCad'])){
             <section id="listar">
                 <h2>Novo cadastro</h2>
                 <div id="newCad">
-                    <!-- enctype="multipart/form-data" é para fazer upload de foto, ele separa em partes  -->
+                    <!-- enctype="multipart/form-data" é para fazer upload de fotos e arquivos, ele separa em partes  -->
                     <form action="#" method="post" name="formCad" id="formCad" enctype="multipart/form-data"> 
                         <input type="text" name="txtNome" id="txtNome" placeholder="Nome">
                         <input type="text" name="txtTelefone" id="txtTelefone" placeholder="Telefone">

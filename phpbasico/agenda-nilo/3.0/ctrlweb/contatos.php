@@ -51,16 +51,19 @@ $result = $banco->query($sql);
             <section id="listar">
                 <h2>Listando todos os Contatos</h2>
                 <h3><a href="contatoAdd.php">Cadastrar Contato</a></h3>
-                <?php while($row = mysqli_fetch_array($result)){?>
                 <div class="list">
-                    <div class="listFt"><img src="../image/ftDefault.png" alt="Foto contato"></div>
-                    <div class="listNome">Nome: <?php echo $row['nome'];?></div>
-                    <div class="listTel">Telefone: <?php echo $row['tel'];?></div>
-                    <div class="listEmail">Email: <?php echo $row['email'];?></div>
-                    <div class="up"><a href="contatoUp.php">Editar</a></div>
-                    <div class="del"><a href="contatoDel.php">Excluir</a></div>
+                <?php while($row = mysqli_fetch_array($result)){?>
+                    <div class="contanier">
+                        <div class="listFt"><img src="../image/<?php echo $row['foto'];?>" alt="Foto contato"></div>
+                        <div class="listNome">Nome: <?php echo $row['nome'];?></div>
+                        <div class="listTel">Telefone: <?php echo $row['tel'];?></div>
+                        <div class="listEmail">Email: <?php echo $row['email'];?></div>
+                        <button class="editar"><a href="contatoUp.php">Editar</a></button>
+                        <button class="excluir"><a href="contatoDel.php">Excluir</a></button>
+                    </div>
+                    <?php }?>
                 </div>
-                <?php }?>
+               
             </section>
         </article>
     </main>
