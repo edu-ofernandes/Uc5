@@ -8,25 +8,25 @@
     class Jogo extends ClasseBase {
 
         // atributo
-        private $categoria;
+        private $idCategoria;
 
         
         // construtor
-        public function Jogo(){
+        public function Jogo($id=0, $nome="", $idCategoria=0){
 
             // relaçao com o construtor da outra classe
             parent::ClasseBase();
             
-            $this->setCategoria(0);
+            $this->setIdCategoria(0);
         }
 
 
         // metodo
-        public function getCategoria(){
-            return $this->categoria;
+        public function getIdCategoria(){
+            return $this->idCategoria;
         }
-        public function setCategoria($valueCategoria){
-            $this->categoria = $valueCategoria;
+        public function setIdCategoria($valueIdCategoria){
+            $this->idCategoria = $valueIdCategoria;
         }
 
 
