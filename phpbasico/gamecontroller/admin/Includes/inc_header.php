@@ -6,8 +6,8 @@
 <title>Usuários - VCSjunior Sistemas</title>
 <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/floating-labels/">
 <!-- Bootstrap core CSS -->
-<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 <!-- FontWaesome -->
-<link rel="stylesheet" href="../fontawesome/css/all.min.css">
+<link rel="stylesheet" href="fontawesome/css/all.min.css">
 <!-- Custom login css -->
-<link rel="stylesheet" href="../css/dashboard.css">
+<link rel="stylesheet" href="css/dashboard.css">

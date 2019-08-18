@@ -22,7 +22,7 @@
                     <div class="mr-auto p-1">
                         <h2 class="display-4 titulo-pagina">Usuários</h2>
                     </div>
-                    <a href="cadastrar.html">
+                    <a href="cadUsuario.php">
                         <div class="p-1">
                             <button class="btn btn-outline-primary">
                                     <i class="far fa-plus-square"></i> Novo Usuário
@@ -57,9 +57,11 @@
                         <thead>
                             <tr>
                                 <th class="d-none d-md-table-cell">ID</th>
-                                <th>Nome Completo</th>
+                                <th >Nome Completo</th>
+                                <th class="d-none d-md-table-cell">Foto</th>
+                                <th class="d-none d-md-table-cell">Bio</th>
                                 <th class="d-none d-md-table-cell">E-mail</th>
-                                <th class="d-none d-lg-table-cell">Data Registro</th>
+                                <!-- <th class="d-none d-lg-table-cell">Senha</th> -->
                                 <th class="text-center">Ações</th>
                             </tr>
                         </thead>
@@ -69,8 +71,10 @@
                             <tr>
                                 <th class="d-none d-md-table-cell">1</th>
                                 <td>Usuário Cadastrado Número 1</td>
+                                <td class="d-none d-md-table-cell">Foto</td>
+                                <td class="d-none d-md-table-cell">Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
                                 <td class="d-none d-md-table-cell">usuarioum@email.com.br</td>
-                                <td class="d-none d-lg-table-cell">25/10/2000</td>
+                                <!-- <td class="d-none d-lg-table-cell">*******</td> -->
                                 <td class="text-center">
 
                                     <button type="button" class="btn btn-sm btn-outline-info"><i

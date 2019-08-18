@@ -1,4 +1,6 @@
 <?php
+
+    require_once("ClasseBase.php");
     // classe para email e senha que herda da classe base
 
     class Admin extends ClasseBase {
@@ -11,7 +13,6 @@
         // construtores
         public function Admin(){
             parent::ClasseBase();
-
             $this->setSenha("");
             $this->setEmail("");
         }

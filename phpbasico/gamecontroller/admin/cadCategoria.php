@@ -1,25 +1,27 @@
 <?php
-include_once("../Classes/Conexao.php");
-include_once("../Classes/Categoria.php");
-include_once("../Classes/ClasseBase.php");
-include_once("../Classes/Admin.php");
-include_once("../Classes/Usuario.php");
-include_once("../Classes/Atividade.php");
-include_once("../Classes/Jogo.php");
+include_once("Classes/Conexao.php");
+include_once("Classes/Categoria.php");
+include_once("Classes/ClasseBase.php");
+include_once("Classes/Admin.php");
+include_once("Classes/Usuario.php");
+include_once("Classes/Atividade.php");
+include_once("Classes/Jogo.php");
+
+
 
 // conexao com banco
 $conexao = new Conexao();
 
 if(isset($_POST['btCad'])){
     
-    $jogos = new Jogo();
+    $categorias = new Categoria();
 
-    $nome = $_POST['txtNomeJogo'];
+    $nome = $_POST['txtNome'];
 
 
-    $jogos->setNome($nome);
+    $categorias->setNome($nome);
 
-    echo $jogos->getNome();
+    echo $categorias->getNome();
     
 }
 
@@ -40,15 +42,15 @@ if(isset($_POST['btCad'])){
 
     <!--Inicio conteudo -->
     <div class="d-flex">
-
+        
         <?php require_once("../Includes/inc_side_bar.php");?>
-    
+
         <!--INICIO APRESENTAR CONTEUDO-->
         <div class="content p-3">
             <div class="list-group-item">
                 <div class="d-flex">
                     <div class="mr-auto p-1">
-                        <h2 class="display-4 titulo-pagina">Cadastrar Jogo</h2>
+                        <h2 class="display-4 titulo-pagina">Cadastrar Categoria</h2>
                     </div>
                     <a href="cadastrar.html">
                         <div class="p-1">
@@ -62,8 +64,8 @@ if(isset($_POST['btCad'])){
                 <form action="#" method="POST">
                     <div class="form-row ">
                         <div class="form-group col-md-3">
-                            <label for="txtNome ">Nome do Jogo</label>
-                            <input type="text" class="form-control" id="txtNome" name="txtNomeJogo" placeholder="Nome">
+                            <label for="txtNome ">Nome</label>
+                            <input type="text" class="form-control" id="txtNome" name="txtNome" placeholder="Nome">
                         </div>                        
                     </div>
                     
@@ -76,10 +78,10 @@ if(isset($_POST['btCad'])){
         <!--FIM APRESENTAR CONTEUDO-->
     </div>
     <!--Fim conteudo -->
-    <script src="../jquery/jquery-3.3.1.min.js"></script>
-    <script src="../popper/popper.min.js"></script>
-    <script src="../bootstrap/js/bootstrap.min.js"></script>
-    <script src="../js/dashboard.js"></script>
+    <script src="jquery/jquery-3.3.1.min.js"></script>
+    <script src="popper/popper.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/dashboard.js"></script>
 </body>
 
 </html>

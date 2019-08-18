@@ -10,6 +10,21 @@ class Conexao{
     private $nomeBanco;
 
 
+
+    // construtor
+    function __construct($servidor="localhost", $usuario="root", $senha="", $nomeBanco="gamecontroler"){
+        $this->setUsuario($usuario);
+        $this->setServidor($servidor);
+        $this->setSenha($senha);
+        $this->setNomeBanco($nomeBanco);
+
+        // Conectar sozinho
+        if($this->getNomeBanco() != ""){
+            $this->Conectar();
+        }
+
+    }
+
     // metodos
     public function getServidor(){
         return $this->servidor;
@@ -40,6 +55,10 @@ class Conexao{
     }
 
     
+    public function getBanco(){
+        return $this->banco;
+    }
+
 
     // metodo para conectar
     public function Conectar(){
@@ -55,10 +74,6 @@ class Conexao{
         }else{
             return $this->getBanco();
         }
-    }
-
-    public function getBanco(){
-        return $this->banco;
     }
 }
 

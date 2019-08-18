@@ -15,7 +15,7 @@
         public function Jogo($id=0, $nome="", $idCategoria=0){
 
             // relaçao com o construtor da outra classe
-            parent::ClasseBase();
+            parent::ClasseBase($id, $nome);
             
             $this->setIdCategoria(0);
         }
