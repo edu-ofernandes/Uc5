@@ -58,8 +58,8 @@ $result = $banco->query($sql);
                         <div class="listNome">Nome: <?php echo $row['nome'];?></div>
                         <div class="listTel">Telefone: <?php echo $row['tel'];?></div>
                         <div class="listEmail">Email: <?php echo $row['email'];?></div>
-                        <button class="editar"><a href="contatoUp.php">Editar</a></button>
-                        <button class="excluir"><a href="contatoDel.php">Excluir</a></button>
+                        <button class="editar"><a href="contatoUp.php?idUp=<?php echo $row['idcontatos'];?>">Editar</a></button>
+                        <button class="excluir"><a href="contatoDel.php?idDel=<?php echo $row['idcontatos'];?>">Excluir</a></button>
                     </div>
                     <?php }?>
                 </div>
