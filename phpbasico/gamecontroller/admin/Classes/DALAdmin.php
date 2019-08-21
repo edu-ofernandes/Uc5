@@ -14,7 +14,8 @@ class DALAdmin {
     }
     
 
-    // metodos
+    //================ metodos
+
     // insert
     public function inserirAdmin($admin){
         $sql = "INSERT INTO administradores VALUES (NULL,";
@@ -24,17 +25,27 @@ class DALAdmin {
 
         $banco = $this->conexao->getBanco();
         $banco->query($sql);
-
     }    
 
     // alterar
     public function alterarAdmin($admin){
-
+        // $sql = "UPDATE administradores SET nome='$nome', email='$email', senha='$senha' WHERE id=$id";
+        $sql = "UPDATE administradores SET";
+        $sql = $sql."nome='".$admin->getNome()."',";
+        $sql = $sql."email='".$admin->getEmail()."',";
+        $sql = $sql."senha='".$admin->getSenha()."'";
+        $sql = $sql."WHERE id=".$admin->getId()."";
+        
+        $banco = $this->conexao->getBanco();
+        $banco->query($sql);
     }    
 
     // excluir
-    public function excluirAdmin($admin){
+    public function excluirAdmin($idAdmin){
+        $sql = "DELETE FROM administradores WHERE id= ".$idAdmin;
 
+        $banco = $this->conexao->getBanco();
+        $banco->query($sql);
     }    
 
     // listar
@@ -57,12 +68,21 @@ class DALAdmin {
 
         return $result;
     }    
-    
-
-
-
-
-
-    
 }
+    // objeto de conexao
+    $conexao = new Conexao();
+
+    // DAL admin
+    $dal = new DALAdmin($conexao);
+
+
+
+
+
+ //excluir
+ if(isset($_GET['id'])){
+    $idAdmin = $_GET['id'];
+    $dal->excluirAdmin($idAdmin);
+    header("location: ../listAdmin.php");
+ }
 ?>

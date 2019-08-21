@@ -11,7 +11,7 @@ $conexao = new Conexao();
 // DAL admin
 $dal = new DALAdmin($conexao);
 
-$listarAdmin = $dal->listarAdmin();
+
 
 
 
@@ -90,7 +90,7 @@ $listarAdmin = $dal->listarAdmin();
                             </tr>
                         </thead>
 
-                        <?php while($row = mysqli_fetch_array($listarAdmin)){?>
+                        <?php $listarAdmin = $dal->listarAdmin();  while($row = mysqli_fetch_array($listarAdmin)){?>
                         <tbody>
 
                             <tr>
@@ -99,13 +99,11 @@ $listarAdmin = $dal->listarAdmin();
                                 <td class="d-none d-md-table-cell"><?php echo ($row['email']);?></td>
                                 <!-- <td class="d-none d-lg-table-cell">*********</td> -->
                                 <td class="text-center">
+                                    <a href="" class="btn btn-sm btn-outline-info"><i class="fas fa-eye"></i></a>
 
-                                    <button type="button" class="btn btn-sm btn-outline-info"><i
-                                            class="fas fa-eye"></i></button>
-                                    <button type="button" class="btn btn-sm btn-outline-warning"><i
-                                            class="far fa-edit"></i></button>
-                                    <a href="" type="button" class="btn btn-sm btn-outline-danger" data-toggle="modal"
-                                        data-target="#modalConfirmaExcluir"><i class="far fa-trash-alt"></i></a>
+                                    <a href="cadAdmin.php?idUp=<?php echo ($row['id']);?>"  class="btn btn-sm btn-outline-warning"><i class="far fa-edit"></i></a>
+
+                                    <a href="Classes/DALAdmin.php?id=<?php echo ($row['id']);?>" class="btn btn-sm btn-outline-danger" data-confirm=""><i class="far fa-trash-alt"></i></a>
                                 </td>
                             </tr>
 
@@ -119,33 +117,12 @@ $listarAdmin = $dal->listarAdmin();
         <!--FIM APRESENTAR CONTEUDO-->
     </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="modalConfirmaExcluir" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header bg-danger">
-                    <h5 class="modal-title text-white" id="exampleModalCenterTitle">CONFIRME PARA EXCLUIR</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body text-center">
-                    Deseja realmente excluir o registro selecionado ?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-undo-alt"></i>
-                        CANCELAR</button>
-                    <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i> EXCLUIR</button>
-                </div>
-            </div>
-        </div>
-    </div>
     <!--Fim conteudo -->
     <script src="jquery/jquery-3.3.1.min.js"></script>
     <script src="popper/popper.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="js/dashboard.js"></script>
+    <script src="js/modal.js"></script>
 </body>
 
 </html>

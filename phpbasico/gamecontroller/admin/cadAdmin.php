@@ -10,6 +10,10 @@ $conexao = new Conexao();
 // DAL
 $dal = new DALAdmin($conexao);
 
+
+
+
+
 if(isset($_POST['btCad'])){
 
     $admin = new Admin();
@@ -18,7 +22,7 @@ if(isset($_POST['btCad'])){
     $admin->setSenha(addslashes(md5($_POST['txtSenha'])));
 
     $dal->inserirAdmin($admin);
-
+    
     header("location: cadAdmin.php");
 }
 // echo "<pre>";
@@ -61,26 +65,27 @@ if(isset($_POST['btCad'])){
                     </a>
                 </div>
                 <div class="dropdown-divider"></div>
+                
                 <form action="#" method="POST">
                     <div class="form-col ">
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-4">  
                             <label for="txtNome ">Nome</label>
-                            <input type="text" class="form-control" id="txtNome" name="txtNome" placeholder="Nome">
+                            <input type="text" class="form-control" id="txtNome" name="txtNome" placeholder="Nome" value="">
                         </div>                        
                         <div class="form-group col-md-4">
-                            <label for="txtNome ">Email</label>
-                            <input type="text" class="form-control" id="txtEmail" name="txtEmail" placeholder="Email">
+                            <label for="txtEmail">Email</label>
+                            <input type="text" class="form-control" id="txtEmail" name="txtEmail" placeholder="Email" value="">
                         </div>                        
                         <div class="form-group col-md-4">
-                            <label for="txtNome ">Senha</label>
-                            <input type="text" class="form-control" id="txtSenha" name="txtSenha" placeholder="Senha">
+                            <label for="txtSenha">Senha</label>
+                            <input type="password" class="form-control" id="txtSenha" name="txtSenha" placeholder="Senha" value="">
                         </div>                        
                     </div>
                     
                     
-                    <button type="submit" class="btn btn-primary" name="btCad">Cadastrar</button>
+                    <button type="submit" class="btn btn-primary" name="btCad">Atualizar</button>
                 </form>
-
+           
             </div>
         </div>
         <!--FIM APRESENTAR CONTEUDO-->
