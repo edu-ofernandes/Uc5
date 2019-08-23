@@ -1,27 +1,20 @@
 <?php
 include_once("Classes/Conexao.php");
-include_once("Classes/Categoria.php");
 include_once("Classes/ClasseBase.php");
-include_once("Classes/Admin.php");
-include_once("Classes/Usuario.php");
-include_once("Classes/Atividade.php");
 include_once("Classes/Jogo.php");
-
+require_once("Classes/DALJogo.php");
 
 // conexao com banco
 $conexao = new Conexao();
+// DAL
+$dal = new DALJogo($conexao);
+
 
 if(isset($_POST['btCad'])){
-    
-    $jogos = new Jogo();
-
-    $nome = $_POST['txtNomeJogo'];
-
-
-    $jogos->setNome($nome);
-
-    echo $jogos->getNome();
-    
+    $jogo = new Categoria();
+    $jogo->setNome(addslashes($_POST['txtNomeJogo']));
+    $dal->inserirCategoria($jogo);
+    header("location: cadJogo.php");
 }
 
 ?>
@@ -51,7 +44,7 @@ if(isset($_POST['btCad'])){
                     <div class="mr-auto p-1">
                         <h2 class="display-4 titulo-pagina">Cadastrar Jogo</h2>
                     </div>
-                    <a href="cadastrar.html">
+                    <a href="listJogo.php">
                         <div class="p-1">
                             <button class="btn btn-sm btn-outline-secondary">
                                     <i class="fas fa-undo-alt"></i> Listar todos
@@ -63,8 +56,8 @@ if(isset($_POST['btCad'])){
                 <form action="#" method="POST">
                     <div class="form-row ">
                         <div class="form-group col-md-3">
-                            <label for="txtNome ">Nome do Jogo</label>
-                            <input type="text" class="form-control" id="txtNome" name="txtNomeJogo" placeholder="Nome">
+                            <label for="txtNomeJogo">Nome do Jogo</label>
+                            <input type="text" class="form-control" id="txtNomeJogo" name="txtNomeJogo" placeholder="Nome" required>
                         </div>                        
                     </div>
                     

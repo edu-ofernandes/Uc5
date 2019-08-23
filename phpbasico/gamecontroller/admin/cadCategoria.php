@@ -2,27 +2,20 @@
 include_once("Classes/Conexao.php");
 include_once("Classes/Categoria.php");
 include_once("Classes/ClasseBase.php");
-include_once("Classes/Admin.php");
-include_once("Classes/Usuario.php");
-include_once("Classes/Atividade.php");
-include_once("Classes/Jogo.php");
-
+require_once("Classes/DALCategoria.php");
 
 
 // conexao com banco
 $conexao = new Conexao();
+// DAL
+$dal = new DALCategoria($conexao);
+
 
 if(isset($_POST['btCad'])){
-    
     $categorias = new Categoria();
-
-    $nome = $_POST['txtNome'];
-
-
-    $categorias->setNome($nome);
-
-    echo $categorias->getNome();
-    
+    $categorias->setNome(addslashes($_POST['txtNomeCategoria']));
+    $dal->inserirCategoria($categorias);
+    header("location: cadCategoria.php");
 }
 
 ?>
@@ -32,18 +25,18 @@ if(isset($_POST['btCad'])){
 <html lang="pt-br">
 
 <head>
-    <?php require_once("../Includes/inc_header.php");?>
+    <?php require_once("Includes/inc_header.php");?>
 </head>
 
 <body>
     <nav class="navbar navbar-expand navbar-dark bg-secondary">
-        <?php require_once("../Includes/inc_nav.php");?>
+        <?php require_once("Includes/inc_nav.php");?>
     </nav>
 
     <!--Inicio conteudo -->
     <div class="d-flex">
         
-        <?php require_once("../Includes/inc_side_bar.php");?>
+        <?php require_once("Includes/inc_side_bar.php");?>
 
         <!--INICIO APRESENTAR CONTEUDO-->
         <div class="content p-3">
@@ -52,7 +45,7 @@ if(isset($_POST['btCad'])){
                     <div class="mr-auto p-1">
                         <h2 class="display-4 titulo-pagina">Cadastrar Categoria</h2>
                     </div>
-                    <a href="cadastrar.html">
+                    <a href="listCategoria.php">
                         <div class="p-1">
                             <button class="btn btn-sm btn-outline-secondary">
                                     <i class="fas fa-undo-alt"></i> Listar todos
@@ -64,8 +57,9 @@ if(isset($_POST['btCad'])){
                 <form action="#" method="POST">
                     <div class="form-row ">
                         <div class="form-group col-md-3">
-                            <label for="txtNome ">Nome</label>
-                            <input type="text" class="form-control" id="txtNome" name="txtNome" placeholder="Nome">
+                            <label for="txtNomeCategoria">Nome da Categoria</label>
+                            <input type="text" class="form-control" id="txtNomeCategoria" name="txtNomeCategoria" placeholder="Nome" required>
+                            
                         </div>                        
                     </div>
                     

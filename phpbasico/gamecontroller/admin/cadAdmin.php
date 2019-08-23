@@ -83,7 +83,7 @@ if(isset($_POST['btCad'])){
                     </div>
                     
                     
-                    <button type="submit" class="btn btn-primary" name="btCad">Atualizar</button>
+                    <button type="submit" class="btn btn-primary" name="btCad">Cadastrar</button>
                 </form>
            
             </div>

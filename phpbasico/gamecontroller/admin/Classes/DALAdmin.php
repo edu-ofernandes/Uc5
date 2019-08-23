@@ -69,20 +69,20 @@ class DALAdmin {
         return $result;
     }    
 }
-    // objeto de conexao
-    $conexao = new Conexao();
-
-    // DAL admin
-    $dal = new DALAdmin($conexao);
 
 
 
 
+// objeto de conexao
+$conexao = new Conexao();
 
- //excluir
- if(isset($_GET['id'])){
+// DAL admin
+$dal = new DALAdmin($conexao);
+
+//excluir
+if(isset($_GET['id'])){
     $idAdmin = $_GET['id'];
     $dal->excluirAdmin($idAdmin);
     header("location: ../listAdmin.php");
- }
+}
 ?>

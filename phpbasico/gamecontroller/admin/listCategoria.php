@@ -1,3 +1,20 @@
+<?php
+require_once("Classes/Conexao.php");
+require_once("Classes/Categoria.php");
+require_once("Classes/ClasseBase.php");
+require_once("Classes/DALCategoria.php");
+
+
+// objeto de conexao
+$conexao = new Conexao();
+// DAL Categoria
+$dal = new DALCategoria($conexao);
+
+
+
+
+?>
+
 <!doctype html>
 <html lang="pt-br">
 
@@ -22,7 +39,7 @@
                     <div class="mr-auto p-1">
                         <h2 class="display-4 titulo-pagina">Categorias</h2>
                     </div>
-                    <a href="cadCategoria.html">
+                    <a href="cadCategoria.php">
                         <div class="p-1">
                             <button class="btn btn-outline-primary">
                                     <i class="far fa-plus-square"></i> Nova Categoria
@@ -62,26 +79,23 @@
                             </tr>
                         </thead>
 
+                        <?php $listarCategoria = $dal->listarCategoria(); while($row = mysqli_fetch_array($listarCategoria)){?>
                         <tbody>
-
                             <tr>
-                                <th class="d-none d-md-table-cell">1</th>
-                                <td>Categoria Cadastrado Número 1</td>
+                                <td class="d-none d-md-table-cell"><?php echo $row['id'];?></td>
+                                <td><?php echo $row['nome'];?></td>
                                 <td class="text-center">
 
                                     <button type="button" class="btn btn-sm btn-outline-info"><i
                                             class="fas fa-eye"></i></button>
                                     <button type="button" class="btn btn-sm btn-outline-warning"><i
                                             class="far fa-edit"></i></button>
-                                    <a href="" type="button" class="btn btn-sm btn-outline-danger" data-toggle="modal"
-                                        data-target="#modalConfirmaExcluir"><i class="far fa-trash-alt"></i></a>
-
-
-
+                                    <a href="Classes/DALCategoria.php?id=<?php echo $row['id'];?>" type="button" class="btn btn-sm btn-outline-danger"><i class="far fa-trash-alt"></i></a>
                                 </td>
                             </tr>
 
                         </tbody>
+                        <?php }?>
                     </table>
                 </div>
 
