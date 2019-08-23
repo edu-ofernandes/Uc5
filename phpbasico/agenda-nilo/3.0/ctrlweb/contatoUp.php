@@ -13,7 +13,7 @@ if(isset($_POST['btCad'])){
     $sup =  $_FILES['upFt'] ['size'];
 
     if( $sup != 0){
-        echo "teste";
+        
         $nomeFoto = $_FILES['upFt'] ['name'];
         $completo = $nomeFoto."_".$data;
         $path_parts = pathinfo($nomeFoto);

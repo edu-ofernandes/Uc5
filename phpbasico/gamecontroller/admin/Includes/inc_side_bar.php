@@ -48,6 +48,7 @@
                     <i class="fas fa-save"></i> Atividades
                     </a>
                     <ul class="list-unstyled collapse" id="submenu5">
+                        <li><a href="cadAtividades.php"><i class="fas fa-plus"></i> Nova Atividade</a></li>
                         <li><a href="listAtividades.php"><i class="fas fa-list-ul"></i> Listar Atividades</a></li>
                     </ul>
                 </li>

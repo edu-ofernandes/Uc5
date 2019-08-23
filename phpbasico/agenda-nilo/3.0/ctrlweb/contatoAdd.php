@@ -8,7 +8,7 @@ if(isset($_POST['btCad'])){
 
     if($sup != 0){
         $nomeFoto = $_FILES['upFt'] ['name'];
-        $completo = $nome . "_" . $data;
+        $completo = $nomeFoto . "_" . $data;
         $path_parts = pathinfo($nomeFoto);
         $targetPath = 0;
 

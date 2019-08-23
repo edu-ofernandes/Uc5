@@ -9,6 +9,7 @@
 
         // atributo
         private $idCategoria;
+        private $foto;
 
         
         // construtor
@@ -29,6 +30,12 @@
             $this->idCategoria = $valueIdCategoria;
         }
 
+        public function getFoto(){
+            return $this->foto;
+        }
+        public function setFoto($valueFoto){
+            $this->foto = $valueFoto;
+        }
 
     }
 

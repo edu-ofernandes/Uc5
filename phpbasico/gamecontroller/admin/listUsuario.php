@@ -1,3 +1,18 @@
+<?php
+include_once("Classes/Conexao.php");
+include_once("Classes/ClasseBase.php");
+include_once("Classes/Usuario.php");
+require_once("Classes/DALUsuario.php");
+
+
+// objeto de conexao
+$conexao = new Conexao();
+
+// DAL admin
+$dal = new DALUsuario($conexao);
+
+?>
+
 <!doctype html>
 <html lang="pt-br">
 
@@ -56,9 +71,9 @@
                     <table class="table table-hover table-striped table-bordered">
                         <thead>
                             <tr>
-                                <th class="d-none d-md-table-cell">ID</th>
-                                <th >Nome Completo</th>
                                 <th class="d-none d-md-table-cell">Foto</th>
+                                <th class="d-none d-md-table-cell">ID</th>
+                                <th class="d-none d-md-table-cell">Nome Completo</th>
                                 <th class="d-none d-md-table-cell">Bio</th>
                                 <th class="d-none d-md-table-cell">E-mail</th>
                                 <!-- <th class="d-none d-lg-table-cell">Senha</th> -->
@@ -66,14 +81,14 @@
                             </tr>
                         </thead>
 
+                        <?php $listarUsuario = $dal->listarUsuario(); while($row=mysqli_fetch_array($listarUsuario)){?>
                         <tbody>
-
                             <tr>
-                                <th class="d-none d-md-table-cell">1</th>
-                                <td>Usuário Cadastrado Número 1</td>
-                                <td class="d-none d-md-table-cell">Foto</td>
-                                <td class="d-none d-md-table-cell">Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
-                                <td class="d-none d-md-table-cell">usuarioum@email.com.br</td>
+                                <td class="d-none d-md-table-cell"><img class="img-usuario" src="imagens/<?php echo $row['foto'];?>" alt="" width="150px"></td>
+                                <td class="d-none d-md-table-cell"><?php echo $row['id'];?></td>
+                                <td><?php echo $row['nome'];?></td>
+                                <td class="d-none d-md-table-cell"><?php echo $row['bio'];?></td>
+                                <td class="d-none d-md-table-cell"><?php echo $row['email'];?></td>
                                 <!-- <td class="d-none d-lg-table-cell">*******</td> -->
                                 <td class="text-center">
 
@@ -83,13 +98,10 @@
                                             class="far fa-edit"></i></button>
                                     <a href="" type="button" class="btn btn-sm btn-outline-danger" data-toggle="modal"
                                         data-target="#modalConfirmaExcluir"><i class="far fa-trash-alt"></i></a>
-
-
-
                                 </td>
                             </tr>
-
                         </tbody>
+                        <?php }?>
                     </table>
                 </div>
 
