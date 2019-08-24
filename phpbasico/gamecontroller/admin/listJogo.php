@@ -71,11 +71,9 @@
                                 <td class="d-none d-md-table-cell">1</td>
                                 <td class="text-center">
 
-                                    <button type="button" class="btn btn-sm btn-outline-info"><i
-                                            class="fas fa-eye"></i></button>
-                                    <button type="button" class="btn btn-sm btn-outline-warning"><i
-                                            class="far fa-edit"></i></button>
-                                    <a href="" type="button" class="btn btn-sm btn-outline-danger" data-toggle="modal"
+                                    <button type="button" class="btn btn-sm btn-outline-info"><i class="fas fa-eye"></i></button>
+                                    <button type="button" class="btn btn-sm btn-outline-warning"><i class="far fa-edit"></i></button>
+                                    <a onclick="mostrarId('<?php echo $row['id'];?>')" href="" type="button" class="btn btn-sm btn-outline-danger" data-toggle="modal"
                                         data-target="#modalConfirmaExcluir"><i class="far fa-trash-alt"></i>
                                     </a>
                                 </td>
@@ -118,6 +116,7 @@
     <script src="popper/popper.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="js/dashboard.js"></script>
+    <?php //require_once("Includes/inc_msg.php");?>
 </body>
 
 </html>

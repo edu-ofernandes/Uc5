@@ -1,7 +1,7 @@
 <?php
-include_once("Classes/Conexao.php");
-include_once("Classes/ClasseBase.php");
-include_once("Classes/Usuario.php");
+include_once("Conexao.php");
+include_once("ClasseBase.php");
+include_once("Usuario.php");
 
 
 class DALUsuario{
@@ -33,6 +33,25 @@ class DALUsuario{
 
         return $result;
     }
+
+    public function excluirUsuario($idUsuario){
+        $sql = "DELETE FROM usuarios WHERE id=".$idUsuario;
+        $banco = $this->conexao->getBanco();
+        $banco->query($sql);
+    }
 }
 
+
+// objeto de conexao
+$conexao = new Conexao();
+
+// DAL admin
+$dal = new DALUsuario($conexao);
+
+//excluir
+if(isset($_GET['id'])){
+    $idUsuario = $_GET['id'];
+    $dal->excluirUsuario($idUsuario);
+    header("location: ../listUsuario.php");
+}
 ?>

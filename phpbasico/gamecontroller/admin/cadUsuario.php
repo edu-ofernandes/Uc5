@@ -9,7 +9,7 @@ $conexao = new Conexao();
 // DAL
 $dal = new DALUsuario($conexao);
 
-
+$flag = false;
 if(isset($_POST['btCad'])){
     $data = date('d-m-YH:i:s');
     $sup = $_FILES['cadFoto'] ['size'];
@@ -44,8 +44,9 @@ if(isset($_POST['btCad'])){
     $usuario->setBio(addslashes($_POST['txtBio']));
     $usuario->setEmail(addslashes($_POST['txtEmail']));
     $usuario->setSenha(addslashes(md5($_POST['txtSenha'])));
-
+    $flag = true;
     $dal->inserirUsuario($usuario);
+    
     header("location: cadUsuario.php");
 }
 
@@ -84,6 +85,13 @@ if(isset($_POST['btCad'])){
                     </a>
                 </div>
                 <div class="dropdown-divider"></div>
+
+                <div class="card border-success mb-3" id="msg" hidden>
+                    <div class="card-body text-success">
+                        <p class="card-text text-center"><i class="fas fa-check"></i> Usuário excluído com sucesso</p>
+                    </div>
+                </div>
+                
                 <form action="#" method="POST" enctype="multipart/form-data">
                     <div class="form-row ">
                         <div class="form-group col-md-3">
@@ -125,6 +133,8 @@ if(isset($_POST['btCad'])){
     <script src="popper/popper.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="js/dashboard.js"></script>
+    <?php //require_once("Includes/inc_msg.php");?>
+</head>
 </body>
 
 </html>

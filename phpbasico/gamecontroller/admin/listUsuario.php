@@ -46,23 +46,11 @@ $dal = new DALUsuario($conexao);
                     </a>
                 </div>
 
-                <div class="card border-success mb-3">
-                    <div class="card-body text-success">
+                <div class="card border-danger mb-3" id="msg" hidden>
+                    <div class="card-body text-danger">
                         <p class="card-text text-center"><i class="fas fa-check"></i> Usuário excluído com sucesso</p>
                     </div>
                 </div>
-
-                <div class="card border-warning mb-3">
-                        <div class="card-body text-warning">
-                            <p class="card-text text-center"><i class="fas fa-check"></i> Usuário excluído com sucesso</p>
-                        </div>
-                    </div>
-
-                    <div class="card border-danger mb-3">
-                            <div class="card-body text-danger">
-                                <p class="card-text text-center"><i class="fas fa-check"></i> Usuário excluído com sucesso</p>
-                            </div>
-                        </div>
 
               
 
@@ -83,21 +71,18 @@ $dal = new DALUsuario($conexao);
 
                         <?php $listarUsuario = $dal->listarUsuario(); while($row=mysqli_fetch_array($listarUsuario)){?>
                         <tbody>
-                            <tr>
+                            <tr >
                                 <td class="d-none d-md-table-cell"><img class="img-usuario" src="imagens/<?php echo $row['foto'];?>" alt="" width="150px"></td>
-                                <td class="d-none d-md-table-cell"><?php echo $row['id'];?></td>
-                                <td><?php echo $row['nome'];?></td>
+                                <td class="d-none d-md-table-cell "><?php echo $row['id'];?></td>
+                                <td class="d-none d-md-table-cell "><?php echo $row['nome'];?></td>
                                 <td class="d-none d-md-table-cell"><?php echo $row['bio'];?></td>
                                 <td class="d-none d-md-table-cell"><?php echo $row['email'];?></td>
                                 <!-- <td class="d-none d-lg-table-cell">*******</td> -->
+                                
                                 <td class="text-center">
-
-                                    <button type="button" class="btn btn-sm btn-outline-info"><i
-                                            class="fas fa-eye"></i></button>
-                                    <button type="button" class="btn btn-sm btn-outline-warning"><i
-                                            class="far fa-edit"></i></button>
-                                    <a href="" type="button" class="btn btn-sm btn-outline-danger" data-toggle="modal"
-                                        data-target="#modalConfirmaExcluir"><i class="far fa-trash-alt"></i></a>
+                                    <button type="button" class="btn btn-sm btn-outline-info"><i class="fas fa-eye"></i></button>
+                                    <button type="button" class="btn btn-sm btn-outline-warning"><i class="far fa-edit"></i></button>
+                                    <a href="Classes/DALUsuario.php?id=<?php echo ($row['id']);?>" type="button" class="btn btn-sm btn-outline-danger"><i class="far fa-trash-alt"></i></a>
                                 </td>
                             </tr>
                         </tbody>

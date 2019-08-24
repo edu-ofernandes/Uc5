@@ -23,6 +23,22 @@ class DALJogo {
         $banco = $this->conexao->getBanco();
         $banco->query($sql);
     }
+
+    public function excluirJogo($idJogo){
+        $sql = "DELETE FROM jogos WHERE id= ".$idJogo;
+
+        $banco = $this->conexao->getBanco();
+        $banco->query($sql);
+    }
+
+    public function listarJogo(){
+        $sql = "SELECT * FROM jogos";
+
+        $banco = $this->conexao->getBanco();
+        $result = $banco->query($sql);
+
+        return $result;
+    }
 }
 
 
