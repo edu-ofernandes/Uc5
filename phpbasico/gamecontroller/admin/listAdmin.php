@@ -101,7 +101,7 @@ $dal = new DALAdmin($conexao);
                                 <td class="text-center">
                                     <a href="" class="btn btn-sm btn-outline-info"><i class="fas fa-eye"></i></a>
 
-                                    <a href="cadAdmin.php?idUp=<?php echo ($row['id']);?>"  class="btn btn-sm btn-outline-warning"><i class="far fa-edit"></i></a>
+                                    <a href="upAdmin.php?idUp=<?php echo ($row['id']);?>"  class="btn btn-sm btn-outline-warning"><i class="far fa-edit"></i></a>
 
                                     <a href="Classes/DALAdmin.php?id=<?php echo ($row['id']);?>" class="btn btn-sm btn-outline-danger" data-confirm=""><i class="far fa-trash-alt"></i></a>
                                 </td>

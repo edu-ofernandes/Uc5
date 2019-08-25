@@ -29,12 +29,18 @@ class DALAdmin {
 
     // alterar
     public function alterarAdmin($admin){
-        // $sql = "UPDATE administradores SET nome='$nome', email='$email', senha='$senha' WHERE id=$id";
-        $sql = "UPDATE administradores SET";
-        $sql = $sql."nome='".$admin->getNome()."',";
-        $sql = $sql."email='".$admin->getEmail()."',";
+        // $id = $admin->getId();
+        // $nome = $admin->getNome();
+        // $email = $admin->getEmail();
+        // $senha = $admin->getSenha();
+        // $sql = "UPDATE administradores SET id=$id, nome='$nome', email='$email', senha='$senha' WHERE id=$id";
+
+        $sql = "UPDATE administradores SET ";
+        $sql = $sql."id=".$admin->getId().", ";
+        $sql = $sql."nome='".$admin->getNome()."', ";
+        $sql = $sql."email='".$admin->getEmail()."', ";
         $sql = $sql."senha='".$admin->getSenha()."'";
-        $sql = $sql."WHERE id=".$admin->getId()."";
+        $sql = $sql." WHERE id=".$admin->getId()."";
         
         $banco = $this->conexao->getBanco();
         $banco->query($sql);
@@ -67,7 +73,15 @@ class DALAdmin {
         // }
 
         return $result;
-    }    
+    } 
+
+    public function listarAdminId($idAdmin){
+        $sql = "SELECT * FROM administradores WHERE id=".$idAdmin;
+        $banco = $this->conexao->getBanco();
+        $result = $banco->query($sql);
+
+        return $result;
+    }
 }
 
 
