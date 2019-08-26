@@ -7,37 +7,47 @@ require_once('include/connectaBD.php');
 
 
 
-// acessar a tabela e pegar os dados de contatos
-$sql = "SELECT * FROM contatos";
-$result = $banco->query($sql);
 
 
 
-// select da buscar oc contatos
-if(isset($_GET['btSerach'])){
 
-	// letras que foi escrita no campo
-	$letras = $_GET['txtBusca'];
 
-	// faz o select de palavras no sql
-	$sqlBusca = "SELECT * FROM contatos where nome LIKE '%".$letras."%' ORDER BY nome asc";
 
-	// faz o select das no sql
+
+
+
+
+	// acessar a tabela e pegar os dados de contatos
+	$sql = "SELECT * FROM contatos";
+	$result = $banco->query($sql);
+
+	$operacao = false;
+
+	// select da buscar oc contatos
+	if(isset($_GET['btSerach'])){
+		$operacao = true;
+
+		// letras que foi escrita no campo
+		$letras = $_GET['txtBusca'];
+
+		// faz o select de palavras no sql
+		$sqlBusca = "SELECT * FROM contatos where nome LIKE '%".$letras."%' ORDER BY nome asc";
+
+		// faz o select das no sql
+		
+		
+
+		// executa o select
+		$resultBusca = $banco->query($sqlBusca);
+	}
 	
-	
+	if(isset($_GET['id'])) {
+		// busca de contatos com as letras do alfabeto
+		$operacao = true;
 
-	// executa o select
-	$resultBusca = $banco->query($sqlBusca);
-	
-	
-}
-
-// busca de contatos com as letras do alfabeto
-
-if(isset($_GET['id'])){
-	$sqlBusca2 = "SELECT * FROM contatos WHERE nome LIKE '".$_GET['id']."%' ORDER BY nome ASC";
-	$resultBuscaAlfa = $banco->query($sqlBusca2);
-}
+		$sqlBusca2 = "SELECT * FROM contatos WHERE nome LIKE '".$_GET['id']."%' ORDER BY nome ASC";
+		$resultBuscaAlfa = $banco->query($sqlBusca2);
+	}
 
 
 
@@ -55,10 +65,9 @@ if(isset($_GET['id'])){
 </head>
 <body>
 	<header>
-
 		<div id="logo"><img src="image/logoTwo.png" alt="Logo PokeAgenda"></div>
+		
 		<div id="search">
-
 			<form action="#" method="get" name="formBusca" id="formBusca">
 				<input type="text" name="txtBusca" id="txtBusca" placeholder="Digite parte de um nome">
 
@@ -72,13 +81,10 @@ if(isset($_GET['id'])){
 	</nav>
 	<main>
 		<article>
-
-			
 			<section id="menuAlfabeto">
-			<h1>Agenda de clientes/contato</h1>
+				<h1>Agenda de clientes/contato</h1>
 				<div id="alfabeto">
 					<ul>
-						
 						<li><a href="index.php?id=A">A</a></li>
 						<li><a href="index.php?id=B">B</a></li>
 						<li><a href="index.php?id=C">C</a></li>
@@ -105,51 +111,22 @@ if(isset($_GET['id'])){
 						<li><a href="index.php?id=X">X</a></li>
 						<li><a href="index.php?id=Y">Y</a></li>
 						<li><a href="index.php?id=Z">Z</a></li>
-					
 					</ul>
 				</div>
 			</section>
 
-			
-			<?php
-				if(isset($_GET['id'])){
-
-					echo ("<section class='listar'>");
-					echo ("<h2>Resultado da busca de contatos pelas letras alfalbeto</h2>");
-
-					//loop da busca do alfabeto começa 
-					while($row3 = mysqli_fetch_array($resultBuscaAlfa)){
-
-				?>
-					
-				<div class="list">
-					<div class="listNome">Nome: <?php echo $row3['nome'];?></div>
-					<div class="listTel">Telefone: <?php echo $row3['tel'];?></div>
-					<div class="listEmail">E-mail: <?php echo $row3['email'];?></div>
-				</div>
-						
-					
-				<?php
-					}
-					echo ("</section>");
-					
-				}
-					//loop da busca termina 
-				?>
-
-			
+		<?php if($operacao==false){ ?>
 			<section class="listar">
-			<h2>Listando todos os Contatos</h2>
+				<h2>Listando todos os Contatos</h2>
 				<!-- loop começa -->
 				<?php while($row = mysqli_fetch_array($result)){ ?>
 
 				<div class="list">
-					<div class="listNome">Nome: <?php echo $row['nome'];?></div>
-					<div class="listTel">Telefone: <?php echo $row['tel'];?></div>
-					<div class="listEmail">Email: <?php echo $row['email'];?></div>
+					<div class="listNome"><b>Nome: </b><?php echo $row['nome'];?></div>
+					<div class="listTel"><b>Telefone:</b> <?php echo $row['tel'];?></div>
+					<div class="listEmail"><b>Email:</b> <?php echo $row['email'];?></div>
 					<br>
 
-			
 					<div class="del">
 						<button class="btnLista">
 							<a href="contatoDel.php?id=<?php echo $row['idcontatos']?>">Excluir</a>
@@ -158,37 +135,69 @@ if(isset($_GET['id'])){
 				</div>
 				<?php } ?>
 				<!-- loop termina -->
-				</section>
+			</section>
 
 
-				<?php
-					if(isset($_GET['btSerach'])){
+		<?php }else{ ?>
+			<?php if(isset($_GET['id'])){ ?>
+				<?php if(mysqli_num_rows($resultBuscaAlfa) == 0){ ?>
 
-						echo ("<section class='listar'>");
-						echo ("<h2>Resultado da busca de contatos</h2>");
+					<h2>Nenhum Resultado encontrado para "<?php echo $_GET['id'];?>"</h2>
 
-						//loop da busca começa 
-						while($row2 = mysqli_fetch_array($resultBusca)){
+				<?php }else{ ?>
 
-				?>
-					
-					<div class="list">
-						<div class="listNome">Nome: <?php echo $row2['nome'];?></div>
-						<div class="listTel">Telefone: <?php echo $row2['tel'];?></div>
-						<div class="listEmail">E-mail: <?php echo $row2['email'];?></div>
-					</div>
+			<section class='listar'>	
+				<h2>Resultado da busca de contatos pelas letras alfalbeto</h2>
+
+				<?php while($row3 = mysqli_fetch_array($resultBuscaAlfa)){ ?>
 						
-					
-				<?php
-						}
-						echo ("</section>");
-					}
-					//loop da busca termina 
-				?>
-				
+				<div class="list">
+					<div class="listNome">Nome: <?php echo $row3['nome'];?></div>
+					<div class="listTel">Telefone: <?php echo $row3['tel'];?></div>
+					<div class="listEmail">E-mail: <?php echo $row3['email'];?></div>
+					<div class="del">
+						<button class="btnLista">
+							<a href="contatoDel.php?id=<?php echo $row3['idcontatos']?>">Excluir</a>
+						</button>
+					</div> 
+				</div>
+
+				<?php }?>
+
+			</section>
+
+			<?php }}elseif(isset($_GET['btSerach'])){ ?>
+				<?php if(mysqli_num_rows($resultBusca) == 0){ ?>
+
+					<h2>Nenhum Resultado encontrado para "<?php echo $letras;?>"</h2>
+
+				<?php }else{ ?>
+
+			<section class='listar'>
+				<h2>Resultado da busca de contatos</h2>
+
+				<?php while($row2 = mysqli_fetch_array($resultBusca)){ ?>
+
+				<div class="list">
+					<div class="listNome">Nome: <?php echo $row2['nome'];?></div>
+					<div class="listTel">Telefone: <?php echo $row2['tel'];?></div>
+					<div class="listEmail">E-mail: <?php echo $row2['email'];?></div>
+					<div class="del">
+						<button class="btnLista">
+							<a href="contatoDel.php?id=<?php echo $row2['idcontatos']?>">Excluir</a>
+						</button>
+					</div>
+				</div>
+
+				<?php } ?>
+
+			</section>
+
+			<?php }?>
+		<?php }}?>
 			
 		</article>
 	</main>
-	<footer><h2>Desenvolvido por seres supremos &reg; &copy;</h2></footer>
+	<footer><h3>Desenvolvido por seres supremos &reg; &copy;</h3></footer>
 </body>
 </html>

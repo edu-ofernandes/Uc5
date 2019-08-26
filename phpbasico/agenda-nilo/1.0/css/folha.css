@@ -11,13 +11,13 @@
 	padding: 0px;
 }
 a{color: black;}
-h1, h2{font-size: 1.5em; text-align: center; }
+h1, h2{font-size: 1.5em; text-align: center; color: white;}
 h1::after, h2::after{
 	content: "";
 	display: block;
 	width: 250px;
 	height: 3px;
-	background-color: rgb(0, 0, 0);
+	background-color: rgb(255, 255, 255);
 	margin: 5px auto;
 }
 input[type=text]{
@@ -45,16 +45,16 @@ body{
 	background-color:#f1f5f9;
 	font-family:Tahoma;
 	font-size: 20px;
-	background-image: url("../image/backgroundOne.jpg");
+	background-image: url("../image/aguaViva.jpg");
 	background-attachment: fixed;
 	background-position: bottom right;
-	background-repeat: no-repeat;
+	background-repeat: repeat;
 	background-size: cover;
 }
 /* header */
 header{
 	width: 100%;
-	background-color:  #14ee005d;
+	background-color: rgba(56, 82, 116, 0.534);
 	display: flex;
 	justify-content:space-between;
 	margin-bottom: 10px;
@@ -70,7 +70,7 @@ header{
 /* nav */
 nav{
 	width: 100%;
-	background-color: rgb(170, 170, 170);
+	background-color: rgba(56, 82, 116, 0.486);
 	z-index: 1;
 	display: flex;
 	justify-content: center;
@@ -99,7 +99,7 @@ nav{
 
 main{
 	max-width: 100%;
-	margin-bottom: 10px;
+	margin-bottom: 49px;
 	
 }
 article{
@@ -124,7 +124,7 @@ article{
 	width: 100%;
 }
 #alfabeto ul{
-	background-color: rgba(170, 170, 170, 0.692);
+	background-color: rgb(56, 82, 116);
 	width: 100%;
 	display: flex;
 	justify-content: center;
@@ -141,10 +141,11 @@ article{
 #alfabeto ul li a{
 	padding: 5px;
 	flex: 1;
+	color: white;
 }
 #alfabeto ul li a:hover{
-	color: #aaa;
-	background-color: rgba(255, 255, 255, 0.692);
+	color: rgb(0, 0, 0);
+	background-color: rgb(255, 255, 255);
 }
 /* /menu alfabeto */
 
@@ -160,24 +161,28 @@ article{
 }
 .listar > h2{position: absolute; top: 0px;}
 .list{
+	display: flex;
 	text-align: center;
+	flex-direction: column;
+	justify-content: space-around;
 	width: 300px;
 	height: 150px;
-	background-color: #fff;
 	margin: 10px;
-	background-color: rgb(185, 185, 185) ;
+	background-color: rgb(56, 82, 116);
 	padding: 10px;
+	color: white;
 }
-.btnLista{
-	font-size: 1em;
-	margin: 10px;
-	color: black;
+
+.btnLista a{
+	font-size: 1.5em;
 	padding: 5px;
-	background-color: rgb(155, 155, 155, 0.692) ;
-	cursor: pointer;
+	color: rgb(0, 0, 0); 
+	font-weight: bold; 
+	background-color: rgb(252, 252, 252);
 }
 .btnLista a:hover{
-	color: #fff;
+	color: rgb(255, 255, 255);
+	background-color: rgb(0, 0, 0);
 }
 .listar > #newCad{
 	margin: 50px;
@@ -189,7 +194,7 @@ article{
 #formCad{
 	min-width: 500px;
 	min-height: 400px;
-	background-color: rgb(170, 170, 170);
+	background-color: rgb(56, 82, 116);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -209,7 +214,7 @@ article{
 	background-color: #eee;
 }
 #formCad > input[type="submit"]:hover{
-	background-color: rgb(146, 146, 146);
+	background-color: rgb(36, 155, 149);
 	color: rgb(255, 255, 255);
 }
 
@@ -218,6 +223,11 @@ article{
 /* listar contatos */
 footer{
 	max-width: 100%;
+	width: 100%;
 	padding: 10px;
-	background-color: rgba(170, 170, 170, 0.233);
+	background-color: rgba(56, 82, 116, 0.486);
+	position: fixed;
+	left: 0;
+	bottom: 0;
 }
+footer h3{text-align: center; color: white;}
