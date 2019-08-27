@@ -65,7 +65,7 @@ require_once('include/connectaBD.php');
 </head>
 <body>
 	<header>
-		<div id="logo"><img src="image/logoTwo.png" alt="Logo PokeAgenda"></div>
+		<div id="logo"><a href="index.php"><img src="image/logoTwo.png" alt="Logo PokeAgenda"></a></div>
 		
 		<div id="search">
 			<form action="#" method="get" name="formBusca" id="formBusca">

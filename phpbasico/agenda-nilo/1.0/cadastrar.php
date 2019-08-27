@@ -37,9 +37,11 @@
 </head>
 <body>
 	<header>
-		<div id="logo"><img src="image/logoTwo.png" alt="Logo PokeAgenda"></div>
+		<div id="logo"><a href="index.php"><img src="image/logoTwo.png" alt="Logo PokeAgenda"></a></div>
 		<div id="search">
-			<form action="#" method="get" name="formBusca" id="formBusca"><input type="text" name="txtBusca" id="txtBusca" placeholder="Digite parte de um nome"><input type="submit" name="btSerach" id="btSearch" value="Buscar">
+			<form action="#" method="get" name="formBusca" id="formBusca">
+				<input type="text" name="txtBusca" id="txtBusca" placeholder="Digite parte de um nome">
+				<input type="submit" name="btSerach" id="btSearch" value="Buscar">
 			</form>
 		</div>
 	</header>
@@ -66,7 +68,7 @@
 			</section>
 		</article>
 	</main>
-	<footer><h2>Desenvolvido por seres supremos &reg; &copy;</h2></footer>
+	<footer><h3>Desenvolvido por seres supremos &reg; &copy;</h3></footer>
 
 
 </body>
