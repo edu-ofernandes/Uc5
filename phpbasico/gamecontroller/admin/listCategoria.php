@@ -86,10 +86,8 @@ $dal = new DALCategoria($conexao);
                                 <td><?php echo $row['nome'];?></td>
                                 <td class="text-center">
 
-                                    <button type="button" class="btn btn-sm btn-outline-info"><i
-                                            class="fas fa-eye"></i></button>
-                                    <button type="button" class="btn btn-sm btn-outline-warning"><i
-                                            class="far fa-edit"></i></button>
+                                    <a href=""  type="button" class="btn btn-sm btn-outline-info"><i class="fas fa-eye"></i></a>
+                                    <a href="upCategoria.php?idUp=<?php echo $row['id'];?>"  type="button" class="btn btn-sm btn-outline-warning"><i class="far fa-edit"></i></a>
                                     <a href="Classes/DALCategoria.php?id=<?php echo $row['id'];?>" type="button" class="btn btn-sm btn-outline-danger"><i class="far fa-trash-alt"></i></a>
                                 </td>
                             </tr>

@@ -34,8 +34,30 @@ class DALUsuario{
         return $result;
     }
 
+    public function listarIdUsuario($idUsuario){
+        $sql = "SELECT * FROM usuarios WHERE id=".$idUsuario;
+        $banco = $this->conexao->getBanco();
+        $result = $banco->query($sql);
+
+        return $result;
+    }
+
     public function excluirUsuario($idUsuario){
         $sql = "DELETE FROM usuarios WHERE id=".$idUsuario;
+        $banco = $this->conexao->getBanco();
+        $banco->query($sql);
+    }
+
+    public function alterarUsuario($usuario){
+        $sql = "UPDATE usuarios SET ";
+        $sql = $sql."id=".$usuario->getId().", ";
+        $sql = $sql."nome='".$usuario->getNome()."', ";
+        $sql = $sql."foto='".$usuario->getFoto()."', ";
+        $sql = $sql."bio='".$usuario->getBio()."', ";
+        $sql = $sql."email='".$usuario->getEmail()."', ";
+        $sql = $sql."senha='".$usuario->getSenha()."' ";
+        $sql = $sql." WHERE id=".$usuario->getId().";";
+
         $banco = $this->conexao->getBanco();
         $banco->query($sql);
     }

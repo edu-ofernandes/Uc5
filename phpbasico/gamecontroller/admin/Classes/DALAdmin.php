@@ -29,18 +29,12 @@ class DALAdmin {
 
     // alterar
     public function alterarAdmin($admin){
-        // $id = $admin->getId();
-        // $nome = $admin->getNome();
-        // $email = $admin->getEmail();
-        // $senha = $admin->getSenha();
-        // $sql = "UPDATE administradores SET id=$id, nome='$nome', email='$email', senha='$senha' WHERE id=$id";
-
         $sql = "UPDATE administradores SET ";
         $sql = $sql."id=".$admin->getId().", ";
         $sql = $sql."nome='".$admin->getNome()."', ";
         $sql = $sql."email='".$admin->getEmail()."', ";
         $sql = $sql."senha='".$admin->getSenha()."'";
-        $sql = $sql." WHERE id=".$admin->getId()."";
+        $sql = $sql." WHERE id=".$admin->getId().";";
         
         $banco = $this->conexao->getBanco();
         $banco->query($sql);

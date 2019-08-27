@@ -22,8 +22,25 @@ class DALCategoria {
         $banco->query($sql);
     }
 
+    public function alterarCategoria($categoria){
+        $sql = "UPDATE categorias SET ";
+        $sql = $sql."id=".$categoria->getId().", ";
+        $sql = $sql."nome='".$categoria->getNome()."' ";
+        $sql = $sql."WHERE id=".$categoria->getId()."; ";
+
+        $banco = $this->conexao->getBanco();
+        $banco->query($sql);
+    }
+
     public function listarCategoria(){
         $sql = "SELECT * FROM `categorias`";
+        $banco = $this->conexao->getBanco();
+        $result = $banco->query($sql);
+
+        return $result;
+    }
+    public function listarIdCategoria($idCategoria){
+        $sql = "SELECT * FROM `categorias` WHERE id=".$idCategoria;
         $banco = $this->conexao->getBanco();
         $result = $banco->query($sql);
 

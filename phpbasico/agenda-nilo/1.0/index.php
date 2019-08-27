@@ -147,7 +147,7 @@ require_once('include/connectaBD.php');
 				<?php }else{ ?>
 
 			<section class='listar'>	
-				<h2>Resultado da busca de contatos pelas letras alfalbeto</h2>
+				<h2>Resultado da busca de contatos para "<?php echo $_GET['id'];?>"</h2>
 
 				<?php while($row3 = mysqli_fetch_array($resultBuscaAlfa)){ ?>
 						
@@ -174,7 +174,7 @@ require_once('include/connectaBD.php');
 				<?php }else{ ?>
 
 			<section class='listar'>
-				<h2>Resultado da busca de contatos</h2>
+				<h2>Resultado da busca de contatos para "<?php echo $letras;?>"</h2>
 
 				<?php while($row2 = mysqli_fetch_array($resultBusca)){ ?>
 

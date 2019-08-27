@@ -59,7 +59,7 @@ $dal = new DALUsuario($conexao);
                     <table class="table table-hover table-striped table-bordered">
                         <thead>
                             <tr>
-                                <th class="d-none d-md-table-cell">Foto</th>
+                                <th class="d-none d-md-table-cell text-center">Foto</th>
                                 <th class="d-none d-md-table-cell">ID</th>
                                 <th class="d-none d-md-table-cell">Nome Completo</th>
                                 <th class="d-none d-md-table-cell">Bio</th>
@@ -72,16 +72,16 @@ $dal = new DALUsuario($conexao);
                         <?php $listarUsuario = $dal->listarUsuario(); while($row=mysqli_fetch_array($listarUsuario)){?>
                         <tbody>
                             <tr >
-                                <td class="d-none d-md-table-cell"><img class="img-usuario" src="imagens/<?php echo $row['foto'];?>" alt="" width="150px"></td>
-                                <td class="d-none d-md-table-cell "><?php echo $row['id'];?></td>
-                                <td class="d-none d-md-table-cell "><?php echo $row['nome'];?></td>
-                                <td class="d-none d-md-table-cell"><?php echo $row['bio'];?></td>
-                                <td class="d-none d-md-table-cell"><?php echo $row['email'];?></td>
+                                <td class="d-none d-md-table-cell text-center"><img class="img-usuario" src="imagens/<?php echo $row['foto'];?>" alt="" width="100px"></td>
+                                <td class="d-none d-md-table-cell align-middle"><?php echo $row['id'];?></td>
+                                <td class="d-none d-md-table-cell align-middle"><?php echo $row['nome'];?></td>
+                                <td class="d-none d-md-table-cell align-middle"><?php echo $row['bio'];?></td>
+                                <td class="d-none d-md-table-cell align-middle"><?php echo $row['email'];?></td>
                                 <!-- <td class="d-none d-lg-table-cell">*******</td> -->
                                 
-                                <td class="text-center">
-                                    <button type="button" class="btn btn-sm btn-outline-info"><i class="fas fa-eye"></i></button>
-                                    <button type="button" class="btn btn-sm btn-outline-warning"><i class="far fa-edit"></i></button>
+                                <td class="text-center align-middle">
+                                    <a href="" class="btn btn-sm btn-outline-info"><i class="fas fa-eye"></i></a>
+                                    <a href="upUsuario.php?idUp=<?php echo ($row['id']);?>" class="btn btn-sm btn-outline-warning"><i class="far fa-edit"></i></a>
                                     <a href="Classes/DALUsuario.php?id=<?php echo ($row['id']);?>" type="button" class="btn btn-sm btn-outline-danger"><i class="far fa-trash-alt"></i></a>
                                 </td>
                             </tr>
