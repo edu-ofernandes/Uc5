@@ -6,17 +6,6 @@
 require_once('include/connectaBD.php');
 
 
-
-
-
-
-
-
-
-
-
-
-
 	// acessar a tabela e pegar os dados de contatos
 	$sql = "SELECT * FROM contatos";
 	$result = $banco->query($sql);

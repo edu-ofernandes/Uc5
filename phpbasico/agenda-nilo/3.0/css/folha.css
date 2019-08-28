@@ -98,7 +98,7 @@ input{
 	flex-direction: column;
 }
 .listFt{
-	width: 200px;
+	width: 150px;
 	height: 150px;
 	max-width: 200px;
 	display: flex;

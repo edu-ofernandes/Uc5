@@ -23,6 +23,7 @@ $row = mysqli_fetch_array($result);
         // criando sessoes para armazenar esse valores
         $_SESSION['nivel'] = $row['nivel'];
         $_SESSION['nome'] = $row['nome'];
+        $_SESSION['idusers'] = $row['idusers'];
         $_SESSION['liberado'] = true;
         $_SESSION['login'] = $row['login'];
         header("location: ../ctrlweb/admin.php");

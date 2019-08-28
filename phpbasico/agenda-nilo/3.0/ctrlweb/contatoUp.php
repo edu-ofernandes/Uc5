@@ -1,5 +1,6 @@
 <?php
 require_once("../include/connectaBD.php");
+require_once("../include/validar.php");
 
 $id = $_GET['idUp'];
 $sql = "SELECT * FROM contatos WHERE idcontatos=".$id;
