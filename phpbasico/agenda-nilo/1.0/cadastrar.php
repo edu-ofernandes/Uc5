@@ -14,7 +14,7 @@
 		$execute_insert = "INSERT INTO contatos VALUES (null, '$nome','$tel','$email')";
 
 		if(mysqli_query($banco, $execute_insert)) {
-			header("location: index.php");
+			header("location: cadastrar.php");
 		}else{
 			echo ("deu errado");
 		}
@@ -38,12 +38,6 @@
 <body>
 	<header>
 		<div id="logo"><a href="index.php"><img src="image/logoTwo.png" alt="Logo PokeAgenda"></a></div>
-		<div id="search">
-			<form action="#" method="get" name="formBusca" id="formBusca">
-				<input type="text" name="txtBusca" id="txtBusca" placeholder="Digite parte de um nome">
-				<input type="submit" name="btSerach" id="btSearch" value="Buscar">
-			</form>
-		</div>
 	</header>
 	<nav>
 		<button class="btnNav"><a href="index.php">Home</a></button> 
