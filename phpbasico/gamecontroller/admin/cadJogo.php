@@ -17,6 +17,8 @@ if(isset($_POST['btCad'])){
     header("location: cadJogo.php");
 }
 
+
+// criar select com view
 ?>
 
 
@@ -58,6 +60,20 @@ if(isset($_POST['btCad'])){
                         <div class="form-group col-md-3">
                             <label for="txtNomeJogo">Nome do Jogo</label>
                             <input type="text" class="form-control" id="txtNomeJogo" name="txtNomeJogo" placeholder="Nome" required>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="txtCategoria">Categoria</label>
+                            <select name="txtCategoria" id="txtCategoria" class="form-control">
+                                <option value=" ">Categoria</option>
+
+                                <?php //while(){?>
+
+                                <option value="0">Não</option>
+
+                                <?php //}?>
+                            </select>
+                            
                         </div>                        
                     </div>
                     
