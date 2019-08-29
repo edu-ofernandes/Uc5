@@ -2,6 +2,30 @@
 require_once("../include/connectaBD.php");
 require_once("../include/validar.php");
 
+if(isset($_GET['id'])){
+    $idagendamentos = $_GET['id'];
+    $sql = "SELECT * FROM agendamentos WHERE idagendamentos=".$idagendamentos;
+    $result = $banco->query($sql);
+    $row = mysqli_fetch_array($result);
+
+    if(isset($_POST['btCad'])){
+        $users_iduserss = $_SESSION['idusers'];
+        $titulo = $_POST['txtTitulo'];
+        $data = $_POST['txtData'];
+        $hora = $_POST['txtHora'];
+        $local = $_POST['txtLocal'];
+        $endereco = $_POST['txtEnd'];
+        $obs = $_POST['obs'];
+        $concluido = $_POST['selConcluido'];
+
+        $sql = "UPDATE agendamentos SET idagendamentos=".$idagendamentos.", titulo='".$titulo."', 
+        data='".$data."', hora='".$hora."', local='".$local."', endereco='".$endereco."', obs='".$obs."', 
+        concluido='".$concluido."', users_idusers=".$users_iduserss." WHERE idagendamentos=".$idagendamentos.";";
+
+        $resultUpdate = $banco->query($sql);
+        header("location: event.php");
+    }
+}
 ?>
 
 <!doctype html>
@@ -37,21 +61,28 @@ require_once("../include/validar.php");
         <article>
             <section id="listar">
                 <h2>Alterando Eventos</h2>
+
+                <?php if(isset($_GET['id'])){ ?>
+
                 <form action="#" method="post" name="formEvent" id="formEvent">
-                    <input type="text" name="txtTitulo" id="txtTitulo" placeholder="Titulo">
-                    <label for="txtData">Data</label><input type="date" name="txtData" id="txtData" placeholder="Data">
-                    <input type="text" name="txtHora" id="txtHora" placeholder="Hora">
-                    <input type="text" name="txtLocal" id="txtLocal" placeholder="Local">
-                    <input type="text" name="txtEnd" id="txtEnd" placeholder="Endereço">
-                    <textarea name="obs" id="obs" cols="30" rows="10" placeholder="Observações"></textarea>
-                    <select name="selConcluido" id="selConcluido">
-                        <option value=" ">Já realizado</option>
+                    <input type="text" name="txtTitulo" id="txtTitulo" placeholder="Titulo" value="<?php echo $row['titulo'];?>">
+                    <label for="txtData">Data</label>
+                    <input type="date" name="txtData" id="txtData" placeholder="Data" value="<?php echo $row['data'];?>">
+                    <input type="text" name="txtHora" id="txtHora" placeholder="Hora" value="<?php echo $row['hora'];?>">
+                    <input type="text" name="txtLocal" id="txtLocal" placeholder="Local" value="<?php echo $row['local'];?>">
+                    <input type="text" name="txtEnd" id="txtEnd" placeholder="Endereço" value="<?php echo $row['endereco'];?>">
+                    <textarea name="obs" id="obs" cols="30" rows="10" placeholder="Observações"><?php echo $row['obs'];?></textarea>
+                    <select name="selConcluido" id="selConcluido" >
+                        <option value="<?php echo $row['concluido'];?>"></option>
                         <option value="0">Não</option>
                         <option value="1">Sim</option>
                     </select>
-                    <input type="hidden" name="keyEvent" id="keyEvent">
+                    <input type="hidden" name="keyEvent" id="keyEvent" value="<?php echo $row['idagendamentos'];?>">
                     <input type="submit" name="btCad" id="btCad" value="Cadastrar">
                 </form>
+
+                <?php }?>
+
             </section>
         </article>
     </main>

@@ -3,8 +3,7 @@ require_once("include/connectaBD.php");
 
 
 $idcontato = $_GET['id'];
-$sqlUser = "SELECT idcontatos, contatos.nome AS nomeContato, tel, email, favoritos, users.idusers, idusers, users.nome AS nomeUser FROM contatos RIGHT JOIN users 
-ON contatos.users_idusers = users.idusers WHERE idcontatos= '$idcontato'";
+$sqlUser = "SELECT * FROM userContato WHERE idcontatos= '$idcontato'";
 $resultContatoUp = $banco->query($sqlUser);
 $row = mysqli_fetch_assoc($resultContatoUp);
 

@@ -51,8 +51,8 @@ $resultAgenda = $banco->query($sql);
                     <div class="listEvent">Local - Endereço: <?php echo $row['endereco'];?></div>
                     <div class="listEvent">Observações <?php echo $row['obs'];?></div>
                     <div class="listEvent">Concluido <?php echo $row['concluido'];?></div>
-                    <div class="up"><a href="eventUp.php?id=<?php echo $row['idcontatos'];?>">Editar</a></div>
-                    <div class="del"><a href="eventDel.php?id=<?php echo $row['idcontatos'];?>">Excluir</a></div>
+                    <div class="up"><a href="eventUp.php?id=<?php echo $row['idagendamentos'];?>">Editar</a></div>
+                    <div class="del"><a href="eventDel.php?id=<?php echo $row['idagendamentos'];?>">Excluir</a></div>
                 </div>
 
                 <?php }?>
