@@ -12,9 +12,13 @@ $conexao = new Conexao();
 
 // DAL admin
 $dal = new DALJogo($conexao);
-
-
 $listarJogo = $dal->listarJogo();
+
+$dalCategoria = new DALCategoria($conexao);
+$listarCategoria = $dalCategoria->listarCategoria();
+
+$row2 = mysqli_fetch_array($listarCategoria)
+
 ?>
 
 
@@ -80,23 +84,22 @@ $listarJogo = $dal->listarJogo();
                                 <th class="d-none d-md-table-cell text-center">Foto</th>
                                 <th class="d-none d-md-table-cell">ID</th>
                                 <th>Nome Completo</th>
-                                <th class="d-none d-md-table-cell">ID categoria</th>
+                                <th class="d-none d-md-table-cell">Categoria</th>
                                 <th class="text-center">Ações</th>
                             </tr>
                         </thead>
 
-                        <?php while($row = mysqli_fetch_array($listarJogo)){?>
+                        <?php while($row = mysqli_fetch_array($listarJogo)){ ?>
                         <tbody>
                             <tr>
-                                <td class="d-none d-md-table-cell text-center"><img class="img-usuario" src="imagens/<?php echo $row['foto'];?>" alt="" width="100px"></td>
+                                <td class="d-none d-md-table-cell text-center"><img class="img-usuario" src="imagens/<?php echo $row['foto'];?>" alt="" width="150px"></td>
                                 <td class="d-none d-md-table-cell"><?php echo $row['id'];?></td>
                                 <td><?php echo $row['nome'];?></td>
-                                <td class="d-none d-md-table-cell"><?php echo $row['categorias_id'];?></td>
+                                <td class="d-none d-md-table-cell"><?php echo $row2['nome'];?></td>
                                 <td class="text-center">
                                     <button type="button" class="btn btn-sm btn-outline-info"><i class="fas fa-eye"></i></button>
-                                    <button type="button" class="btn btn-sm btn-outline-warning"><i class="far fa-edit"></i></button>
-                                    <a onclick="mostrarId('<?php echo $row['id'];?>')" href="" type="button" class="btn btn-sm btn-outline-danger" data-toggle="modal"
-                                        data-target="#modalConfirmaExcluir"><i class="far fa-trash-alt"></i>
+                                    <a href="upJogo.php?idUp=<?php echo $row['id'];?>" type="button" class="btn btn-sm btn-outline-warning"><i class="far fa-edit"></i></a>
+                                    <a href="Classes/DALJogo.php?id=<?php echo $row['id'];?>" type="button" class="btn btn-sm btn-outline-danger"><i class="far fa-trash-alt"></i>
                                     </a>
                                 </td>
                             </tr>

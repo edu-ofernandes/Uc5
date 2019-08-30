@@ -52,5 +52,16 @@ class DALJogo {
     }
 }
 
+// objeto de conexao
+$conexao = new Conexao();
+
+// DAL admin
+$dal = new DALJogo($conexao);
+
+if(isset($_GET['id'])){
+    $idJogo = $_GET['id'];
+    $dal->excluirJogo($idJogo);
+    header("location: ../listJogo.php");
+}
 
 ?>
