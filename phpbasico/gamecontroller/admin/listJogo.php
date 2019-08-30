@@ -1,3 +1,24 @@
+<?php
+include_once("Classes/Conexao.php");
+include_once("Classes/ClasseBase.php");
+include_once("Classes/Jogo.php");
+require_once("Classes/DALJogo.php");
+require_once("Classes/DALCategoria.php");
+
+
+
+// objeto de conexao
+$conexao = new Conexao();
+
+// DAL admin
+$dal = new DALJogo($conexao);
+
+
+$listarJogo = $dal->listarJogo();
+?>
+
+
+
 <!doctype html>
 <html lang="pt-br">
 
@@ -56,6 +77,7 @@
                     <table class="table table-hover table-striped table-bordered">
                         <thead>
                             <tr>
+                                <th class="d-none d-md-table-cell text-center">Foto</th>
                                 <th class="d-none d-md-table-cell">ID</th>
                                 <th>Nome Completo</th>
                                 <th class="d-none d-md-table-cell">ID categoria</th>
@@ -63,14 +85,14 @@
                             </tr>
                         </thead>
 
+                        <?php while($row = mysqli_fetch_array($listarJogo)){?>
                         <tbody>
-
                             <tr>
-                                <th class="d-none d-md-table-cell">1</th>
-                                <td>Jogo Cadastrado Número 1</td>
-                                <td class="d-none d-md-table-cell">1</td>
+                                <td class="d-none d-md-table-cell text-center"><img class="img-usuario" src="imagens/<?php echo $row['foto'];?>" alt="" width="100px"></td>
+                                <td class="d-none d-md-table-cell"><?php echo $row['id'];?></td>
+                                <td><?php echo $row['nome'];?></td>
+                                <td class="d-none d-md-table-cell"><?php echo $row['categorias_id'];?></td>
                                 <td class="text-center">
-
                                     <button type="button" class="btn btn-sm btn-outline-info"><i class="fas fa-eye"></i></button>
                                     <button type="button" class="btn btn-sm btn-outline-warning"><i class="far fa-edit"></i></button>
                                     <a onclick="mostrarId('<?php echo $row['id'];?>')" href="" type="button" class="btn btn-sm btn-outline-danger" data-toggle="modal"
@@ -78,8 +100,8 @@
                                     </a>
                                 </td>
                             </tr>
-
                         </tbody>
+                        <?php }?>
                     </table>
                 </div>
 

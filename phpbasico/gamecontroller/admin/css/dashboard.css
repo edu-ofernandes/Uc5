@@ -148,3 +148,7 @@ body{
 
 /* FIM MINHAS CORES */
 
+/* mensagem de sucesso */
+.success {
+    display: none;
+}

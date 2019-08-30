@@ -33,7 +33,7 @@ if(isset($_POST['btCad'])){
         move_uploaded_file($temporario, $diretorio);
         $foto = $tagertFile;
     }else{
-        $default = "ftDefault.png";
+        $default = "ftDefault.jpg";
         $foto = $default;
     }
 
@@ -47,7 +47,7 @@ if(isset($_POST['btCad'])){
     $flag = true;
     $dal->inserirUsuario($usuario);
     
-    header("location: cadUsuario.php");
+    header("location: listUsuario.php");
 }
 
 ?>
@@ -86,7 +86,7 @@ if(isset($_POST['btCad'])){
                 </div>
                 <div class="dropdown-divider"></div>
 
-                <div class="card border-success mb-3" id="msg" hidden>
+                <div class="card border-success mb-3" hidden>
                     <div class="card-body text-success">
                         <p class="card-text text-center"><i class="fas fa-check"></i> Usuário excluído com sucesso</p>
                     </div>
@@ -133,7 +133,7 @@ if(isset($_POST['btCad'])){
     <script src="popper/popper.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="js/dashboard.js"></script>
-    <?php //require_once("Includes/inc_msg.php");?>
+
 </head>
 </body>
 

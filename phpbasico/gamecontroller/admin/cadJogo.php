@@ -3,17 +3,51 @@ include_once("Classes/Conexao.php");
 include_once("Classes/ClasseBase.php");
 include_once("Classes/Jogo.php");
 require_once("Classes/DALJogo.php");
+require_once("Classes/DALCategoria.php");
+require_once("Classes/Categoria.php");
 
 // conexao com banco
 $conexao = new Conexao();
 // DAL
-$dal = new DALJogo($conexao);
+$dalJogo = new DALJogo($conexao);
+$dalCategoria = new DALCategoria($conexao);
+
+$listarCategoria = $dalCategoria->listarCategoria();
 
 
 if(isset($_POST['btCad'])){
-    $jogo = new Categoria();
+
+    $data = date('d-m-YH:i:s');
+    $sup = $_FILES['cadFoto'] ['size'];
+
+    if($sup != 0){
+        $nomeFoto = $_FILES['cadFoto'] ['name'];
+        $completo = $nomeFoto . "_" . $data;
+        $path_parts = pathinfo($nomeFoto);
+        $targetPath = 0;
+
+        // converter para md5
+        $nome_foto_md5 = md5($completo);
+
+        // agora vai juntar em md5 com a extensao
+        $nome_final = $nome_foto_md5.".".$path_parts['extension'];
+
+        // pega o nome do arquivo com ele ja modificado
+        $tagertFile = str_replace( '//', '/', $targetPath) . $nome_final;
+        $temporario = $_FILES['cadFoto'] ['tmp_name'];
+        $diretorio = "imagens/".$tagertFile;
+        move_uploaded_file($temporario, $diretorio);
+        $foto = $tagertFile;
+    }else{
+        $default = "ftDefault.jpg";
+        $foto = $default;
+    }
+
+    $jogo = new Jogo();
     $jogo->setNome(addslashes($_POST['txtNomeJogo']));
-    $dal->inserirCategoria($jogo);
+    $jogo->setFoto($foto);
+    $jogo->setIdCategoria($_POST['selCategoria']);
+    $dalJogo->inserirJogo($jogo);
     header("location: cadJogo.php");
 }
 
@@ -55,23 +89,26 @@ if(isset($_POST['btCad'])){
                     </a>
                 </div>
                 <div class="dropdown-divider"></div>
-                <form action="#" method="POST">
+                <form action="#" method="POST" enctype="multipart/form-data">
                     <div class="form-row ">
                         <div class="form-group col-md-3">
                             <label for="txtNomeJogo">Nome do Jogo</label>
-                            <input type="text" class="form-control" id="txtNomeJogo" name="txtNomeJogo" placeholder="Nome" required>
+                            <input type="text" class="form-control" id="txtNomeJogo" name="txtNomeJogo" placeholder="Nome" required> <br>
+
+                            <label for="cadFoto">Foto</label>
+                            <input type="file" class="form-control" id="cadFoto" name="cadFoto" placeholder="Foto" > <br>
                         </div>
 
                         <div class="form-group col-md-3">
                             <label for="txtCategoria">Categoria</label>
-                            <select name="txtCategoria" id="txtCategoria" class="form-control">
+                            <select name="selCategoria" id="selCategoria" class="form-control">
                                 <option value=" ">Categoria</option>
 
-                                <?php //while(){?>
+                                <?php while($row = mysqli_fetch_array($listarCategoria)){?>
+                                
+                                <option value="<?php echo $row['id'];?>"><?php echo $row['nome'];?></option>
 
-                                <option value="0">Não</option>
-
-                                <?php //}?>
+                                <?php }?>
                             </select>
                             
                         </div>                        

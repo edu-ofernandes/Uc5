@@ -18,7 +18,9 @@ class DALJogo {
     // metodos
     public function inserirJogo($jogo){
         $sql = "INSERT INTO jogos VALUES (NULL,";
-        $sql = $sql."'".$jogo->getNome()."')";
+        $sql = $sql."'".$jogo->getNome()."', ";
+        $sql = $sql."'".$jogo->getFoto()."', ";
+        $sql = $sql."".$jogo->getIdCategoria().")";
 
         $banco = $this->conexao->getBanco();
         $banco->query($sql);
@@ -33,6 +35,15 @@ class DALJogo {
 
     public function listarJogo(){
         $sql = "SELECT * FROM jogos";
+
+        $banco = $this->conexao->getBanco();
+        $result = $banco->query($sql);
+
+        return $result;
+    }
+
+    public function listarIdJogo($idJogo){
+        $sql = "SELECT * FROM jogos WHERE id=".$idJogo;
 
         $banco = $this->conexao->getBanco();
         $result = $banco->query($sql);

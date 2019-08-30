@@ -11,5 +11,10 @@ $(document).ready(function (){
         apresenstar_menu.prev('a').attr('aria-expanded', true);
         apresenstar_menu.addClass('show');
     }
+
+    
+    $( "#success-btn" ).click(function() {
+        $( "div.success" ).fadeIn( 300 ).fadeOut( 300 );
+    });
 });
 
