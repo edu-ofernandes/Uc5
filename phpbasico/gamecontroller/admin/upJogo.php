@@ -94,15 +94,12 @@ if(isset($_POST['btCad'])){
             <div class="list-group-item">
                 <div class="d-flex">
                     <div class="mr-auto p-1">
-                        <h2 class="display-4 titulo-pagina">Cadastrar Jogo</h2>
+                        <h2 class="display-4 titulo-pagina">Atualizar Jogo</h2>
                     </div>
-                    <a href="listJogo.php">
-                        <div class="p-1">
-                            <button class="btn btn-sm btn-outline-secondary">
-                                    <i class="fas fa-undo-alt"></i> Listar todos
-                            </button>
-                        </div>
-                    </a>
+
+                    <div class="p-1">
+                        <a href="listJogo.php" class="btn btn-sm btn-outline-secondary" ><i class="fas fa-undo-alt"></i> Listar todos</a>
+                    </div>
                 </div>
                 <div class="dropdown-divider"></div>
 
@@ -136,7 +133,7 @@ if(isset($_POST['btCad'])){
                     </div>
                     
                     
-                    <button type="submit" class="btn btn-primary" name="btCad">Sign in</button>
+                    <button type="submit" class="btn btn-primary" name="btCad">Atualizar</button>
                 </form>
 
            
@@ -146,10 +143,7 @@ if(isset($_POST['btCad'])){
         <!--FIM APRESENTAR CONTEUDO-->
     </div>
     <!--Fim conteudo -->
-    <script src="../jquery/jquery-3.3.1.min.js"></script>
-    <script src="../popper/popper.min.js"></script>
-    <script src="../bootstrap/js/bootstrap.min.js"></script>
-    <script src="../js/dashboard.js"></script>
+  <?php require_once("Includes/inc_links.php");?>
 </body>
 
 </html>

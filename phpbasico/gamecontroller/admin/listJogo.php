@@ -10,16 +10,14 @@ require_once("Classes/DALCategoria.php");
 // objeto de conexao
 $conexao = new Conexao();
 
-// DAL admin
+// DAL Jogo e Catgeoria
 $dal = new DALJogo($conexao);
-$listarJogo = $dal->listarJogo();
-$row = mysqli_fetch_array($listarJogo);
-$idCategoria = $row['categorias_id'];
-
-
 $dalCategoria = new DALCategoria($conexao);
-$listarIdCategoria = $dalCategoria->listarIdCategoria($idCategoria);
-$row2 = mysqli_fetch_array($listarIdCategoria);
+
+$listarJogo = $dal->listarJogo();
+
+
+
 
 ?>
 
@@ -49,13 +47,11 @@ $row2 = mysqli_fetch_array($listarIdCategoria);
                     <div class="mr-auto p-1">
                         <h2 class="display-4 titulo-pagina">Jogos</h2>
                     </div>
-                    <a href="cadJogo.php">
-                        <div class="p-1">
-                            <button class="btn btn-outline-primary">
-                                    <i class="far fa-plus-square"></i> Novo Jogo
-                            </button>
+                    
+                        <div class="p-1">                      
+                            <a href="cadJogo.php" class="btn btn-outline-primary"><i class="far fa-plus-square"></i> Novo Jogo</a>
                         </div>
-                    </a>
+                   
                 </div>
 
                 <div class="card border-success mb-3">
@@ -91,10 +87,13 @@ $row2 = mysqli_fetch_array($listarIdCategoria);
                             </tr>
                         </thead>
 
-                        <?php  ?>
+                        <?php while($row = mysqli_fetch_array($listarJogo)){ 
+                            $idCategoria = $row['categorias_id'];
+                            $listarIdCategoria = $dalCategoria->listarIdCategoria($idCategoria);
+                            $row2 = mysqli_fetch_array($listarIdCategoria); ?>
                         <tbody>
                             <tr>
-                                <td class="d-none d-md-table-cell text-center"><img class="img-usuario" src="imagens/<?php echo $row['foto'];?>" alt="" width="150px"></td>
+                                <td class="d-none d-md-table-cell text-center"><img class="img-usuario" src="imagens/<?php echo $row['foto'];?>" alt="" width="200px"></td>
                                 <td class="d-none d-md-table-cell"><?php echo $row['id'];?></td>
                                 <td><?php echo $row['nome'];?></td>
                                 <td class="d-none d-md-table-cell"><?php echo $row2['nome'];?></td>
@@ -106,7 +105,7 @@ $row2 = mysqli_fetch_array($listarIdCategoria);
                                 </td>
                             </tr>
                         </tbody>
-                        <?php ?>
+                        <?php }?>
                     </table>
                 </div>
 
@@ -139,10 +138,7 @@ $row2 = mysqli_fetch_array($listarIdCategoria);
         </div>
     </div>
     <!--Fim conteudo -->
-    <script src="jquery/jquery-3.3.1.min.js"></script>
-    <script src="popper/popper.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="js/dashboard.js"></script>
+    <?php require_once("Includes/inc_links.php");?>
     <?php //require_once("Includes/inc_msg.php");?>
 </body>
 
