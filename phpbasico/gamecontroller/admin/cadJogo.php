@@ -104,7 +104,7 @@ if(isset($_POST['btCad'])){
                             <select name="selCategoria" id="selCategoria" class="form-control">
                                 <option value=" ">Categoria</option>
 
-                                <?php while($row = mysqli_fetch_array($listarCategoria)){?>
+                                <?php while($row = mysqli_fetch_assoc($listarCategoria)){?>
                                 
                                 <option value="<?php echo $row['id'];?>"><?php echo $row['nome'];?></option>
 

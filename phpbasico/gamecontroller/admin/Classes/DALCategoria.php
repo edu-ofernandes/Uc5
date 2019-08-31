@@ -24,7 +24,6 @@ class DALCategoria {
 
     public function alterarCategoria($categoria){
         $sql = "UPDATE categorias SET ";
-        $sql = $sql."id=".$categoria->getId().", ";
         $sql = $sql."nome='".$categoria->getNome()."' ";
         $sql = $sql."WHERE id=".$categoria->getId()."; ";
 

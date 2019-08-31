@@ -26,28 +26,35 @@ class DALJogo {
         $banco->query($sql);
     }
 
-    public function excluirJogo($idJogo){
-        $sql = "DELETE FROM jogos WHERE id= ".$idJogo;
+    public function alterarJogo($jogo){
+        $sql = "UPDATE jogos SET ";
+        $sql = $sql."nome='".$jogo->getNome()."', ";
+        $sql = $sql."foto='".$jogo->getFoto()."', ";
+        $sql = $sql."categorias_id=".$jogo->getIdCategoria()." ";
+        $sql = $sql." WHERE id=".$jogo->getId().";";
 
         $banco = $this->conexao->getBanco();
         $banco->query($sql);
     }
 
+    public function excluirJogo($idJogo){
+        $sql = "DELETE FROM jogos WHERE id= ".$idJogo;
+        $banco = $this->conexao->getBanco();
+        $banco->query($sql);
+    }
+
+
     public function listarJogo(){
         $sql = "SELECT * FROM jogos";
-
         $banco = $this->conexao->getBanco();
         $result = $banco->query($sql);
-
         return $result;
     }
 
     public function listarIdJogo($idJogo){
         $sql = "SELECT * FROM jogos WHERE id=".$idJogo;
-
         $banco = $this->conexao->getBanco();
         $result = $banco->query($sql);
-
         return $result;
     }
 }

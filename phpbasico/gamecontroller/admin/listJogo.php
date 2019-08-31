@@ -13,11 +13,13 @@ $conexao = new Conexao();
 // DAL admin
 $dal = new DALJogo($conexao);
 $listarJogo = $dal->listarJogo();
+$row = mysqli_fetch_array($listarJogo);
+$idCategoria = $row['categorias_id'];
+
 
 $dalCategoria = new DALCategoria($conexao);
-$listarCategoria = $dalCategoria->listarCategoria();
-
-$row2 = mysqli_fetch_array($listarCategoria)
+$listarIdCategoria = $dalCategoria->listarIdCategoria($idCategoria);
+$row2 = mysqli_fetch_array($listarIdCategoria);
 
 ?>
 
@@ -89,7 +91,7 @@ $row2 = mysqli_fetch_array($listarCategoria)
                             </tr>
                         </thead>
 
-                        <?php while($row = mysqli_fetch_array($listarJogo)){ ?>
+                        <?php  ?>
                         <tbody>
                             <tr>
                                 <td class="d-none d-md-table-cell text-center"><img class="img-usuario" src="imagens/<?php echo $row['foto'];?>" alt="" width="150px"></td>
@@ -104,7 +106,7 @@ $row2 = mysqli_fetch_array($listarCategoria)
                                 </td>
                             </tr>
                         </tbody>
-                        <?php }?>
+                        <?php ?>
                     </table>
                 </div>
 
