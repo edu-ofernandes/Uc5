@@ -2,6 +2,10 @@
 require_once("../include/connectaBD.php");
 require_once("../include/validar.php");
 
+
+$sql = "SELECT idusers, nome, login FROM users ORDER BY nome ASC";
+$resultBusca = $banco->query($sql);
+
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -37,12 +41,18 @@ require_once("../include/validar.php");
             <section id="listar">
                 <h2>Listando Usuarios</h2>
                 <h3><a href="usersAdd.php">Cadastrar novos Usuários</a></h3>
+
+                <?php while($row = mysqli_fetch_assoc($resultBusca)){?>
+
                 <div class="listUsers">
-                    <div class="listNome">Nome:</div>
-                    <div class="listTel">Login:</div>
-                    <div class="up"><a href="usersUp.php">Editar</a></div>
-                    <div class="del"><a href="usersDel.php">Excluir</a></div>
+                    <div class="listNome">Nome: <?php echo $row['nome'];?></div>
+                    <div class="listLogin">Login: <?php echo $row['login'];?></div>
+                    <div class="up"><a href="usersUp.php?id=<?php echo $row['idusers'];?>">Editar</a></div>
+                    <div class="del"><a href="usersDel.php?id=<?php echo $row['idusers'];?>">Excluir</a></div> <br>
                 </div>
+
+                <?php }?>
+
             </section>
         </article>
     </main>

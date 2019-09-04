@@ -2,6 +2,24 @@
 require_once("../include/connectaBD.php");
 require_once("../include/validar.php");
 
+
+if(!empty($_GET['id'])){
+    $idUsers = $_GET['id'];
+    $sqlList = "SELECT * FROM users WHERE idusers=$idUsers";
+    $result = $banco->query($sqlList);
+    $rowList = mysqli_fetch_assoc($sqlList);
+
+    if(isset('btCad')){
+        $nome = addslashes($_POST['txtNome']);
+        $nomeUsuario = addslashes($_POST['txtNomeUsuario']);
+        $senha = md5(addslashes($_POST['txtSenha']));
+        $nivel = $_POST['selNivel'];
+
+
+    }
+}
+
+echo $row['nome'];
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -36,16 +54,21 @@ require_once("../include/validar.php");
         <article>
             <section id="listar">
                 <h2>Alterando Usuarios</h2>
+
+                <?php ?>
+
                 <form action="#" method="post" id="formUser" name="formUser">
-                    <input type="text" name="txtNome" id="txtNome" placeholder="Nome User">
-                    <input type="text" name="txtLogin" id="txtLogin" placeholder="Login">
+                    <input type="text" name="txtNome" id="txtNome" placeholder="Nome" value="<?php echo $row['nome'];?>">
+                    <input type="text" name="txtNomeUsuario" id="txtNomeUsuario" placeholder="Nome de usuario">
                     <input type="password" name="txtSenha" id="txtSenha" placeholder="Senha">
-                    <select name="selNivel" id="selNivel">
-                        <option value="0">Comum</option>
-                        <option value="1">Adm</option>
-                    </select>
-                    <input type="hidden" name="keyUser" id="keyUser">
-                    <input type="submit" name="btCad" id="btCad" value="Alterar">
+
+                    <!-- verificar os inputs radios para imprimir o que ja estao setado -->
+                    <label for="selNivel">Comum</label>
+                    <input type="radio" name="selNivel" id="selNivel0" value="0">
+                    <label for="selNivel">Admin</label>
+                    <input type="radio" name="selNivel" id="selNivel1" value="1">
+
+                    <input type="submit" name="btCad" id="btCad" value="Cadastrar">
                 </form>
             </section>
         </article>

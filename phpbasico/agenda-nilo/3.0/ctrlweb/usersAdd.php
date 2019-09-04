@@ -2,6 +2,22 @@
 require_once("../include/connectaBD.php");
 require_once("../include/validar.php");
 
+
+if(isset($_POST['btCad'])){
+    $nome = addslashes($_POST['txtNome']);
+    $nomeUsuario = addslashes($_POST['txtNomeUsuario']);
+    $senha = md5(addslashes($_POST['txtSenha']));
+    $nivel = $_POST['selNivel'];
+
+    $sql = "INSERT INTO users VALUES (null, '$nome', '$nomeUsuario', '$senha', '$nivel')";
+    if(mysqli_query($banco, $sql)){
+        echo "<script>Alert('User adicionado com Sucesso');</script>";
+        header("location: users.php");
+    }else{
+        echo "erro ao cadastrar: ".mysqli_connect_error($banco);    
+    }
+}
+
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -37,13 +53,14 @@ require_once("../include/validar.php");
             <section id="listar">
                 <h2>Cadastrando Usuarios</h2>
                 <form action="#" method="post" id="formUser" name="formUser">
-                    <input type="text" name="txtNome" id="txtNome" placeholder="Nome User">
-                    <input type="text" name="txtLogin" id="txtLogin" placeholder="Login">
+                    <input type="text" name="txtNome" id="txtNome" placeholder="Nome">
+                    <input type="text" name="txtNomeUsuario" id="txtNomeUsuario" placeholder="Nome de usuario">
                     <input type="password" name="txtSenha" id="txtSenha" placeholder="Senha">
-                    <select name="selNivel" id="selNivel">
-                        <option value="0">Comum</option>
-                        <option value="1">Adm</option>
-                    </select>
+                    <label for="selNivel">Comum</label>
+                    <input type="radio" name="selNivel" id="selNivel0" value="0">
+                    <label for="selNivel">Admin</label>
+                    <input type="radio" name="selNivel" id="selNivel1" value="1">
+
                     <input type="submit" name="btCad" id="btCad" value="Cadastrar">
                 </form>
             </section>

@@ -42,7 +42,9 @@ if(isset($_POST['btCad'])){
     $email = addslashes($_POST['txtEmail']);
     $userId = '1';
 
-    $sqlUp = "UPDATE contatos SET idcontatos=".$row['idcontatos'].", nome ='".$nome."', tel='".$tel."', email='".$email."', foto='".$foto."', users_idusers=".$userId." WHERE idcontatos=".$row['idcontatos'];
+    $sqlUp = "UPDATE contatos SET idcontatos=".$row['idcontatos'].", 
+    nome ='".$nome."', tel='".$tel."', email='".$email."', foto='".$foto."', 
+    users_idusers=".$userId." WHERE idcontatos=".$row['idcontatos'];
 
     if(mysqli_query($banco, $sqlUp)){
         header("location: contatos.php");
