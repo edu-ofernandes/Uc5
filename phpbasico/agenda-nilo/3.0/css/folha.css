@@ -42,7 +42,7 @@ nav ul li{
 main{
 	width: auto;
 	margin-bottom: 10px;
-	padding: 3px;
+	padding: 10px;
 	border-bottom: 1px solid #999999;
 }
 footer{
@@ -110,4 +110,15 @@ input{
 .listFt > img {
 	width: 100%;
 	
+}
+
+.redefinirSenha{
+	padding: 5px;
+	background-color: rgb(63, 63, 63);
+	color: rgb(255, 255, 255);
+	font-weight: bold;
+}
+.redefinirSenha:hover{
+	background-color: rgb(0, 0, 0);
+	color: rgb(255, 255, 255);
 }

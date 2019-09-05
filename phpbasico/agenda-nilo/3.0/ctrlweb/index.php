@@ -35,7 +35,10 @@ require_once("../include/connectaBD.php");
 					<form action="../include/verificaBD.php" method="post" name="formAdmin" id="formAdmin">
 						<input type="text" name="txtLogin" id="txtAdmin" placeholder="Login">
 						<input type="password" name="txtSenha" id="txtSenha" placeholder="Senha">
-						<input type="submit" name="btEntrar" id="btEntrar" value="Entrar">
+						<input type="submit" name="btEntrar" id="btEntrar" value="Entrar"> <br>
+
+						<h1>Esqueçeu sua senha? clique no botao para redefinir!</h1> <br>
+						<a type="button" name="redefinirSenha" id="redefinirSenha" href="../last.php" class="redefinirSenha">Redefinir </a>
 
 					</form>
 				</div>

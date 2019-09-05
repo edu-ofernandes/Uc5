@@ -3,23 +3,25 @@ require_once("../include/connectaBD.php");
 require_once("../include/validar.php");
 
 
-if(!empty($_GET['id'])){
+
     $idUsers = $_GET['id'];
     $sqlList = "SELECT * FROM users WHERE idusers=$idUsers";
-    $result = $banco->query($sqlList);
-    $rowList = mysqli_fetch_assoc($sqlList);
+    $resultList = $banco->query($sqlList);
+    $rowList = mysqli_fetch_assoc($resultList);
 
-    if(isset('btCad')){
+    if(isset($_POST['btCad'])){
         $nome = addslashes($_POST['txtNome']);
         $nomeUsuario = addslashes($_POST['txtNomeUsuario']);
         $senha = md5(addslashes($_POST['txtSenha']));
         $nivel = $_POST['selNivel'];
 
-
+        $sql = "UPDATE users SET idusers=$idUsers, nome='$nome', login='$nomeUsuario', senha='$senha', nivel='$nivel' WHERE idusers=$idUsers";
+        $resultList = $banco->query($sql);
+        header("location: users.php");
     }
-}
 
-echo $row['nome'];
+
+
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -58,17 +60,31 @@ echo $row['nome'];
                 <?php ?>
 
                 <form action="#" method="post" id="formUser" name="formUser">
-                    <input type="text" name="txtNome" id="txtNome" placeholder="Nome" value="<?php echo $row['nome'];?>">
-                    <input type="text" name="txtNomeUsuario" id="txtNomeUsuario" placeholder="Nome de usuario">
-                    <input type="password" name="txtSenha" id="txtSenha" placeholder="Senha">
+                    <input type="text" name="txtNome" id="txtNome" placeholder="Nome" value="<?php echo $rowList['nome'];?>">
+                    <input type="text" name="txtNomeUsuario" id="txtNomeUsuario" placeholder="Nome de usuario" value="<?php echo $rowList['login'];?>">
+                    <input type="password" name="txtSenha" id="txtSenha" placeholder="Senha" value="<?php echo $rowList['senha'];?>">
+
+                    <?php if($rowList['nivel'] === 0){?>
 
                     <!-- verificar os inputs radios para imprimir o que ja estao setado -->
                     <label for="selNivel">Comum</label>
-                    <input type="radio" name="selNivel" id="selNivel0" value="0">
+                    <input type="radio" name="selNivel" id="selNivel0" value="0" checked>
                     <label for="selNivel">Admin</label>
                     <input type="radio" name="selNivel" id="selNivel1" value="1">
 
                     <input type="submit" name="btCad" id="btCad" value="Cadastrar">
+
+                    <?php }else{?>
+
+                    <label for="selNivel">Comum</label>
+                    <input type="radio" name="selNivel" id="selNivel0" value="0" >
+                    <label for="selNivel">Admin</label>
+                    <input type="radio" name="selNivel" id="selNivel1" value="1" checked>
+
+                    <input type="submit" name="btCad" id="btCad" value="Cadastrar">
+
+                    <?php }?>
+
                 </form>
             </section>
         </article>
