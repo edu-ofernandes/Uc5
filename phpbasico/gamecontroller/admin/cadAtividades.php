@@ -62,6 +62,7 @@ if(isset($_POST['btCad'])){}
                     
                     
                     <button type="submit" class="btn btn-primary" name="btCad">Sign in</button>
+                    <a type="button" class="btn btn-warning " href="listAtividades.php">Voltar</a>
                 </form>
 
             </div>

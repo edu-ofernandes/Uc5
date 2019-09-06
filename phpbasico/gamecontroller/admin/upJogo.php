@@ -134,6 +134,7 @@ if(isset($_POST['btCad'])){
                     
                     
                     <button type="submit" class="btn btn-primary" name="btCad">Atualizar</button>
+                    <a type="button" class="btn btn-danger" href="listJogo.php">Cancelar</a>
                 </form>
 
            

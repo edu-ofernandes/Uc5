@@ -102,6 +102,7 @@ if(isset($_POST['btCad'])){
                             <input type="file" class="form-control" id="cadFoto" name="cadFoto" placeholder="Foto" > <br><br><br>
 
                             <button type="submit" class="btn btn-primary" name="btCad">Sign in</button>
+                            <a type="button" class="btn btn-warning " href="listUsuario.php">Voltar</a>
                         </div>
 
                         <div class="form-group col-md-3">

@@ -110,6 +110,7 @@ if(isset($_GET['idUp'])){
                             <input type="file" class="form-control" id="cadFoto" name="cadFoto" placeholder="Foto"> <br><br><br>
 
                             <button type="submit" class="btn btn-primary" name="btCad">Atualizar</button>
+                            <a type="button" class="btn btn-danger" href="listUsuario.php">Cancelar</a>
                         </div>
 
                         <div class="form-group col-md-3">

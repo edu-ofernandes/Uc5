@@ -89,6 +89,7 @@ if(isset($_GET['idUp'])){
                     
                     
                     <button type="submit" class="btn btn-primary" name="btCad">Atualizar</button>
+                    <a type="button" class="btn btn-danger" href="listAdmin.php">Cancelar</a>
                 </form>
                 <?php }?>
             </div>

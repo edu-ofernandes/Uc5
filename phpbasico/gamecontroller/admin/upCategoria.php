@@ -74,6 +74,7 @@ if(isset($_GET['idUp'])){
                     
                     
                     <button type="submit" class="btn btn-primary" name="btCad">Sign in</button>
+                    <a type="button" class="btn btn-danger" href="listCategoria.php">Cancelar</a>
                 </form>
 
             </div>
