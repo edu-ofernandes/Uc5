@@ -114,7 +114,7 @@ if(isset($_POST['btCad'])){
                             <label for="cadFoto">Foto</label>
                             <input type="file" class="form-control" id="cadFoto" name="cadFoto" placeholder="Foto" > <br>
 
-                            <img src="imagens/<?php echo $row['foto']?>" alt="foto do jogo">
+                            <img src="imagens/<?php echo $row['foto']?>" alt="foto do jogo" width="400px">
                         </div>
 
                         <div class="form-group col-md-3">
