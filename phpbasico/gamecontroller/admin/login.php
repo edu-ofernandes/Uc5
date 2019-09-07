@@ -1,3 +1,16 @@
+<?php 
+require_once("Classes/Conexao.php");
+require_once("Classes/DALAdmin.php");
+
+if(isset($_POST['btLogin'])){
+    echo "teste";
+}
+
+
+
+
+?>
+
 <!doctype html>
 <html lang="pt-br">
 
@@ -39,7 +52,7 @@
             <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
             <label for="inputPassword">Password</label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" name="btLogin">Sign in</button>
         <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2019</p>
     </form>
 </body>
