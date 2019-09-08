@@ -5,6 +5,9 @@ include_once("Classes/Jogo.php");
 require_once("Classes/DALJogo.php");
 require_once("Classes/DALCategoria.php");
 require_once("Classes/Categoria.php");
+require_once("Classes/Verifica.php");
+
+
 
 // conexao com banco
 $conexao = new Conexao();

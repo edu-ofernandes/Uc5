@@ -2,13 +2,34 @@
 require_once("Classes/Conexao.php");
 require_once("Classes/DALAdmin.php");
 
+
+
+
+
+
+
 if(isset($_POST['btLogin'])){
-    echo "teste";
+
+
+    $conexao = new Conexao();
+    $dal = new DALAdmin($conexao);
+
+    $email = $_POST['txtEmail'];
+    $senha = md5($_POST['txtSenha']);
+    $result = $dal->listarAdminLogin($email, $senha);
+
+
+
+    if(!empty($result)){
+        session_start();
+        $_SESSION['liberado'] = true;
+        $_SESSION['nome'] = $result->getNome();
+        header("location: painel.php");
+    }else{
+        header("location: index.php");
+    }
+
 }
-
-
-
-
 ?>
 
 <!doctype html>
@@ -31,7 +52,7 @@ if(isset($_POST['btLogin'])){
 </head>
 
 <body>
-    <form class="form-signin">
+    <form class="form-signin" method="post" action="#">
         <div class="text-center mb-4">
             <img class="mb-4" src="imagens/sistema/geral/login.png" alt="" width="72" height="72">
             <h1 class="h3 mb-3 font-weight-normal">Área Restrita</h1>
@@ -44,13 +65,13 @@ if(isset($_POST['btLogin'])){
             </div>
 
         <div class="form-label-group">
-            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-            <label for="inputEmail">Email address</label>
+            <input type="email" id="txtEmail" name="txtEmail" class="form-control" placeholder="Email address"  >
+            <label for="txtEmail">Email address</label>
         </div>
 
         <div class="form-label-group">
-            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-            <label for="inputPassword">Password</label>
+            <input type="password" id="txtSenha" name="txtSenha" class="form-control" placeholder="Password" >
+            <label for="txtSenha">Password</label>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit" name="btLogin">Sign in</button>
         <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2019</p>

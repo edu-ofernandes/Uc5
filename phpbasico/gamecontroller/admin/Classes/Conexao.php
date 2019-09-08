@@ -22,6 +22,7 @@ class Conexao{
         if($this->getNomeBanco() != ""){
             $this->Conectar();
         }
+        
 
     }
 
@@ -72,7 +73,11 @@ class Conexao{
         if($this->banco->connect_errno){
             die("Deu ruim, SQL: (".$this->banco->connect_errno.")");
         }else{
+            
             return $this->getBanco();
+            mysqli_set_charset($this->banco->getBanco(), "utf8");
+          
+            
         }
     }
 }

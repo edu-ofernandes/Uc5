@@ -1,3 +1,15 @@
+<?php 
+require_once("Classes/Conexao.php");
+require_once("Classes/Verifica.php");
+
+if($_SESSION['liberado'] === true){
+    $nomeUser = $_SESSION['nome'];
+}
+
+
+
+?>
+
 <!doctype html>
 <html lang="pt-br">
 

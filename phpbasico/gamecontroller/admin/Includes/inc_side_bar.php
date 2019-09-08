@@ -64,7 +64,7 @@
                     </ul>
                 </li>
                 
-                <li><a href="login.php"><i class="fas fa-sign-out-alt"></i> Sair do sistema</a></li>
+                <li><a href="sair.php"><i class="fas fa-sign-out-alt"></i> Sair do sistema</a></li>
 
             </ul>
         </nav>

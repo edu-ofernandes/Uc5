@@ -3,7 +3,7 @@ require_once("Classes/Conexao.php");
 require_once("Classes/Categoria.php");
 require_once("Classes/ClasseBase.php");
 require_once("Classes/DALCategoria.php");
-
+require_once("Classes/Verifica.php");
 
 // objeto de conexao
 $conexao = new Conexao();

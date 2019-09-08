@@ -4,7 +4,7 @@ include_once("Classes/ClasseBase.php");
 include_once("Classes/Jogo.php");
 require_once("Classes/DALJogo.php");
 require_once("Classes/DALCategoria.php");
-
+require_once("Classes/Verifica.php");
 
 
 // objeto de conexao

@@ -77,7 +77,24 @@ class DALAdmin {
         return $result;
     }
 
-    
+    public function listarAdminLogin($email, $senha){
+        $sql = "SELECT * FROM administradores ";
+        $sql = $sql." WHERE email='".$email."' AND senha='".$senha."' ;";
+
+        $banco = $this->conexao->getBanco();
+        $result = $banco->query($sql);
+        $admin = new Admin();
+        if($row = mysqli_fetch_array($result)){
+            $admin->setId($row['id']);
+            $admin->setNome($row['nome']);
+            $admin->setEmail($row['email']);
+            $admin->setSenha($row['senha']);
+        }else{
+            $admin = null;
+        }
+
+        return($admin);
+    }
 }
 
 

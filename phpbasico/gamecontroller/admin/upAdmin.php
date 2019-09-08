@@ -3,7 +3,7 @@ include_once("Classes/Conexao.php");
 include_once("Classes/ClasseBase.php");
 include_once("Classes/Admin.php");
 include_once("Classes/DALAdmin.php");
-
+require_once("Classes/Verifica.php");
 
 // conexao com banco
 $conexao = new Conexao();
@@ -13,7 +13,7 @@ $dal = new DALAdmin($conexao);
 if(isset($_GET['idUp'])){
     $idAdmin = $_GET['idUp'];
     $listarAdmin = $dal->listarAdminId($idAdmin);
-    $row = mysqli_fetch_array($listarAdmin);
+    $row = mysqli_fetch_assoc($listarAdmin);
 
     if(isset($_POST['btCad'])){
         $admin = new Admin();
@@ -70,7 +70,7 @@ if(isset($_GET['idUp'])){
                 </div>
                 <div class="dropdown-divider"></div>
                 
-                <?php if(isset($_GET['idUp'])){?>
+                <?php if(isset($_GET['idUp'])){ ?>
                 <form action="#" method="POST">
                     <div class="form-col ">
                         <div class="form-group col-md-4">  

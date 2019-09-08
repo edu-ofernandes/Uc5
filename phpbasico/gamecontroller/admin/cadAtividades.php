@@ -3,6 +3,8 @@ include_once("Classes/Conexao.php");
 include_once("Classes/ClasseBase.php");
 include_once("Classes/Atividade.php");
 // include_once("Classes/DALAtividade.php");
+require_once("Classes/Verifica.php");
+
 
 // conexao com banco
 $conexao = new Conexao();
