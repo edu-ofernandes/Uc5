@@ -12,8 +12,7 @@ $dal = new DALCategoria($conexao);
 
 if(isset($_GET['idUp'])){
     $idCategoria = $_GET['idUp'];
-    $listarCategoria = $dal->listarIdCategoria($idCategoria);
-    $row = mysqli_fetch_array($listarCategoria);
+    $listarCategoriaId = $dal->listarCategoriaId($idCategoria);
 
     if(isset($_POST['btCad'])){
         $categoria = new Categoria();
@@ -27,6 +26,9 @@ if(isset($_GET['idUp'])){
 }
 
 
+// echo "<pre>";
+// var_dump($listarCategoriaId);
+// echo "</pre>";
 ?>
 
 
@@ -67,7 +69,7 @@ if(isset($_GET['idUp'])){
                     <div class="form-row ">
                         <div class="form-group col-md-3">
                             <label for="txtNomeCategoria">Nome da Categoria</label>
-                            <input type="text" class="form-control" id="txtNomeCategoria" name="txtNomeCategoria" placeholder="Nome" required value="<?php echo $row['nome'];?>">
+                            <input type="text" class="form-control" id="txtNomeCategoria" name="txtNomeCategoria" placeholder="Nome" required value="<?php echo $listarCategoriaId->getNome();?>">
                             
                         </div>                        
                     </div>

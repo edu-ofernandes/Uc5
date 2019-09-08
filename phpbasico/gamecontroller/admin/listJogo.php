@@ -11,12 +11,11 @@ require_once("Classes/Verifica.php");
 $conexao = new Conexao();
 
 // DAL Jogo e Catgeoria
-$dal = new DALJogo($conexao);
+$dalJogo = new DALJogo($conexao);
 $dalCategoria = new DALCategoria($conexao);
 
-$listarJogo = $dal->listarJogo();
-
-
+$listarJogo = $dalJogo->listarJogo();
+$row = count($listarJogo);
 
 
 ?>
@@ -87,20 +86,19 @@ $listarJogo = $dal->listarJogo();
                             </tr>
                         </thead>
 
-                        <?php while($row = mysqli_fetch_array($listarJogo)){ 
-                            $idCategoria = $row['categorias_id'];
-                            $listarIdCategoria = $dalCategoria->listarIdCategoria($idCategoria);
-                            $row2 = mysqli_fetch_array($listarIdCategoria); ?>
+                        <?php for($i = 0; $row > $i; $i++){ 
+                                $listarCategoriaId = $dalCategoria->listarCategoriaId($listarJogo[$i]->getIdCategoria());
+                        ?>
                         <tbody>
                             <tr>
-                                <td class="d-none d-md-table-cell text-center"><img class="img-usuario" src="imagens/<?php echo $row['foto'];?>" alt="" width="200px"></td>
-                                <td class="d-none d-md-table-cell"><?php echo $row['id'];?></td>
-                                <td><?php echo $row['nome'];?></td>
-                                <td class="d-none d-md-table-cell"><?php echo $row2['nome'];?></td>
-                                <td class="text-center">
+                                <td class="d-none d-md-table-cell text-center align-middle"><img class="img-usuario" src="imagens/<?php echo $listarJogo[$i]->getFoto();?>" alt="" width="200px"></td>
+                                <td class="d-none d-md-table-cell align-middle"><?php echo $listarJogo[$i]->getId();?></td>
+                                <td class="align-middle"><?php echo $listarJogo[$i]->getNome();?></td>
+                                <td class="d-none d-md-table-cell align-middle"><?php echo $listarCategoriaId->getNome();?></td>
+                                <td class="text-center align-middle">
                                     <button type="button" class="btn btn-sm btn-outline-info"><i class="fas fa-eye"></i></button>
-                                    <a href="upJogo.php?idUp=<?php echo $row['id'];?>" type="button" class="btn btn-sm btn-outline-warning"><i class="far fa-edit"></i></a>
-                                    <a href="Classes/DALJogo.php?id=<?php echo $row['id'];?>" type="button" class="btn btn-sm btn-outline-danger"><i class="far fa-trash-alt"></i>
+                                    <a href="upJogo.php?idUp=<?php echo $listarJogo[$i]->getId();?>" type="button" class="btn btn-sm btn-outline-warning"><i class="far fa-edit"></i></a>
+                                    <a href="Classes/DALJogo.php?id=<?php echo $listarJogo[$i]->getId();?>" type="button" class="btn btn-sm btn-outline-danger"><i class="far fa-trash-alt"></i>
                                     </a>
                                 </td>
                             </tr>

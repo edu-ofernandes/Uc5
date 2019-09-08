@@ -48,14 +48,33 @@ class DALJogo {
         $sql = "SELECT * FROM jogos";
         $banco = $this->conexao->getBanco();
         $result = $banco->query($sql);
-        return $result;
+
+        $vetor = [];
+        while($row = mysqli_fetch_array($result)){
+            $jogo = new Jogo();
+            $jogo->setId($row['id']);
+            $jogo->setNome($row['nome']);
+            $jogo->setFoto($row['foto']);
+            $jogo->setIdCategoria($row['categorias_id']);
+    
+            $vetor[] = $jogo;
+        }
+        return ($vetor);
     }
 
     public function listarIdJogo($idJogo){
         $sql = "SELECT * FROM jogos WHERE id=".$idJogo;
         $banco = $this->conexao->getBanco();
         $result = $banco->query($sql);
-        return $result;
+
+        $jogo = new Jogo();
+        if($row = mysqli_fetch_array($result)){
+            $jogo->setId($row['id']);
+            $jogo->setNome($row['nome']);
+            $jogo->setFoto($row['foto']);
+            $jogo->setIdCategoria($row['categorias_id']);
+        }
+        return ($jogo);
     }
 }
 

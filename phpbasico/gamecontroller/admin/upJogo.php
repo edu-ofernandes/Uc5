@@ -13,19 +13,21 @@ $conexao = new Conexao();
 $dalJogo = new DALJogo($conexao);
 $dalCategoria = new DALCategoria($conexao);
 
+
 // select para imprimir o nome e foto do jogo
 $idJogo = $_GET['idUp'];
 $listarJogo = $dalJogo->listarIdJogo($idJogo);
-$row = mysqli_fetch_array($listarJogo);
+
+// select para listar nova categoria
+$listarCategoria = $dalCategoria->listarCategoria();
+$row = count($listarCategoria);
 
 
 // id da categoria do jogog selecionado para editar
-$idCategoria = $row['categorias_id'];
-// select para imprimir o nome da do jogo selecionado no select la embaixo
-$listarIdCategoria = $dalCategoria->listarIdCategoria($idCategoria);
-$row2 = mysqli_fetch_assoc($listarIdCategoria);
-// select para listar nova categoria
-$listarCategoria = $dalCategoria->listarCategoria();
+$idCategoria = $listarJogo->getIdCategoria();
+// select para imprimir o nome da categoria do jogo selecionado no select la embaixo
+$listarIdCategoria = $dalCategoria->listarCategoriaId($idCategoria);
+
 
 
 
@@ -54,8 +56,7 @@ if(isset($_POST['btCad'])){
         move_uploaded_file($temporario, $diretorio);
         $foto = $tagertFile;
     }else{
-        $default =  $row['foto'];
-        $foto = $default;
+        $foto = $listarJogo->getFoto();;
     }
 
     $jogo = new Jogo();
@@ -64,7 +65,7 @@ if(isset($_POST['btCad'])){
     $jogo->setFoto($foto);
     $jogo->setIdCategoria($_POST['selCategoria']);
     $dalJogo->alterarJogo($jogo);
-    header("location: cadJogo.php");
+    header("location: listJogo.php");
 }
 
 
@@ -110,22 +111,22 @@ if(isset($_POST['btCad'])){
                     <div class="form-row ">
                         <div class="form-group col-md-3">
                             <label for="txtNomeJogo">Nome do Jogo</label>
-                            <input type="text" class="form-control" id="txtNomeJogo" name="txtNomeJogo" placeholder="Nome" value="<?php echo $row['nome']?>" required> <br>
+                            <input type="text" class="form-control" id="txtNomeJogo" name="txtNomeJogo" placeholder="Nome" value="<?php echo $listarJogo->getNome();?>" required> <br>
 
                             <label for="cadFoto">Foto</label>
-                            <input type="file" class="form-control" id="cadFoto" name="cadFoto" placeholder="Foto" > <br>
+                            <input type="file" class="form-control" id="cadFoto" name="cadFoto" placeholder="Foto" value=""> <br>
 
-                            <img src="imagens/<?php echo $row['foto']?>" alt="foto do jogo" width="400px">
+                            <img src="imagens/<?php echo $listarJogo->getFoto();?>" alt="foto do jogo" width="400px">
                         </div>
 
                         <div class="form-group col-md-3">
                             <label for="selCategoria">Categoria</label>
                             <select name="selCategoria" id="selCategoria" class="form-control">
-                                <option value="<?php echo $row2['id']?>"><?php echo $row2['nome']?></option>
+                                <option value="<?php echo $listarIdCategoria->getId();?>"><?php echo $listarIdCategoria->getNome();?></option>
 
-                                <?php while($row3 = mysqli_fetch_assoc($listarCategoria)){?>
+                                <?php for($i = 0; $row > $i; $i++ ){ ?>
                                 
-                                <option value="<?php echo $row3['id'];?>"><?php echo $row3['nome'];?></option>
+                                <option value="<?php echo $listarCategoria[$i]->getId();?>"><?php echo $listarCategoria[$i]->getNome();?></option>
 
                                 <?php }?>
                             </select>

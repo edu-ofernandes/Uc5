@@ -10,26 +10,28 @@ $conexao = new Conexao();
 // DAL
 $dal = new DALAdmin($conexao);
 
-if(isset($_GET['idUp'])){
-    $idAdmin = $_GET['idUp'];
-    $listarAdmin = $dal->listarAdminId($idAdmin);
-    $row = mysqli_fetch_assoc($listarAdmin);
 
-    if(isset($_POST['btCad'])){
-        $admin = new Admin();
-        $admin->setId(addslashes($idAdmin));
-        $admin->setNome(addslashes($_POST['txtNome']));
-        $admin->setEmail(addslashes($_POST['txtEmail']));
-        $admin->setSenha(addslashes(md5($_POST['txtSenha'])));
+$idAdmin = $_GET['idUp'];
+$listarAdminId = $dal->listarAdminId($idAdmin);
 
-        $dal->alterarAdmin($admin);
-        header("location: listAdmin.php");
-    }
-    
-    
-    // header("location: listAdmin.php");
+
+
+if(isset($_POST['btCad'])){
+    $admin = new Admin();
+    $admin->setId(addslashes($idAdmin));
+    $admin->setNome(addslashes($_POST['txtNome']));
+    $admin->setEmail(addslashes($_POST['txtEmail']));
+    $admin->setSenha($listarAdminId->getSenha());
+
+    $dal->alterarAdmin($admin);
+    header("location: listAdmin.php");
 }
+    
+    
+  
+
 // echo "<pre>";
+// var_dump($listarAdminId);
 // echo "</pre>";
 
 
@@ -75,15 +77,15 @@ if(isset($_GET['idUp'])){
                     <div class="form-col ">
                         <div class="form-group col-md-4">  
                             <label for="txtNome ">Nome</label>
-                            <input type="text" class="form-control" id="txtNome" name="txtNome" placeholder="Nome" value="<?php echo $row['nome'];?>">
+                            <input type="text" class="form-control" id="txtNome" name="txtNome" placeholder="Nome" value="<?php echo $listarAdminId->getNome();?>">
                         </div>                        
                         <div class="form-group col-md-4">
                             <label for="txtEmail">Email</label>
-                            <input type="text" class="form-control" id="txtEmail" name="txtEmail" placeholder="Email" value="<?php echo $row['email'];?>">
+                            <input type="text" class="form-control" id="txtEmail" name="txtEmail" placeholder="Email" value="<?php echo $listarAdminId->getEmail()?>">
                         </div>                        
                         <div class="form-group col-md-4">
                             <label for="txtSenha">Senha</label>
-                            <input type="password" class="form-control" id="txtSenha" name="txtSenha" placeholder="Senha" value="<?php echo $row['senha'];?>">
+                            <input type="password" class="form-control" id="txtSenha" name="txtSenha" placeholder="Senha" value="<?php echo $listarAdminId->getSenha();?>">
                         </div>                        
                     </div>
                     

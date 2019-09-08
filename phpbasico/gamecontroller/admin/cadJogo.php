@@ -15,7 +15,9 @@ $conexao = new Conexao();
 $dalJogo = new DALJogo($conexao);
 $dalCategoria = new DALCategoria($conexao);
 
+// select para listar nova categoria
 $listarCategoria = $dalCategoria->listarCategoria();
+$row = count($listarCategoria);
 
 
 if(isset($_POST['btCad'])){
@@ -107,9 +109,9 @@ if(isset($_POST['btCad'])){
                             <select name="selCategoria" id="selCategoria" class="form-control">
                                 <option value=" ">Categoria</option>
 
-                                <?php while($row = mysqli_fetch_assoc($listarCategoria)){?>
+                                <?php for($i = 0; $row > $i; $i++ ){ ?>
                                 
-                                <option value="<?php echo $row['id'];?>"><?php echo $row['nome'];?></option>
+                                <option value="<?php echo $listarCategoria[$i]->getId();?>"><?php echo $listarCategoria[$i]->getNome();?></option>
 
                                 <?php }?>
                             </select>

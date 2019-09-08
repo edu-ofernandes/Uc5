@@ -31,25 +31,41 @@ class DALCategoria {
         $banco->query($sql);
     }
 
+    public function excluircategoria($idCategoria){
+        $sql = "DELETE FROM categorias WHERE id=".$idCategoria;
+        $banco = $this->conexao->getbanco();
+        $banco->query($sql);
+    }
+
     public function listarCategoria(){
         $sql = "SELECT * FROM `categorias`";
         $banco = $this->conexao->getBanco();
         $result = $banco->query($sql);
 
-        return $result;
+        $vetor = [];
+        while($row = mysqli_fetch_array($result)){
+            $categoria = new Categoria();
+            $categoria->setId($row['id']);
+            $categoria->setNome($row['nome']);
+
+            $vetor[] = $categoria;
+        }
+
+        return $vetor;
     }
-    public function listarIdCategoria($idCategoria){
+
+    public function listarCategoriaId($idCategoria){
         $sql = "SELECT * FROM `categorias` WHERE id=".$idCategoria;
         $banco = $this->conexao->getBanco();
         $result = $banco->query($sql);
 
-        return $result;
-    }
+        $categoria = new Categoria();
+        if($row = mysqli_fetch_array($result)){
+            $categoria->setId($row['id']);
+            $categoria->setNome($row['nome']);
+        }else{$categoria = null;}
 
-    public function excluircategoria($idCategoria){
-        $sql = "DELETE FROM categorias WHERE id=".$idCategoria;
-        $banco = $this->conexao->getbanco();
-        $banco->query($sql);
+        return ($categoria);
     }
 }
 

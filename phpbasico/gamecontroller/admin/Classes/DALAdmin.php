@@ -54,19 +54,19 @@ class DALAdmin {
         $banco = $this->conexao->getBanco();
         $result = $banco->query($sql);
 
-        // $vetor = [];
+        $vetor = [];
 
-        // while($row = mysqli_fetch_array($result)){
-        //     $admin = new Admin();
-        //     $admin->setId($row['id']);
-        //     $admin->setNome($row['nome']);
-        //     $admin->setEmail($row['email']);
-        //     $admin->setSenha($row['senha']);
+        while($row = mysqli_fetch_array($result)){
+            $admin = new Admin();
+            $admin->setId($row['id']);
+            $admin->setNome($row['nome']);
+            $admin->setEmail($row['email']);
+            $admin->setSenha($row['senha']);
 
-        //     $vetor[] = $admin;
-        // }
+            $vetor[] = $admin;
+        }
 
-        return $result;
+        return $vetor;
     } 
 
     public function listarAdminId($idAdmin){
@@ -74,7 +74,15 @@ class DALAdmin {
         $banco = $this->conexao->getBanco();
         $result = $banco->query($sql);
 
-        return $result;
+        $admin = new Admin();
+        if($row = mysqli_fetch_array($result)){
+            $admin->setId($row['id']);
+            $admin->setNome($row['nome']);
+            $admin->setEmail($row['email']);
+            $admin->setSenha($row['senha']);
+        }else{$admin = NULL;}
+
+        return ($admin);
     }
 
     public function listarAdminLogin($email, $senha){

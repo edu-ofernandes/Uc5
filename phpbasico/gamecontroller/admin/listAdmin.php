@@ -13,12 +13,13 @@ $conexao = new Conexao();
 $dal = new DALAdmin($conexao);
 
 
-
-
+$listarAdmin = $dal->listarAdmin();
+$row = count($listarAdmin);
 
 
 // echo "<pre>";
-// var_dump($row['id']);
+// var_dump($listarAdmin);
+// echo "<br><br><br>";
 // echo "</pre>";
 
 
@@ -91,20 +92,20 @@ $dal = new DALAdmin($conexao);
                             </tr>
                         </thead>
 
-                        <?php $listarAdmin = $dal->listarAdmin();  while($row = mysqli_fetch_array($listarAdmin)){?>
+                        <?php   for($i=0; $row > $i ; $i++){?>
                         <tbody>
 
                             <tr>
-                                <th class="d-none d-md-table-cell"><?php echo ($row['id']);?></th>
-                                <td><?php echo ($row['nome']);?></td>
-                                <td class="d-none d-md-table-cell"><?php echo ($row['email']);?></td>
+                                <th class="d-none d-md-table-cell"><?php echo $listarAdmin[$i]->getId();?></th>
+                                <td><?php echo $listarAdmin[$i]->getNome();?></td>
+                                <td class="d-none d-md-table-cell"><?php echo $listarAdmin[$i]->getEmail();?></td>
                                 <!-- <td class="d-none d-lg-table-cell">*********</td> -->
                                 <td class="text-center">
                                     <a href="" class="btn btn-sm btn-outline-info"><i class="fas fa-eye"></i></a>
 
-                                    <a href="upAdmin.php?idUp=<?php echo ($row['id']);?>"  class="btn btn-sm btn-outline-warning"><i class="far fa-edit"></i></a>
+                                    <a href="upAdmin.php?idUp=<?php echo $listarAdmin[$i]->getId();?>"  class="btn btn-sm btn-outline-warning"><i class="far fa-edit"></i></a>
 
-                                    <a href="Classes/DALAdmin.php?id=<?php echo ($row['id']);?>" class="btn btn-sm btn-outline-danger" data-confirm=""><i class="far fa-trash-alt"></i></a>
+                                    <a href="Classes/DALAdmin.php?id=<?php echo $listarAdmin[$i]->getId();?>" class="btn btn-sm btn-outline-danger" data-confirm=""><i class="far fa-trash-alt"></i></a>
                                 </td>
                             </tr>
 

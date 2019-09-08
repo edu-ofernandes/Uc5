@@ -10,8 +10,14 @@ $conexao = new Conexao();
 // DAL Categoria
 $dal = new DALCategoria($conexao);
 
+$listarCategoria = $dal->listarCategoria();
+$row = count($listarCategoria);
 
 
+// echo "<pre>";
+// var_dump($listarCategoria);
+// echo "<br><br><br>";
+// echo "</pre>";
 
 ?>
 
@@ -79,16 +85,16 @@ $dal = new DALCategoria($conexao);
                             </tr>
                         </thead>
 
-                        <?php $listarCategoria = $dal->listarCategoria(); while($row = mysqli_fetch_array($listarCategoria)){?>
+                        <?php  for($i = 0; $row > $i; $i++){?>
                         <tbody>
                             <tr>
-                                <td class="d-none d-md-table-cell"><?php echo $row['id'];?></td>
-                                <td><?php echo $row['nome'];?></td>
+                                <td class="d-none d-md-table-cell"><?php echo $listarCategoria[$i]->getId();?></td>
+                                <td><?php echo $listarCategoria[$i]->getNome();?></td>
                                 <td class="text-center">
 
                                     <a href=""  type="button" class="btn btn-sm btn-outline-info"><i class="fas fa-eye"></i></a>
-                                    <a href="upCategoria.php?idUp=<?php echo $row['id'];?>"  type="button" class="btn btn-sm btn-outline-warning"><i class="far fa-edit"></i></a>
-                                    <a href="Classes/DALCategoria.php?id=<?php echo $row['id'];?>" type="button" class="btn btn-sm btn-outline-danger"><i class="far fa-trash-alt"></i></a>
+                                    <a href="upCategoria.php?idUp=<?php echo $listarCategoria[$i]->getId();?>"  type="button" class="btn btn-sm btn-outline-warning"><i class="far fa-edit"></i></a>
+                                    <a href="Classes/DALCategoria.php?id=<?php echo $listarCategoria[$i]->getId();?>" type="button" class="btn btn-sm btn-outline-danger"><i class="far fa-trash-alt"></i></a>
                                 </td>
                             </tr>
 
