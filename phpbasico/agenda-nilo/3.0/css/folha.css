@@ -7,7 +7,7 @@
 	margin: 0px;
 	padding: 0px;
 }
-h2{text-align: center;}
+a:link{text-decoration: none;}
 body{
 	background-color:#f1f5f9;
 	font-family:Verdana, Geneva, Tahoma, sans-serif;
@@ -24,10 +24,8 @@ header{
 	width: 100%;
 	height: auto;
 	margin-bottom: 10px;
-	padding: 5px;
+	
 	display: flex;
-	justify-content: space-between;
-	align-items: center;
 	background-color: #fff;
 }
 nav{
@@ -55,7 +53,6 @@ nav ul li a{
 	font-size: 1.2em;
 	color: rgb(161, 38, 69);
 	font-weight: bolder;
-	
 }
 nav ul li a:hover{
 	background-color:rgb(161, 38, 69);
