@@ -19,31 +19,14 @@ if(isset($_POST[''])){
 <!doctype html>
 <html lang="pt-br">
 
-<head>
-    <meta charset="utf-8">
-    <title>PokeAgenda3.0 - AnDaNilo</title>
-    <link rel="stylesheet" href="css/folha.css" type="text/css">
-    <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
-    <meta name="keywords" content="PokeAgenda">
-    <meta name="autor" content="seu nome aqui">
-    <meta name="description" content="Agenda de contatos e possíveis clientes">
-</head>
+<?php require_once("include/inc_topo.php");?>
 
 <body>
-    <header>
-        <div id="logo"><img src="image/logoTwo.png" alt="Logo PokeAgenda"></div>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="index.php">Inicio</a></li>
-            <li><a href="ctrlweb/index.php">Administração</a></li>
-            <li><a href="javascript:history.back();">Voltar</a></li>
-            <li><a href="fale.php">Fale Conosco</a></li>
-    </nav>
+    <?php require_once("include/inc_menu.php");?>
     <main>
         <article>
-            <h1>Agenda de clientes/contato e eventos</h1>
-            <section class="listAll">
+            
+            <section class="listAll front">
                 <h2>Listando todos os Contatos</h2>
                 <div id="search">
                     <form action="#" method="get" name="formBusca" id="formBusca">
@@ -52,18 +35,36 @@ if(isset($_POST[''])){
                     </form>
                 </div>
 
-                <?php while($row = mysqli_fetch_array($resultContatos)){?>
+                
+                
+                <table class="table table-dark table-hover">
+                    <thead>
+                        <tr>
+                            
+                            <th scope="col">Nome</th>
+                            <th scope="col">Telefone</th>
+                            <th scope="col">Email</th>
+                        </tr>
+                    </thead>
 
-                <div class="list">
-                    <div class="listNome">Nome: <?php echo $row['nome'];?></div>
-                    <div class="listTel">Telefone: <?php echo $row['tel'];?></div>
-                    <div class="listEmail">Email: <?php echo $row['email'];?></div>
-                </div>
+                    <?php while($row = mysqli_fetch_array($resultContatos)){?>
+                    <tbody>
+                        <tr>
+                            <td><?php echo $row['nome'];?></td>
+                            <td><?php echo $row['tel'];?></td>
+                            <td><?php echo $row['email'];?></td>
+                        </tr>
+                    </tbody>
 
-                <?php }?>
+                    <?php }?>
+
+                </table> 
+
+               
 
             </section>
-            <section class="listAll">
+
+            <section class="listAll back">
                 <h2>Listando todos os Eventos de hoje</h2>
                 <div id="search">
                     <form action="#" method="get" name="formBusca2" id="formBusca2">
@@ -72,21 +73,38 @@ if(isset($_POST[''])){
                     </form>
                 </div>
 
+                
+
+                <table class="table table-dark">
+                    <thead>
+                        <tr>
+                            
+                            <th scope="col">Titulo</th>
+                            <th scope="col">Local</th>
+                            <th scope="col">Observações</th>
+                            <th scope="col">Concluido</th>
+                        </tr>
+                    </thead>
+                
                 <?php while($row = mysqli_fetch_array($result)){?>
 
-                <div class="list">
-                    <div class="listEvent">Titulo: <?php echo $row['titulo'];?></div><br>
-                    <div class="listEvent">Local - Endereço: <?php echo $row['endereco'];?></div> <br>
-                    <div class="listEvent">Observações: <?php echo $row['obs'];?></div> <br>
-                    <div class="listEvent">Concluido: <?php echo $row['concluido'];?></div> <br>
-                </div>
+                    <tbody>
+                        <tr>
+                            <td><?php echo $row['titulo'];?></td>
+                            <td><?php echo $row['endereco'];?></td>
+                            <td><?php echo $row['obs'];?></td>
+                            <td><?php echo $row['concluido'];?></td>
+                        </tr>
+                    </tbody>
 
-                <?php }?>
+                    <?php }?>
+
+                </table> 
 
             </section>
         </article>
     </main>
-    <footer>Desenvolvido por seres supremos &reg; &copy;</footer>
+    <?php require_once("include/inc_rodape.php");?>
 </body>
 
 </html>
