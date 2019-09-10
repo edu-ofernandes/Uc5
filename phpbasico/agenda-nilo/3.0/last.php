@@ -5,7 +5,7 @@ require_once("include/connectaBD.php");
 
 // arrumar validaçao de redefinimento de senha, data de entrega no planner
 $verificacao = false;
-if(isset($_POST['btCad'])){
+if(isset($_POST['btValidar1'])){
     $nome = addslashes($_POST['txtNome']);
     $login = addslashes($_POST['txtNomeUsuario']);
     $sql1 = "SELECT * FROM users WHERE nome ='$nome' AND login='$login'";
@@ -16,7 +16,39 @@ if(isset($_POST['btCad'])){
     }else{
         echo "voce nao existe";
     }
+
+   
 }
+
+if(isset($_POST['btValidar2'])){
+    $nome = addslashes($_POST['txtNome']);
+    $login = addslashes($_POST['txtNomeUsuario']);
+
+    $senha = md5(addslashes($_POST['txtSenha']));
+    $senhaConfirmar = md5(addslashes($_POST['txtConfirmarSenha']));
+
+    if($senha === $senhaConfirmar){
+        $sql = "UPDATE users SET senha='".$senhaConfirmar."' WHERE nome='$nome' AND login='$login';";
+
+        $result = $banco->query($sql);
+    }else{
+        echo "Ambas as senhas precisam ser iguais!";
+    }
+    
+
+}
+
+
+// if($verificacao===true && isset($_POST['btValidar2'])){
+
+//     echo "teste";
+//     $senha = md5(addslashes($_POST['txtSenha']));
+//     $senha = md5(addslashes($_POST['txtConfirmarSenha']));
+    
+//     $sql = "UPDATE users SET senha='$senha' WHERE nome='$nome' AND login='$login';";
+
+//     echo $sql;
+// }
 
 ?>
 <!doctype html>
@@ -43,14 +75,21 @@ if(isset($_POST['btCad'])){
                     <?php if($verificacao === false){?>
                         <input type="text" name="txtNome" id="txtNome" placeholder="Nome" value="">
                         <input type="text" name="txtNomeUsuario" id="txtNomeUsuario" placeholder="Nome de usuario" value="">
-                    <?php }?>
 
-                    <?php if($verificacao === true){?>
+                        <input type="submit" name="btValidar1" id="btValidar1" value="Confirmar" class="redefinirSenha">
+                        <a type="button" href="index.php" class="redefinirSenha">Voltar</a>
+                    <?php }else{?>
+
+                        <input type="text" name="txtNome" id="txtNome" placeholder="Nome" value="">
+                        <input type="text" name="txtNomeUsuario" id="txtNomeUsuario" placeholder="Nome de usuario" value="">
+                    
                         <input type="password" name="txtSenha" id="txtSenha" placeholder="Senha" value="">
                         <input type="password" name="txtConfirmarSenha" id="txtConfirmarSenha" placeholder="Confirmar Senha" value="">
+
+                        <input type="submit" name="btValidar2" id="btValidar2" value="Confirmar" class="redefinirSenha">
                     <?php }?>
 
-                    <input type="submit" name="btCad" id="btCad" value="Confirmar">
+                    
 
                 </form>
             </section>
