@@ -4,14 +4,30 @@ require_once("include/connectaBD.php");
 date_default_timezone_set('America/Sao_Paulo');
 $data = date('Y-m-d');
 $sqlAgendamentos = "SELECT * FROM agendamentos WHERE data='$data' ORDER BY idagendamentos ASC";
-$result = $banco->query($sqlAgendamentos);
+$resultAgenda = $banco->query($sqlAgendamentos);
 
 
 $sqlContatos = "SELECT * FROM contatos ORDER BY nome";
 $resultContatos = $banco->query($sqlContatos);
 
-if(isset($_POST[''])){
+if(isset($_POST['btBuscaNome'])){
     
+    $nome = $_POST['txtBusca'];
+
+    $sql = "SELECT * FROM contatos WHERE nome LIKE '%".$nome."%';";
+    $resultBuscaNome = $banco->query($sql);
+
+    
+    if(mysqli_affected_rows($resultBuscaNome)){
+        $buscaNome = true;
+    }else{
+        $buscaNome = false;
+    }
+}
+
+
+if(isset($_POST['btSerach2'])){
+    echo "botao 2";
 }
 
 ?>
@@ -29,11 +45,11 @@ if(isset($_POST[''])){
             <section class="listAll front">
                 
                 <div class="container">
-                    <h2>Listando todos os Contatos</h2>
+                    <h2>Listando todos os Contatos <i class="fa fa-user"></i></h2>
                     <div id="search">
-                        <form action="#" method="get" name="formBusca" id="formBusca">
-                            <input type="text" name="txtBusca" id="txtBusca" placeholder="Que nome deseja ver">
-                            <input type="submit" name="btSerach" id="btSearch" value="Buscar">
+                        <form action="#" method="post" name="formBusca" id="formBusca">
+                            <input class="form-control" type="text" name="txtBusca" id="txtBusca" placeholder="Que nome deseja ver">
+                            <input class="btn btn-primary" type="submit" name="btBuscaNome" id="btBuscaNome" value="Buscar">
                         </form>
                     </div>
                     <table class="table table-dark table-hover">
@@ -46,7 +62,8 @@ if(isset($_POST[''])){
                             </tr>
                         </thead>
 
-                        <?php while($row = mysqli_fetch_array($resultContatos)){?>
+                        <?php if(isset($_POST['btBuscaNome']) && $buscaNome===true){ while ($row = mysqli_fetch_array($resultBuscaNome)){ ?>
+
                         <tbody>
                             <tr>
                                 <td><?php echo $row['nome'];?></td>
@@ -55,7 +72,21 @@ if(isset($_POST[''])){
                             </tr>
                         </tbody>
 
-                        <?php }?>
+                        <?php }}elseif (isset($_POST['btBuscaNome']) && $buscaNome===false) { ?>
+
+                                <h2>Nenhum resultado para "<em><?php echo $nome;?></em>"</h2>
+
+                        <?php } elseif(!isset($_POST['btBuscaNome'])) {  while($row2 = mysqli_fetch_array($resultContatos)){ ?>
+
+                        <tbody>
+                            <tr>
+                                <td><?php echo $row2['nome'];?></td>
+                                <td><?php echo $row2['tel'];?></td>
+                                <td><?php echo $row2['email'];?></td>
+                            </tr>
+                        </tbody>
+
+                        <?php }}?>
 
                     </table> 
                 </div>
@@ -66,14 +97,14 @@ if(isset($_POST[''])){
             <section class="listAll back">
                 
                 <div class="container">
-                    <h2>Listando todos os Eventos de hoje</h2>
+                    <h2>Listando todos os Eventos de hoje <i class="fa fa-calendar-week"></i></h2>
                     <div id="search">
-                        <form action="#" method="get" name="formBusca2" id="formBusca2">
-                            <input type="text" name="txtBusca2" id="txtBusca2" placeholder="Dia desejado">
-                            <input type="submit" name="btSerach2" id="btSearch2" value="Buscar">
+                        <form action="#" method="post" name="formBusca2" id="formBusca2">
+                            <input class="form-control" type="text" name="txtBusca2" id="txtBusca2" placeholder="Dia desejado">
+                            <input class="btn btn-primary" type="submit" name="btBuscaEvents" id="btBuscaEvents" value="Buscar">
                         </form>
                     </div>
-                    <table class="table table-dark">
+                    <table class="table table-dark table-hover">
                         <thead>
                             <tr>
                                 
@@ -84,7 +115,7 @@ if(isset($_POST[''])){
                             </tr>
                         </thead>
                     
-                    <?php while($row = mysqli_fetch_array($result)){?>
+                    <?php while($row = mysqli_fetch_array($resultAgenda)){?>
 
                         <tbody>
                             <tr>
