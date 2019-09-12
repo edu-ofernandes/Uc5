@@ -73,18 +73,18 @@ if(isset($_POST['btValidar2'])){
                 
                 <form action="#" method="post" id="formUser" name="formUser">
                     <?php if($verificacao === false){?>
-                        <input type="text" name="txtNome" id="txtNome" placeholder="Nome" value="">
-                        <input type="text" name="txtNomeUsuario" id="txtNomeUsuario" placeholder="Nome de usuario" value="">
+                        <input type="text" name="txtNome" id="txtNome" placeholder="Nome" value="" required>
+                        <input type="text" name="txtNomeUsuario" id="txtNomeUsuario" placeholder="Nome de usuario" value="" required>
 
-                        <input type="submit" name="btValidar1" id="btValidar1" value="Confirmar" class="redefinirSenha">
+                        <input type="submit" name="btValidar1" id="btValidar1" value="Confirmar" class="redefinirSenha" >
                         <a type="button" href="index.php" class="redefinirSenha">Voltar</a>
                     <?php }else{?>
 
-                        <input type="text" name="txtNome" id="txtNome" placeholder="Nome" value="">
-                        <input type="text" name="txtNomeUsuario" id="txtNomeUsuario" placeholder="Nome de usuario" value="">
+                        <input type="text" name="txtNome" id="txtNome" placeholder="Nome" value="" required>
+                        <input type="text" name="txtNomeUsuario" id="txtNomeUsuario" placeholder="Nome de usuario" value="" required>
                     
-                        <input type="password" name="txtSenha" id="txtSenha" placeholder="Senha" value="">
-                        <input type="password" name="txtConfirmarSenha" id="txtConfirmarSenha" placeholder="Confirmar Senha" value="">
+                        <input type="password" name="txtSenha" id="txtSenha" placeholder="Senha" value="" required>
+                        <input type="password" name="txtConfirmarSenha" id="txtConfirmarSenha" placeholder="Confirmar Senha" value="" required>
 
                         <input type="submit" name="btValidar2" id="btValidar2" value="Confirmar" class="redefinirSenha">
                     <?php }?>

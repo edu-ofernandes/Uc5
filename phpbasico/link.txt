@@ -1,2 +1,14 @@
 https://homepages.dcc.ufmg.br/~figueiredo/disciplinas/aulas/uml-diagrama-classes-relacionamentos_v01.pdf
 link de conceitos de diagramaçao de classes
+
+links de verificaçao
+https://validator.w3.org/#validate_by_uri
+https://jigsaw.w3.org/css-validator/validator
+https://transparencyreport.google.com/?hl=pt_BR
+
+verificaçao de malware
+https://transparencyreport.google.com/safe-browsing/search?hl=pt_BR
+google ferramentas de webmaster(para verificar o site)
+
+speed page sites developer
+https://www.thinkwithgoogle.com/intl/pt-br/feature/testmysite/
