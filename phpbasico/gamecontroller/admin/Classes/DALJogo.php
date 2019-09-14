@@ -19,8 +19,9 @@ class DALJogo {
     public function inserirJogo($jogo){
         $sql = "INSERT INTO jogos VALUES (NULL,";
         $sql = $sql."'".$jogo->getNome()."', ";
-        $sql = $sql."'".$jogo->getFoto()."', ";
-        $sql = $sql."".$jogo->getIdCategoria().")";
+        $sql = $sql."".$jogo->getIdCategoria().", ";
+        $sql = $sql."'".$jogo->getFoto()."')";
+        //Caso nao funcione trocar a ordem do getIdCategoria e getFoto!!!!!
 
         $banco = $this->conexao->getBanco();
         $banco->query($sql);

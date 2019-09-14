@@ -26,6 +26,7 @@ if(isset($_POST['btCad'])){
     $sup = $_FILES['cadFoto'] ['size'];
 
     if($sup != 0){
+        
         $nomeFoto = $_FILES['cadFoto'] ['name'];
         $completo = $nomeFoto . "_" . $data;
         $path_parts = pathinfo($nomeFoto);
@@ -47,6 +48,9 @@ if(isset($_POST['btCad'])){
         $default = "ftDefault.jpg";
         $foto = $default;
     }
+
+    // echo "teste";
+    // echo $foto;
 
     $jogo = new Jogo();
     $jogo->setNome(addslashes($_POST['txtNomeJogo']));
