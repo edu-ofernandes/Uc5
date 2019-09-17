@@ -37,7 +37,7 @@ class DALUser{
 	}
 		
 	public function Alterar($cat){
-		$sql ="UPDATE usuarios SET nome = '".$cat->GetNome()."', bio = '".$Usuario->GetBio()."', foto = '".$Usuario->getFoto()."',  email = '".$cat->GetEmail()."', senha = '".$cat->GetSenha()."' WHERE id = ".$cat->GetId().";";
+		$sql ="UPDATE usuarios SET nome = '".$cat->GetNome()."', bio = '".$cat->GetBio()."', foto = '".$cat->getFoto()."',  email = '".$cat->GetEmail()."', senha = '".$cat->GetSenha()."' WHERE id = ".$cat->GetId().";";
 		$banco = $this->conexao->GetBanco();
 		$banco->query($sql);
 		header("Location:listarUsuario.php");

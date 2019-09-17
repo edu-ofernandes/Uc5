@@ -11,6 +11,9 @@ $conexao = new Conexao();
 // DAL admin
 $dal = new DALUsuario($conexao);
 
+
+$listarUsuario = $dal->listarUsuario();
+$row = count($listarUsuario);
 ?>
 
 <!doctype html>
@@ -69,20 +72,20 @@ $dal = new DALUsuario($conexao);
                             </tr>
                         </thead>
 
-                        <?php $listarUsuario = $dal->listarUsuario(); while($row=mysqli_fetch_array($listarUsuario)){?>
+                        <?php  for($i=0; $row > $i; $i++){?>
                         <tbody>
                             <tr >
-                                <td class="d-none d-md-table-cell text-center"><img class="img-usuario" src="imagens/<?php echo $row['foto'];?>" alt="" width="100px"></td>
-                                <td class="d-none d-md-table-cell align-middle"><?php echo $row['id'];?></td>
-                                <td class="d-none d-md-table-cell align-middle"><?php echo $row['nome'];?></td>
-                                <td class="d-none d-md-table-cell align-middle"><?php echo $row['bio'];?></td>
-                                <td class="d-none d-md-table-cell align-middle"><?php echo $row['email'];?></td>
+                                <td class="d-none d-md-table-cell text-center"><img class="img-usuario" src="imagens/<?php echo $listarUsuario[$i]->getFoto();?>" alt="" width="100px"></td>
+                                <td class="d-none d-md-table-cell align-middle"><?php echo $listarUsuario[$i]->getId();?></td>
+                                <td class="d-none d-md-table-cell align-middle"><?php echo $listarUsuario[$i]->getNome();?></td>
+                                <td class="d-none d-md-table-cell align-middle"><?php echo $listarUsuario[$i]->getBio();?></td>
+                                <td class="d-none d-md-table-cell align-middle"><?php echo $listarUsuario[$i]->getEmail();?></td>
                                 <!-- <td class="d-none d-lg-table-cell">*******</td> -->
                                 
                                 <td class="text-center align-middle">
                                     <a href="" class="btn btn-sm btn-outline-info"><i class="fas fa-eye"></i></a>
-                                    <a href="upUsuario.php?idUp=<?php echo ($row['id']);?>" class="btn btn-sm btn-outline-warning"><i class="far fa-edit"></i></a>
-                                    <a href="Classes/DALUsuario.php?id=<?php echo ($row['id']);?>" type="button" class="btn btn-sm btn-outline-danger"><i class="far fa-trash-alt"></i></a>
+                                    <a href="upUsuario.php?idUp=<?php echo $listarUsuario[$i]->getId();?>" class="btn btn-sm btn-outline-warning"><i class="far fa-edit"></i></a>
+                                    <a href="Classes/DALUsuario.php?id=<?php echo $listarUsuario[$i]->getId();?>" type="button" class="btn btn-sm btn-outline-danger"><i class="far fa-trash-alt"></i></a>
                                 </td>
                             </tr>
                         </tbody>

@@ -35,19 +35,29 @@
 
                 <li>
                     <a href="#submenu4" data-toggle="collapse">
+                        <i class="fas fa-gamepad"></i> <i class="fas fa-users"></i> Jogos de Usuários
+                        </a>
+                    <ul class="list-unstyled collapse" id="submenu4">
+                        <li><a href="cadJogosUsers.php"><i class="fas fa-plus"></i> Novo Usuário</a></li>
+                        <li><a href="listJogosUsers.php"><i class="fas fa-list-ul"></i> Listar Usuários</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#submenu5" data-toggle="collapse">
                     <i class="fas fa-stream"></i> Categorias
                     </a>
-                    <ul class="list-unstyled collapse" id="submenu4">
+                    <ul class="list-unstyled collapse" id="submenu5">
                         <li><a href="cadCategoria.php"><i class="fas fa-plus"></i> Nova Categoria</a></li>
                         <li><a href="listCategoria.php"><i class="fas fa-list-ul"></i> Listar Categoria</a></li>
                     </ul>
                 </li>
                 
                 <li>
-                    <a href="#submenu5" data-toggle="collapse">
+                    <a href="#submenu6" data-toggle="collapse">
                     <i class="fas fa-save"></i> Atividades
                     </a>
-                    <ul class="list-unstyled collapse" id="submenu5">
+                    <ul class="list-unstyled collapse" id="submenu6">
                         <li><a href="cadAtividades.php"><i class="fas fa-plus"></i> Nova Atividade</a></li>
                         <li><a href="listAtividades.php"><i class="fas fa-list-ul"></i> Listar Atividades</a></li>
                     </ul>
@@ -55,10 +65,10 @@
 
                 
                 <li>
-                    <a href="#submenu6" data-toggle="collapse">
+                    <a href="#submenu7" data-toggle="collapse">
                         <i class="fas fa-cogs"></i> Configurações
                     </a>
-                    <ul class="list-unstyled collapse" id="submenu6">
+                    <ul class="list-unstyled collapse" id="submenu7">
                         <li><a href="#"><i class="far fa-envelope"></i> E-mail</a></li>
                         <li><a href="#"><i class="fas fa-database"></i> Banco de Dados</a></li>
                     </ul>

@@ -13,7 +13,7 @@ $dal = new DALUsuario($conexao);
 if(isset($_GET['idUp'])){
     $idUsuario = $_GET['idUp'];
     $listarIdUsuario = $dal->listarIdUsuario($idUsuario);
-    $row = mysqli_fetch_array($listarIdUsuario);
+    
 
     if(isset($_POST['btCad'])){
         
@@ -39,7 +39,7 @@ if(isset($_GET['idUp'])){
             move_uploaded_file($temporario, $diretorio);
             $foto = $tagertFile;
         }else{
-            $default = $row['foto'];
+            $default = $listarIdUsuario->getFoto();
             $foto = $default;
         }
 
@@ -98,16 +98,19 @@ if(isset($_GET['idUp'])){
                 </div>
                 <div class="dropdown-divider"></div>
                 
-                <?php if(isset($_GET['idUp'])){?>
+                <?php if(isset($_GET['idUp'])){ ?>
 
                     <form action="#" method="POST" enctype="multipart/form-data">
                     <div class="form-row ">
                         <div class="form-group col-md-3">
                             <label for="txtNome">Nome</label>
-                            <input type="text" class="form-control" id="txtNome" name="txtNome" placeholder="Nome" value="<?php echo $row['nome'];?>" required> <br>
+                            <input type="text" class="form-control" id="txtNome" name="txtNome" placeholder="Nome" value="<?php echo $listarIdUsuario->getNome();?>" required> <br>
 
                             <label for="cadFoto">Foto</label>
-                            <input type="file" class="form-control" id="cadFoto" name="cadFoto" placeholder="Foto"> <br><br><br>
+                            <input type="file" class="form-control" id="cadFoto" name="cadFoto" placeholder="Foto"> <br>
+                            <img src="imagens/<?php echo $listarIdUsuario->getFoto();?>" alt="foto do jogo" width="150px">
+
+                            <br><br><br>
 
                             <button type="submit" class="btn btn-primary" name="btCad">Atualizar</button>
                             <a type="button" class="btn btn-danger" href="listUsuario.php">Cancelar</a>
@@ -115,16 +118,16 @@ if(isset($_GET['idUp'])){
 
                         <div class="form-group col-md-3">
                             <label for="txtEmail">Email</label>
-                            <input type="text" class="form-control" id="txtEmail" name="txtEmail" placeholder="Email" value="<?php echo $row['email'];?>" > <br>
+                            <input type="text" class="form-control" id="txtEmail" name="txtEmail" placeholder="Email" value="<?php echo $listarIdUsuario->getEmail();?>" > <br>
 
                             <label for="txtBio">Bio</label>
-                            <textarea rows="5" cols="30" class="form-control" id="txtBio" name="txtBio" placeholder="Bio" value="<?php echo $row['bio'];?>"  ><?php echo $row['bio'];?></textarea> <br>
+                            <textarea rows="5" cols="30" class="form-control" id="txtBio" name="txtBio" placeholder="Bio" value=""><?php echo $listarIdUsuario->getBio();?></textarea> <br>
 
                         </div>
 
                         <div class="form-group col-md-3">
                             <label for="txtSenha">Senha</label>
-                            <input type="password" class="form-control" id="txtSenha" name="txtSenha" placeholder="Senha" value="<?php echo $row['senha'];?>" > <br>
+                            <input type="password" class="form-control" id="txtSenha" name="txtSenha" placeholder="Senha" value="*********"> <br>
                         </div>     
                     </div>
                 </form>

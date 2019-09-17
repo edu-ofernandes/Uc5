@@ -31,7 +31,19 @@ class DALUsuario{
         $banco = $this->conexao->getBanco();
         $result = $banco->query($sql);
 
-        return $result;
+        $vetor = array();
+        while($row = mysqli_fetch_array($result)){
+            $usuario = new Usuario();
+            $usuario->setId($row['id']);
+            $usuario->setNome($row['nome']);
+            $usuario->setFoto($row['foto']);
+            $usuario->setBio($row['bio']);
+            $usuario->setEmail($row['email']);
+            $usuario->setSenha($row['senha']);
+
+            $vetor[] = $usuario;
+        }
+        return $vetor;
     }
 
     public function listarIdUsuario($idUsuario){
@@ -39,7 +51,17 @@ class DALUsuario{
         $banco = $this->conexao->getBanco();
         $result = $banco->query($sql);
 
-        return $result;
+        $usuario = new Usuario();
+        if($row = mysqli_fetch_array($result)){
+            $usuario->setId($row['id']);
+            $usuario->setNome($row['nome']);
+            $usuario->setFoto($row['foto']);
+            $usuario->setBio($row['bio']);
+            $usuario->setEmail($row['email']);
+            $usuario->setSenha($row['senha']);
+        }
+
+        return $usuario;
     }
 
     public function excluirUsuario($idUsuario){
