@@ -1,5 +1,5 @@
 <?php
-$banco = new mysqli("localhost", "root", "", "agenda3.0");
+$banco = new mysqli("mysql.webcindario.com", "agenda3edu_fer", "agenda123edu", "agenda3edu_fer");
     if ($banco->connect_errno){
         echo "deu ruim: (".$banco->connect_error.")";
     }

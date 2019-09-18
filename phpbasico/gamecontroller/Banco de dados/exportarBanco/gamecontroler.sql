@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `gamecontroler`
+-- Database: `gamecontroler`;
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `administradores`
+-- Estrutura da tabela `administradores`;
 --
 
 CREATE TABLE `administradores` (
