@@ -103,6 +103,16 @@ class DALAdmin {
 
         return($admin);
     }
+
+    public function TotalAdmin(){
+        $sql = "SELECT COUNT(nome) AS total FROM administradores";
+        $banco = $this->conexao->getBanco();
+        $result = $banco->query($sql);
+
+        $row = mysqli_fetch_assoc($result);
+
+        return $row['total'];
+    }
 }
 
 

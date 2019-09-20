@@ -67,6 +67,17 @@ class DALCategoria {
 
         return ($categoria);
     }
+
+    public function TotalCategoria(){
+        $sql = "SELECT COUNT(nome) AS total FROM categorias";
+
+        $banco = $this->conexao->getBanco();
+        $result = $banco->query($sql);
+
+        $row = mysqli_fetch_assoc($result);
+
+        return $row['total'];
+    }
 }
 
 // objeto de conexao

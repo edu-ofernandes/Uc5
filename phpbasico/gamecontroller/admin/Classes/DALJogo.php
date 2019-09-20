@@ -77,6 +77,16 @@ class DALJogo {
         }
         return ($jogo);
     }
+
+    public function TotalJogo(){
+        $sql = "SELECT COUNT(nome) as total FROM jogos";
+        $banco = $this->conexao->getBanco();
+        $result = $banco->query($sql);
+
+        $row = mysqli_fetch_assoc($result);
+
+        return $row['total'];
+    }
 }
 
 // objeto de conexao

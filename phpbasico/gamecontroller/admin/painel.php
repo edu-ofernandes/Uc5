@@ -1,10 +1,25 @@
 <?php 
 require_once("Classes/Conexao.php");
 require_once("Classes/Verifica.php");
+require_once("Classes/DALCategoria.php");
+require_once("Classes/Categoria.php");
+require_once("Classes/DALAdmin.php");
+require_once("Classes/Admin.php");
+require_once("Classes/DALJogo.php");
+require_once("Classes/Jogo.php");
+require_once("Classes/DALUsuario.php");
+require_once("Classes/Usuario.php");
+
+$conexao = new Conexao();
+
+$dalCat = new DALCategoria($conexao);
+$dalAdmin = new DALAdmin($conexao);
+$dalJogo = new DALJogo($conexao);
+$dalUsua = new DALUsuario($conexao);
 
 
 
-
+// var_dump($dal->TotalCategoria());
 
 ?>
 
@@ -54,7 +69,7 @@ require_once("Classes/Verifica.php");
                                 <div class="dropdown-divider"></div>
                                 <div class="row align-items-center">
                                     <div class="col-12">
-                                        <h2 class="display-4 text-center">25000</h2>
+                                        <h2 class="display-4 text-center"><?php echo ($dalAdmin->TotalAdmin());?></h2>
                                     </div>
                                 </div>
                             </div>
@@ -74,7 +89,7 @@ require_once("Classes/Verifica.php");
                                 <div class="dropdown-divider"></div>
                                 <div class="row align-items-center">
                                     <div class="col-12">
-                                        <h2 class="display-4 text-center">25000</h2>
+                                        <h2 class="display-4 text-center"><?php echo ($dalUsua->TotalUsuario());?></h2>
                                     </div>
                                 </div>
                             </div>
@@ -95,7 +110,7 @@ require_once("Classes/Verifica.php");
                                 <div class="dropdown-divider"></div>
                                 <div class="row align-items-center">
                                     <div class="col-12">
-                                        <h2 class="display-4 text-center">955</h2>
+                                        <h2 class="display-4 text-center"><?php echo ($dalJogo->TotalJogo());?></h2>
                                     </div>
                                 </div>
                             </div>
@@ -115,7 +130,7 @@ require_once("Classes/Verifica.php");
                                 <div class="dropdown-divider"></div>
                                 <div class="row align-items-center">
                                     <div class="col-12">
-                                        <h2 class="display-4 text-center">955</h2>
+                                        <h2 class="display-4 text-center"><?php echo ($dalCat->TotalCategoria());?></h2>
                                     </div>
                                 </div>
                             </div>

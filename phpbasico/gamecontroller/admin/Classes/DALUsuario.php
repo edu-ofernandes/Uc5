@@ -83,6 +83,15 @@ class DALUsuario{
         $banco = $this->conexao->getBanco();
         $banco->query($sql);
     }
+
+    public function TotalUsuario(){
+        $sql = "SELECT COUNT(nome) AS total FROM usuarios";
+        $banco = $this->conexao->getBanco();
+        $result = $banco->query($sql);
+
+        $row = mysqli_fetch_assoc($result);
+        return $row['total'];
+    }
 }
 
 
