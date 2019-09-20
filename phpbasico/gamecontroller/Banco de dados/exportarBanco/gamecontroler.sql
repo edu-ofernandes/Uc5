@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 17-Set-2019 às 17:17
--- Versão do servidor: 10.1.40-MariaDB
--- versão do PHP: 7.3.5
+-- Generation Time: 20-Set-2019 às 03:12
+-- Versão do servidor: 10.1.37-MariaDB
+-- versão do PHP: 7.3.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `gamecontroler`;
+-- Database: `gamecontroler`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `administradores`;
+-- Estrutura da tabela `administradores`
 --
 
 CREATE TABLE `administradores` (
@@ -78,7 +78,9 @@ INSERT INTO `categorias` (`id`, `nome`) VALUES
 (8, 'AÃ§ao'),
 (9, 'Luta'),
 (10, 'Rpg'),
-(11, 'Mundo aberto');
+(11, 'Mundo aberto'),
+(13, 'Esporte'),
+(14, 'Esporte');
 
 -- --------------------------------------------------------
 
@@ -190,7 +192,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `administradores`
 --
 ALTER TABLE `administradores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `atividades`
@@ -202,19 +204,19 @@ ALTER TABLE `atividades`
 -- AUTO_INCREMENT for table `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `jogos`
 --
 ALTER TABLE `jogos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
