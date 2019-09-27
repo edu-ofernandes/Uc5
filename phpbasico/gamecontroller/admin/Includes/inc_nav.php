@@ -7,7 +7,7 @@
 <div class="collapse navbar-collapse">
     <ul class="navbar-nav ml-auto">
 
-        <li class="nav-item dropdown mr-2">
+        <!-- <li class="nav-item dropdown mr-2">
             <a class="nav-link dropdown-toggle menu-header" id="navbarDropdownMenuNotificacoes" role="button"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bullhorn"></i>
@@ -22,7 +22,7 @@
                 <a class="dropdown-item text-center text-muted" href="#"><i class="far fa-user-circle"></i> Ver
                     totas as notificações</a>
             </div>
-        </li>
+        </li> -->
 
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle menu-header" href="#" id="navbarDropdownMenuUsuario"
@@ -31,9 +31,9 @@
                     height="32"><span class="d-none d-sm-inline ml-2"><?php echo $_SESSION['nome'];?></span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuUsuario">
-                <a class="dropdown-item" href="#"><i class="far fa-user-circle"></i> Perfil</a>
+                <!-- <a class="dropdown-item" href="#"><i class="far fa-user-circle"></i> Perfil</a>
                 <a class="dropdown-item" href="#"><i class="far fa-envelope"></i> Mensagens</a>
-                <div class="dropdown-divider"></div>
+                <div class="dropdown-divider"></div> -->
                 <a class="dropdown-item" href="sair.php"><i class="fas fa-sign-out-alt"></i> Sair do sisema</a>
             </div>
         </li>

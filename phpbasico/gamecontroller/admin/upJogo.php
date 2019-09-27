@@ -114,14 +114,14 @@ if(isset($_POST['btCad'])){
                             <input type="text" class="form-control" id="txtNomeJogo" name="txtNomeJogo" placeholder="Nome" value="<?php echo $listarJogo->getNome();?>" required> <br>
 
                             <label for="cadFoto">Foto</label>
-                            <input type="file" class="form-control" id="cadFoto" name="cadFoto" placeholder="Foto" value=""> <br>
+                            <input type="file" class="form-control" id="cadFoto" name="cadFoto" placeholder="Foto" value="" required> <br>
 
                             <img src="imagens/<?php echo $listarJogo->getFoto();?>" alt="foto do jogo" width="400px">
                         </div>
 
                         <div class="form-group col-md-3">
                             <label for="selCategoria">Categoria</label>
-                            <select name="selCategoria" id="selCategoria" class="form-control">
+                            <select name="selCategoria" id="selCategoria" class="form-control" required>
                                 <option value="<?php echo $listarIdCategoria->getId();?>"><?php echo $listarIdCategoria->getNome();?></option>
 
                                 <?php for($i = 0; $row > $i; $i++ ){ ?>

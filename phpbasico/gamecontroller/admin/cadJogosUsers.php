@@ -52,7 +52,7 @@
                         <div class="form-group col-md-6">
                         
                             <label for="inputEmail4">Usuarios</label>
-                           	<select name="usuario" class="form-control">
+                           	<select name="usuario" class="form-control" required>
 								
 									<?php
 								 		for($i=0; $i < count($resultUser); $i++ ) {
@@ -67,7 +67,7 @@
 								
 							</select>
 							<label for="jogo">Jogo</label>
-                            	<select  name="jogo" class="form-control" >
+                            	<select  name="jogo" class="form-control" required>
 								
 									<?php
 								 		for($i=0; $i < count($resultJogo); $i++ ) {

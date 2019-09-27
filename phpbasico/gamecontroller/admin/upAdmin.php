@@ -77,15 +77,15 @@ if(isset($_POST['btCad'])){
                     <div class="form-col ">
                         <div class="form-group col-md-4">  
                             <label for="txtNome ">Nome</label>
-                            <input type="text" class="form-control" id="txtNome" name="txtNome" placeholder="Nome" value="<?php echo $listarAdminId->getNome();?>">
+                            <input type="text" class="form-control" id="txtNome" name="txtNome" placeholder="Nome" value="<?php echo $listarAdminId->getNome();?>" required>
                         </div>                        
                         <div class="form-group col-md-4">
                             <label for="txtEmail">Email</label>
-                            <input type="text" class="form-control" id="txtEmail" name="txtEmail" placeholder="Email" value="<?php echo $listarAdminId->getEmail()?>">
+                            <input type="text" class="form-control" id="txtEmail" name="txtEmail" placeholder="Email" value="<?php echo $listarAdminId->getEmail()?>" required>
                         </div>                        
                         <div class="form-group col-md-4">
                             <label for="txtSenha">Senha</label>
-                            <input type="password" class="form-control" id="txtSenha" name="txtSenha" placeholder="Senha" value="<?php echo $listarAdminId->getSenha();?>">
+                            <input type="password" class="form-control" id="txtSenha" name="txtSenha" placeholder="Senha" value="<?php echo $listarAdminId->getSenha();?>" required>
                         </div>                        
                     </div>
                     

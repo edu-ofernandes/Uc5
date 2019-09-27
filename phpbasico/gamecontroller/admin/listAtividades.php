@@ -1,4 +1,11 @@
+<?php
+require_once("Classes/Conexao.php");
+require_once("Classes/Verifica.php");
+require_once("Classes/ClasseBase.php");
 
+
+
+?>
 
 <!doctype html>
 <html lang="pt-br">

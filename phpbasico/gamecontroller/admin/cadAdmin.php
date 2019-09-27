@@ -71,15 +71,15 @@ if(isset($_POST['btCad'])){
                     <div class="form-col ">
                         <div class="form-group col-md-4">  
                             <label for="txtNome ">Nome</label>
-                            <input type="text" class="form-control" id="txtNome" name="txtNome" placeholder="Nome" value="">
+                            <input type="text" class="form-control" id="txtNome" name="txtNome" placeholder="Nome" value="" required>
                         </div>                        
                         <div class="form-group col-md-4">
                             <label for="txtEmail">Email</label>
-                            <input type="text" class="form-control" id="txtEmail" name="txtEmail" placeholder="Email" value="">
+                            <input type="text" class="form-control" id="txtEmail" name="txtEmail" placeholder="Email" value="" required>
                         </div>                        
                         <div class="form-group col-md-4">
                             <label for="txtSenha">Senha</label>
-                            <input type="password" class="form-control" id="txtSenha" name="txtSenha" placeholder="Senha" value="">
+                            <input type="password" class="form-control" id="txtSenha" name="txtSenha" placeholder="Senha" value="" required>
                         </div>                        
                     </div>
                     

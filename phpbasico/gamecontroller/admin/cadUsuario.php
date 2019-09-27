@@ -101,7 +101,7 @@ if(isset($_POST['btCad'])){
                             <input type="text" class="form-control" id="txtNome" name="txtNome" placeholder="Nome" required> <br>
 
                             <label for="cadFoto">Foto</label>
-                            <input type="file" class="form-control" id="cadFoto" name="cadFoto" placeholder="Foto" > <br><br><br>
+                            <input type="file" class="form-control" id="cadFoto" name="cadFoto" placeholder="Foto" required> <br><br><br>
 
                             <button type="submit" class="btn btn-primary" name="btCad">Sign in</button>
                             <a type="button" class="btn btn-warning " href="listUsuario.php">Voltar</a>
@@ -109,16 +109,16 @@ if(isset($_POST['btCad'])){
 
                         <div class="form-group col-md-3">
                             <label for="txtEmail">Email</label>
-                            <input type="text" class="form-control" id="txtEmail" name="txtEmail" placeholder="Email" > <br>
+                            <input type="text" class="form-control" id="txtEmail" name="txtEmail" placeholder="Email" required> <br>
 
                             <label for="txtBio">Bio</label>
-                            <textarea rows="5" cols="30" class="form-control" id="txtBio" name="txtBio" placeholder="Bio"  col></textarea> <br>
+                            <textarea rows="5" cols="30" class="form-control" id="txtBio" name="txtBio" placeholder="Bio" required></textarea> <br>
 
                         </div>
 
                         <div class="form-group col-md-3">
                             <label for="txtSenha">Senha</label>
-                            <input type="password" class="form-control" id="txtSenha" name="txtSenha" placeholder="Senha" > <br>
+                            <input type="password" class="form-control" id="txtSenha" name="txtSenha" placeholder="Senha" required> <br>
                         </div>     
 
                     </div>

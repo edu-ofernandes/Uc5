@@ -107,7 +107,7 @@ if(isset($_GET['idUp'])){
                             <input type="text" class="form-control" id="txtNome" name="txtNome" placeholder="Nome" value="<?php echo $listarIdUsuario->getNome();?>" required> <br>
 
                             <label for="cadFoto">Foto</label>
-                            <input type="file" class="form-control" id="cadFoto" name="cadFoto" placeholder="Foto"> <br>
+                            <input type="file" class="form-control" id="cadFoto" name="cadFoto" placeholder="Foto" required> <br>
                             <img src="imagens/<?php echo $listarIdUsuario->getFoto();?>" alt="foto do jogo" width="150px">
 
                             <br><br><br>
@@ -118,16 +118,16 @@ if(isset($_GET['idUp'])){
 
                         <div class="form-group col-md-3">
                             <label for="txtEmail">Email</label>
-                            <input type="text" class="form-control" id="txtEmail" name="txtEmail" placeholder="Email" value="<?php echo $listarIdUsuario->getEmail();?>" > <br>
+                            <input type="text" class="form-control" id="txtEmail" name="txtEmail" placeholder="Email" value="<?php echo $listarIdUsuario->getEmail();?>"  required> <br>
 
                             <label for="txtBio">Bio</label>
-                            <textarea rows="5" cols="30" class="form-control" id="txtBio" name="txtBio" placeholder="Bio" value=""><?php echo $listarIdUsuario->getBio();?></textarea> <br>
+                            <textarea rows="5" cols="30" class="form-control" id="txtBio" name="txtBio" placeholder="Bio" value="" required><?php echo $listarIdUsuario->getBio();?></textarea> <br>
 
                         </div>
 
                         <div class="form-group col-md-3">
                             <label for="txtSenha">Senha</label>
-                            <input type="password" class="form-control" id="txtSenha" name="txtSenha" placeholder="Senha" value="*********"> <br>
+                            <input type="password" class="form-control" id="txtSenha" name="txtSenha" placeholder="Senha" value="*********" required> <br>
                         </div>     
                     </div>
                 </form>
