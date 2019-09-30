@@ -103,7 +103,7 @@ if(isset($_POST['btCad'])){
                             <input type="text" class="form-control" id="txtNomeJogo" name="txtNomeJogo" placeholder="Nome" required> <br>
 
                             <label for="cadFoto">Foto</label>
-                            <input type="file" class="form-control" id="cadFoto" name="cadFoto" placeholder="Foto" > <br>
+                            <input type="file" class="form-control" id="cadFoto" name="cadFoto" placeholder="Foto" required> <br>
 
                             <img id="imgPreview" src="" alt="" width="200px">
                         </div>
