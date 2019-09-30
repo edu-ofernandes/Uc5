@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 21-Set-2019 às 03:30
--- Versão do servidor: 10.1.37-MariaDB
--- versão do PHP: 7.3.0
+-- Generation Time: 30-Set-2019 às 21:41
+-- Versão do servidor: 10.1.40-MariaDB
+-- versão do PHP: 7.3.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -40,23 +40,15 @@ CREATE TABLE `administradores` (
 --
 
 INSERT INTO `administradores` (`id`, `nome`, `email`, `senha`) VALUES
-(40, 'Eduardo-Teste', 'edu@gmail.com', '202cb962ac59075b964b07152d234b70'),
-(41, 'Teste', 'teste@gmail.com', '202cb962ac59075b964b07152d234b70');
+(41, 'Eduardo', 'edu@gmail.com', '202cb962ac59075b964b07152d234b70');
 
 -- --------------------------------------------------------
 
 --
 -- Estrutura da tabela `atividades`
 --
-
-CREATE TABLE `atividades` (
-  `id` int(11) NOT NULL,
-  `usuarios_id` int(11) NOT NULL,
-  `jogos_id` int(11) NOT NULL,
-  `data` date DEFAULT NULL,
-  `pontuacao` double DEFAULT NULL,
-  `tempo` time DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+-- Error reading structure for table gamecontroler.atividades: #1932 - Table 'gamecontroler.atividades' doesn't exist in engine
+-- Error reading data for table gamecontroler.atividades: #1064 - Você tem um erro de sintaxe no seu SQL próximo a 'FROM `gamecontroler`.`atividades`' na linha 1
 
 -- --------------------------------------------------------
 
@@ -79,9 +71,7 @@ INSERT INTO `categorias` (`id`, `nome`) VALUES
 (8, 'AÃ§ao'),
 (9, 'Luta'),
 (10, 'Rpg'),
-(11, 'Mundo aberto'),
-(13, 'Esporte'),
-(14, 'Esporte');
+(11, 'Mundo aberto');
 
 -- --------------------------------------------------------
 
@@ -92,21 +82,23 @@ INSERT INTO `categorias` (`id`, `nome`) VALUES
 CREATE TABLE `jogos` (
   `id` int(11) NOT NULL,
   `nome` varchar(90) DEFAULT NULL,
-  `foto` longtext CHARACTER SET utf8mb4,
-  `categorias_id` int(11) NOT NULL
+  `categorias_id` int(11) NOT NULL,
+  `foto` longtext,
+  `descricao` varchar(200) DEFAULT NULL,
+  `link` longtext
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `jogos`
 --
 
-INSERT INTO `jogos` (`id`, `nome`, `foto`, `categorias_id`) VALUES
-(18, 'Gta V', '01c699a7b3b75fcb366fcba7c8977ec61.jpg', 11),
-(19, 'Midnight Club 3: DUB Edition', '0c6ba2f769df316c392a732dcc688162e.jpg', 1),
-(20, 'Need For Speed Payback', '05ba573546572f714df14aa1c3b583dc2.jpg', 1),
-(21, 'Dark Soul ', '0042a2dc3c6f3f59889954c831e12209a.jpg', 10),
-(22, 'Pubg', '06e68f31c5fd98d1730492e5373cc7ccf.jpg', 6),
-(23, 'Mortal Kombat X', '050da5aa46d8b88740e7f8b8bc409f6b8.jpg', 9);
+INSERT INTO `jogos` (`id`, `nome`, `categorias_id`, `foto`, `descricao`, `link`) VALUES
+(18, 'Gta V', 11, '01c699a7b3b75fcb366fcba7c8977ec61.jpg', NULL, NULL),
+(19, 'Midnight Club 3: DUB Edition', 1, '0c6ba2f769df316c392a732dcc688162e.jpg', NULL, NULL),
+(20, 'Need For Speed Payback', 1, '05ba573546572f714df14aa1c3b583dc2.jpg', NULL, NULL),
+(21, 'Dark Soul ', 10, '0042a2dc3c6f3f59889954c831e12209a.jpg', NULL, NULL),
+(22, 'Pubg', 6, '06e68f31c5fd98d1730492e5373cc7ccf.jpg', NULL, NULL),
+(23, 'Mortal Kombat X', 9, '050da5aa46d8b88740e7f8b8bc409f6b8.jpg', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -152,13 +144,6 @@ ALTER TABLE `administradores`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `atividades`
---
-ALTER TABLE `atividades`
-  ADD PRIMARY KEY (`id`,`usuarios_id`,`jogos_id`),
-  ADD KEY `fk_atividades_jogosdosusuarios1` (`usuarios_id`,`jogos_id`);
-
---
 -- Indexes for table `categorias`
 --
 ALTER TABLE `categorias`
@@ -193,19 +178,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `administradores`
 --
 ALTER TABLE `administradores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
-
---
--- AUTO_INCREMENT for table `atividades`
---
-ALTER TABLE `atividades`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `jogos`
@@ -222,12 +201,6 @@ ALTER TABLE `usuarios`
 --
 -- Constraints for dumped tables
 --
-
---
--- Limitadores para a tabela `atividades`
---
-ALTER TABLE `atividades`
-  ADD CONSTRAINT `fk_atividades_jogosdosusuarios1` FOREIGN KEY (`usuarios_id`,`jogos_id`) REFERENCES `jogosdosusuarios` (`usuarios_id`, `jogos_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `jogos`
