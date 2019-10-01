@@ -9,3 +9,4 @@ if(!isset($_SESSION)){
 if ($banco->connect_errno){
     echo "deu ruim: (".$banco->connect_error.")";
 }
+?>
