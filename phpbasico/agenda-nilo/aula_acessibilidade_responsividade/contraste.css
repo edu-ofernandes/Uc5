@@ -1,0 +1,117 @@
+@charset "utf-8";
+/* CSS Document */
+.acessibilidade {
+
+}
+.acessibilidade ul {
+
+}
+.acessibilidade li {
+
+}
+.acessibilidade li a {
+
+}
+.acessibilidade li a:hover {
+
+}
+body{
+	background-color: #000;
+}
+.quebra {
+	clear: both;
+}
+
+@media (min-width:1001px) {
+
+body {
+	background-color: #221F1F;
+	font-size: 62.5%;
+	margin: 0px;
+	padding: 0px;
+}
+header {
+	background-color: #FFFFFF;
+	background-image:url(img/topo.png);
+	background-attachment:scroll;
+	background-position:center center;
+	background-repeat:no-repeat;
+	background-size: auto ;
+	margin: 0 auto;
+	padding: 3px;
+	width: 90%;
+	height: auto;
+	min-height: 8em;
+	margin-bottom: 0.5em;
+	font-size: 1.6em;
+
+}
+}
+img{
+	column-fill:auto;
+}
+nav {
+	background-color: #ECECEC;
+	margin: 0 auto;
+	padding: 3px;
+	width: 90%;
+	height: auto;
+	min-height: 2em;
+	margin-bottom: 0.5em;
+	font-size: 1.6em;
+}
+main {
+	background-color: #ECECEC;
+	margin: 0 auto;
+	padding: 3px;
+	width: 90%;
+	height: auto;
+	min-height: 5em;
+	margin-bottom: 0.5em;
+	font-size: 1.6em;
+}
+footer {
+	background-color: #ECECEC;
+	margin: 0 auto;
+	padding: 3px;
+	width: 90%;
+	height: auto;
+	min-height: 5em;
+	margin-bottom: 0.5em;
+	font-size: 1.6em;
+}
+article {
+	width: 70%;
+	float: left;
+	margin: 3px;
+	padding: 3px;
+	background-color: #D3C091;
+	height: auto;
+	min-height: 12em;
+}
+aside {
+	width: 25%;
+	float: right;
+	margin: 3px;
+	padding: 3px;
+	background-color: #D3C091;
+	height: auto;
+	min-height: 12em;
+}
+}
+
+@media (min-width: 769px) and (max-width: 1000px) {
+body {
+	background-color: #B1E6F1;
+}
+}
+
+@media (min-width: 321px) and (max-width: 768px) {
+body {
+	background-color: #F4F1C7;
+}
+}
+@media (max-width: 320px) {
+body {
+	background-color: #EDA0A1;
+}

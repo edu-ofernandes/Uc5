@@ -1,0 +1,418 @@
+@charset "utf-8";
+/* CSS Document */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video, main {
+	margin: 0;	padding: 0;	border: 0;	font-size: 100%;vertical-align: bas
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, address, main {
+	display: block;
+}
+audio, canvas, video, img, picture, embed, iframe {
+	display: inline-block;	width: auto;	height: auto;	max-width: 100%;
+}
+@viewport {
+width: device-width;zoom: 1;min-zoom: 0.5;max-zoom: 4;orientation: portrait;
+}
+.quebra {
+	content: " ";
+	display: table;
+	clear: both;
+}
+
+@media (min-width:1001px) {
+.acessibilidade {
+	margin: 0px;
+	margin-bottom: 3px;
+	padding: 0px;
+	background-color: #B3B3B3;
+	border-bottom: #231E1E 1px solid;
+}
+.acessibilidade ul {
+		margin:0px;
+		padding:0px;
+}
+.acessibilidade li {
+		margin:0px;
+		padding:0px;
+}
+.acessibilidade li a {
+
+}
+.acessibilidade li a:hover {
+
+}
+body {
+	background-color: #A5EDA0;
+	font-size: 62.5%;
+	margin: 0px;
+	padding: 0px;
+}
+header {
+	background-color: #FFFFFF;
+	background-image:url(img/topo.png);
+	background-attachment:scroll;
+	background-position:center center;
+	background-repeat:no-repeat;
+	background-size: auto ;
+	margin: 0 auto;
+	padding: 3px;
+	width: 90%;
+	height: auto;
+	min-height: 8em;
+	margin-bottom: 0.5em;
+	font-size: 1.6em;
+}
+nav {
+	background-color: #FFFFFF;
+	margin: 0 auto;
+	padding: 3px;
+	width: 100%;
+	height: auto;
+	min-height: 2em;
+	margin-bottom: 0.5em;
+	font-size: 1.6em;
+}
+main {
+	background-color: #FFFFFF;
+	margin: 0 auto;
+	padding: 3px;
+	width: 90%;
+	height: auto;
+	min-height: 5em;
+	margin-bottom: 0.5em;
+	font-size: 1.6em;
+}
+footer {
+	background-color: #FFFFFF;
+	margin: 0 auto;
+	padding: 3px;
+	width: 100%;
+	height: auto;
+	min-height: 5em;
+	margin-bottom: 0.5em;
+	font-size: 1.6em;
+}
+article {
+	width: 70%;
+	float: left;
+	margin: 3px;
+	padding: 3px;
+	background-color: #D3C091;
+	height: auto;
+	min-height: 12em;
+}
+#bt_print{
+	margin:2px;
+	padding:2px;
+	width:auto;
+	max-width:150px;
+	border:1px dotted #636363;
+	float:right;	
+}
+aside {
+	width: 25%;
+	float: right;
+	margin: 3px;
+	padding: 3px;
+	background-color: #D3C091;
+	height: auto;
+	min-height: 12em;
+}
+}
+
+@media (min-width: 769px) and (max-width: 1000px) {
+.acessibilidade {
+	margin: 0px;
+	margin-bottom: 3px;
+	padding: 0px;
+	background-color: #9ECFC3;
+	border-bottom: #231E1E 1px solid;
+}
+.acessibilidade ul {
+		margin:0px;
+		padding:0px;
+}
+.acessibilidade li {
+		margin:0px;
+		padding:0px;
+}
+.acessibilidade li a {
+
+}
+.acessibilidade li a:hover {
+
+}
+body {
+	background-color: #A0EDD3;
+	font-size: 62.5%;
+	margin: 0px;
+	padding: 0px;
+}
+header {
+	background-color: #ECECEC;
+	background-image:url(img/topo.png);
+	background-attachment:scroll;
+	background-position:center center;
+	background-repeat:no-repeat;
+	background-size: auto ;
+	margin: 0 auto;
+	padding: 3px;
+	width: 90%;
+	height: auto;
+	min-height: 5em;
+	margin-bottom: 0.5em;
+	font-size: 1.6em;
+}
+nav {
+	background-color: #ECECEC;
+	margin: 0 auto;
+	padding: 3px;
+	width: 90%;
+	height: auto;
+	min-height: 2em;
+	margin-bottom: 0.5em;
+	font-size: 1.6em;
+}
+main {
+	background-color: #ECECEC;
+	margin: 0 auto;
+	padding: 3px;
+	width: 90%;
+	height: auto;
+	min-height: 5em;
+	margin-bottom: 0.5em;
+	font-size: 1.6em;
+}
+footer {
+	background-color: #ECECEC;
+	margin: 0 auto;
+	padding: 3px;
+	width: 90%;
+	height: auto;
+	min-height: 5em;
+	margin-bottom: 0.5em;
+	font-size: 1.6em;
+}
+article {
+	width: 70%;
+	float: left;
+	margin: 3px;
+	padding: 3px;
+	background-color: #D3C091;
+	height: auto;
+	min-height: 12em;
+}
+aside {
+	width: 25%;
+	float: right;
+	margin: 3px;
+	padding: 3px;
+	background-color: #D3C091;
+	height: auto;
+	min-height: 12em;
+}
+}
+@media (min-width: 321px) and (max-width: 768px) {
+.acessibilidade {
+	margin: 0px;
+	margin-bottom: 3px;
+	padding: 0px;
+	background-color: #D7D6D6;
+	border-bottom: #231E1E 1px solid;
+}
+.acessibilidade ul {
+		margin:0px;
+		padding:0px;
+}
+.acessibilidade li {
+		margin:0px;
+		padding:0px;
+}
+.acessibilidade li a {
+
+}
+.acessibilidade li a:hover {
+
+}
+body {
+	background-color: #A0EDD3;
+	font-size: 62.5%;
+	margin: 0px;
+	padding: 0px;
+}
+header {
+	background-color: #ECECEC;
+	background-image:url(img/topo.png);
+	background-attachment:scroll;
+	background-position:center center;
+	background-repeat:no-repeat;
+	background-size: auto ;	
+	margin: 0 auto;
+	padding: 3px;
+	width: 90%;
+	height: auto;
+	min-height: 5em;
+	margin-bottom: 0.5em;
+	font-size: 1.6em;
+}
+nav {
+	background-color: #ECECEC;
+	margin: 0 auto;
+	padding: 3px;
+	width: 90%;
+	height: auto;
+	min-height: 2em;
+	margin-bottom: 0.5em;
+	font-size: 1.6em;
+}
+main {
+	background-color: #ECECEC;
+	margin: 0 auto;
+	padding: 3px;
+	width: 90%;
+	height: auto;
+	min-height: 5em;
+	margin-bottom: 0.5em;
+	font-size: 1.6em;
+}
+footer {
+	background-color: #ECECEC;
+	margin: 0 auto;
+	padding: 3px;
+	width: 90%;
+	height: auto;
+	min-height: 5em;
+	margin-bottom: 0.5em;
+	font-size: 1.6em;
+}
+article {
+	width: 90%;
+	margin: 2px auto;
+	padding: 3px;
+	background-color: #D3C091;
+	height: auto;
+	min-height: 12em;
+}
+aside {
+	width: 90%;
+	margin: 2px auto;
+	padding: 3px;
+	background-color: #D3C091;
+	height: auto;
+	min-height: 12em;
+}
+}
+
+@media (max-width: 320px) {
+.acessibilidade {
+	display:none;
+}
+
+body {
+	background-color: #A0EDD3;
+	font-size: 62.5%;
+	margin: 0px;
+	padding: 0px;
+}
+header {
+	background-color: #ECECEC;
+	background-image:url(img/topo.png);
+	background-attachment:scroll;
+	background-position:center center;
+	background-repeat:no-repeat;
+	background-size: auto ;	
+	margin: 0 auto;
+	padding: 3px;
+	width: 90%;
+	height: auto;
+	min-height: 5em;
+	margin-bottom: 0.5em;
+	font-size: 1.6em;
+	;
+}
+nav {
+	background-color: #ECECEC;
+	margin: 0 auto;
+	padding: 3px;
+	width: 90%;
+	height: auto;
+	min-height: 2em;
+	margin-bottom: 0.5em;
+	font-size: 1.6em;
+}
+main {
+	background-color: #ECECEC;
+	margin: 0 auto;
+	padding: 3px;
+	width: 90%;
+	height: auto;
+	min-height: 5em;
+	margin-bottom: 0.5em;
+	font-size: 1.6em;
+}
+footer {
+	background-color: #ECECEC;
+	margin: 0 auto;
+	padding: 3px;
+	width: 90%;
+	height: auto;
+	min-height: 5em;
+	margin-bottom: 0.5em;
+	font-size: 1.6em;
+}
+article {
+	width: 90%;
+	margin: 2px auto;
+	padding: 3px;
+	background-color: #D3C091;
+	height: auto;
+	min-height: 12em;
+}
+aside {
+	display:none;
+}
+}
+@media print {
+
+* {
+	background: transparent !important;
+	color: #000 !important;
+	text-shadow: none !important;
+	filter: none !important;
+	-ms-filter: none !important;
+}
+footer, aside, nav {
+	display:none;
+}
+.acessibilidade {
+	display:none;
+}
+body {
+	
+	margin: 0;
+	padding: 0;
+	line-height: 1.4em;
+	background-color:#C79192;
+	font: 12pt Georgia, "Times New Roman", Times, serif;
+	color: #000;
+	border:0.5px solid #929292;
+}
+header{
+	border-top: 5px #755AFF solid;
+}
+img {
+	max-width: 100%;
+}
+
+a, a:visited {
+	text-decoration: underline;
+}
+a:after, a[href^="javascript:"]:after, a[href^="#"]:after {
+	content: "";
+}
+p a {
+	word-wrap: break-word;
+}
+
+}
+
+

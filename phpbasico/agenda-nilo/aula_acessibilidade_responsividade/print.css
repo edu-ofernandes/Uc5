@@ -1,0 +1,37 @@
+@charset "utf-8";
+
+/* CSS Document */
+
+@media print, screen {
+* {
+	background: transparent !important;
+	color: #000 !important;
+	text-shadow: none !important;
+	filter: none !important;
+	-ms-filter: none !important;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	line-height: 1.4em;
+	background-color:#C79192;
+}
+img {
+	max-width: 100%;
+}
+body {
+	font: 12pt Georgia, "Times New Roman", Times, serif;
+	color: #000;
+}
+a, a:visited {
+	text-decoration: underline;
+}
+a:after, a[href^="javascript:"]:after, a[href^="#"]:after {
+	content: "";
+}
+p a {
+	word-wrap: break-word;
+}
+
+}
