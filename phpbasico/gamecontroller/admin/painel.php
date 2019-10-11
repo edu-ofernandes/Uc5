@@ -136,6 +136,46 @@ $dalUsua = new DALUsuario($conexao);
                             </div>
                         </div>
                     </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 mt-4">
+                        <div class="card bg-orange text-white">
+                            <div class="card-body">
+                                <div class="row  align-items-center">
+                                    <div class="col-7">
+                                        <h2>Atividades</h2>
+                                    </div>
+                                    <div class="col-1">
+                                        <i class="fas fa-save fa-3x"></i>
+                                    </div>
+                                </div>
+                                <div class="dropdown-divider"></div>
+                                <div class="row align-items-center">
+                                    <div class="col-12">
+                                        <h2 class="display-4 text-center">Total<?php //echo ($dalCat->TotalCategoria());?></h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-12 mt-4">
+                        <div class="card bg-orange text-white">
+                            <div class="card-body">
+                                <div class="row  align-items-center">
+                                    <div class="col-7">
+                                        <h2>Jogos dos Usuarios</h2>
+                                    </div>
+                                    <div class="col-1">
+                                        <i class="fas fa-stream fa-3x"></i>
+                                    </div>
+                                </div>
+                                <div class="dropdown-divider"></div>
+                                <div class="row align-items-center">
+                                    <div class="col-12">
+                                        <h2 class="display-4 text-center">Total<?php //echo ($dalCat->TotalCategoria());?></h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     
                 </div>
 

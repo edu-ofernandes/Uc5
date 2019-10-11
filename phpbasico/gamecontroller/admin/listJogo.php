@@ -80,8 +80,10 @@ $row = count($listarJogo);
                             <tr>
                                 <th class="d-none d-md-table-cell text-center">Foto</th>
                                 <th class="d-none d-md-table-cell">ID</th>
-                                <th>Nome Completo</th>
+                                <th class="d-none d-md-table-cell">Nome Completo</th>
                                 <th class="d-none d-md-table-cell">Categoria</th>
+                                <th class="d-none d-md-table-cell">Descriçao</th>
+                                <th class="d-none d-md-table-cell">Link</th>
                                 <th class="text-center">Ações</th>
                             </tr>
                         </thead>
@@ -93,8 +95,10 @@ $row = count($listarJogo);
                             <tr>
                                 <td class="d-none d-md-table-cell text-center align-middle"><img class="img-usuario" src="imagens/<?php echo $listarJogo[$i]->getFoto();?>" alt="" width="200px"></td>
                                 <td class="d-none d-md-table-cell align-middle"><?php echo $listarJogo[$i]->getId();?></td>
-                                <td class="align-middle"><?php echo $listarJogo[$i]->getNome();?></td>
+                                <td class="d-none d-md-table-cell align-middle"><?php echo $listarJogo[$i]->getNome();?></td>
                                 <td class="d-none d-md-table-cell align-middle"><?php echo $listarCategoriaId->getNome();?></td>
+                                <td class="d-none d-md-table-cell"><?php //echo $listarJogo->getDescricao();?></td>
+                                <td class="d-none d-md-table-cell"><?php //echo $listarJogo->getLink();?></td>
                                 <td class="text-center align-middle">
                                     <button type="button" class="btn btn-sm btn-outline-info"><i class="fas fa-eye"></i></button>
                                     <a href="upJogo.php?idUp=<?php echo $listarJogo[$i]->getId();?>" type="button" class="btn btn-sm btn-outline-warning"><i class="far fa-edit"></i></a>

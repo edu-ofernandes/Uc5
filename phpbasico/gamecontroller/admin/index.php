@@ -65,12 +65,12 @@ if(isset($_POST['btLogin'])){
             </div>
 
         <div class="form-label-group">
-            <input type="email" id="txtEmail" name="txtEmail" class="form-control" placeholder="Email address"  >
+            <input type="email" id="txtEmail" name="txtEmail" class="form-control" placeholder="Email address" required>
             <label for="txtEmail">Email address</label>
         </div>
 
         <div class="form-label-group">
-            <input type="password" id="txtSenha" name="txtSenha" class="form-control" placeholder="Password" >
+            <input type="password" id="txtSenha" name="txtSenha" class="form-control" placeholder="Password" required>
             <label for="txtSenha">Password</label>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit" name="btLogin">Sign in</button>

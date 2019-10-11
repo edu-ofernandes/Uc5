@@ -56,6 +56,8 @@ if(isset($_POST['btCad'])){
     $jogo->setNome(addslashes($_POST['txtNomeJogo']));
     $jogo->setFoto($foto);
     $jogo->setIdCategoria($_POST['selCategoria']);
+    //$jogo->setDescricao($_POST['txtDescricao']);
+    //$jogo->setLink($_POST['txtLink']);
     $dalJogo->inserirJogo($jogo);
     header("location: cadJogo.php");
 }
@@ -118,9 +120,16 @@ if(isset($_POST['btCad'])){
                                 <option value="<?php echo $listarCategoria[$i]->getId();?>"><?php echo $listarCategoria[$i]->getNome();?></option>
 
                                 <?php }?>
-                            </select>
+                            </select> <br>
                             
-                        </div>                        
+                            <label for="txtDescricao" id="txtDescricao">Descricao</label>
+                            <textarea name="txtDescricao" id="" cols="30" rows="5" class="form-control" placeholder="Descrição"></textarea>
+                        </div>   
+                        
+                        <div class="form-group cold-md-3">
+                            <label for="txtLink">Link sobre video</label>
+                            <input type="text" name="txtLink" id="txtLink" class="form-control" placeholder="Link sobre Jogo">
+                        </div>
                     </div>
                     
                     
