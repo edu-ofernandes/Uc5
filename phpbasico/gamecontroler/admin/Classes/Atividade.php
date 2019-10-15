@@ -37,7 +37,7 @@
             return $this->pontuacao;
         }
         public function setPontuacao($valuePontuacao){
-            $this->data = $valuePontuacao;
+            $this->pontuacao = $valuePontuacao;
         }
 
 

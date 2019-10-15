@@ -97,8 +97,8 @@ $row = count($listarJogo);
                                 <td class="d-none d-md-table-cell align-middle"><?php echo $listarJogo[$i]->getId();?></td>
                                 <td class="d-none d-md-table-cell align-middle"><?php echo $listarJogo[$i]->getNome();?></td>
                                 <td class="d-none d-md-table-cell align-middle"><?php echo $listarCategoriaId->getNome();?></td>
-                                <td class="d-none d-md-table-cell"><?php //echo $listarJogo->getDescricao();?></td>
-                                <td class="d-none d-md-table-cell"><?php //echo $listarJogo->getLink();?></td>
+                                <td class="d-none d-md-table-cell align-middle"><?php echo $listarJogo[$i]->getDescricao();?></td>
+                                <td class="d-none d-md-table-cell align-middle"><?php echo $listarJogo[$i]->getLink();?></td>
                                 <td class="text-center align-middle">
                                     <button type="button" class="btn btn-sm btn-outline-info"><i class="fas fa-eye"></i></button>
                                     <a href="upJogo.php?idUp=<?php echo $listarJogo[$i]->getId();?>" type="button" class="btn btn-sm btn-outline-warning"><i class="far fa-edit"></i></a>

@@ -56,8 +56,8 @@ if(isset($_POST['btCad'])){
     $jogo->setNome(addslashes($_POST['txtNomeJogo']));
     $jogo->setFoto($foto);
     $jogo->setIdCategoria($_POST['selCategoria']);
-    //$jogo->setDescricao($_POST['txtDescricao']);
-    //$jogo->setLink($_POST['txtLink']);
+    $jogo->setDescricao($_POST['txtDescricao']);
+    $jogo->setLink($_POST['txtLink']);
     $dalJogo->inserirJogo($jogo);
     header("location: cadJogo.php");
 }

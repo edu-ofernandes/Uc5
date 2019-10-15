@@ -64,6 +64,8 @@ if(isset($_POST['btCad'])){
     $jogo->setNome(addslashes($_POST['txtNomeJogo']));
     $jogo->setFoto($foto);
     $jogo->setIdCategoria($_POST['selCategoria']);
+    $jogo->setDescricao($_POST['txtDescricao']);
+    $jogo->setLink($_POST['txtLink']);
     $dalJogo->alterarJogo($jogo);
     header("location: listJogo.php");
 }
@@ -114,7 +116,7 @@ if(isset($_POST['btCad'])){
                             <input type="text" class="form-control" id="txtNomeJogo" name="txtNomeJogo" placeholder="Nome" value="<?php echo $listarJogo->getNome();?>" required> <br>
 
                             <label for="cadFoto">Foto</label>
-                            <input type="file" class="form-control" id="cadFoto" name="cadFoto" placeholder="Foto" value="" required> <br>
+                            <input type="file" class="form-control" id="cadFoto" name="cadFoto" placeholder="Foto" value="" > <br>
 
                             <img src="imagens/<?php echo $listarJogo->getFoto();?>" alt="foto do jogo" width="400px">
                         </div>
@@ -132,12 +134,12 @@ if(isset($_POST['btCad'])){
                             </select> <br>
                             
                             <label for="txtDescricao" id="txtDescricao">Descricao</label>
-                            <textarea name="txtDescricao" id="" cols="30" rows="5" class="form-control" placeholder="Descrição"><?php //echo $listarJogo->getDescricao();?></textarea>
+                            <textarea name="txtDescricao" id="txtDescricao" cols="30" rows="5" class="form-control" placeholder="Descrição" required><?php echo $listarJogo->getDescricao();?></textarea>
                         </div>                        
                         
                         <div class="form-group cold-md-3">
                             <label for="txtLink">Link sobre video</label>
-                            <input type="text" name="txtLink" id="txtLink" class="form-control" placeholder="Link sobre Jogo" value="<?php //echo $listarJogo->getLink();?>">
+                            <input type="text" name="txtLink" id="txtLink" class="form-control" placeholder="Link sobre Jogo" value="<?php echo $listarJogo->getLink();?>" required>
                         </div>
                         
                     </div>
