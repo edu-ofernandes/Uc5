@@ -32,6 +32,13 @@ require_once("Classes/ClasseBase.php");
                         <h2 class="display-4 titulo-pagina">Atividades</h2>
                     </div>
 
+                    <a href="cadAtividades.php">
+                        <div class="p-1">
+                            <button class="btn btn-outline-primary">
+                                    <i class="far fa-plus-square"></i> Nova Atividade
+                            </button>
+                        </div>
+                    </a>
                 </div>
 
                 <div class="card border-success mb-3">

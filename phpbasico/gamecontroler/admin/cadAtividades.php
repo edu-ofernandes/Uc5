@@ -42,7 +42,7 @@ if(isset($_POST['btCad'])){}
                     <div class="mr-auto p-1">
                         <h2 class="display-4 titulo-pagina">Cadastrar Atividade</h2>
                     </div>
-                    <a href="listJogo.php">
+                    <a href="listAtividades.php">
                         <div class="p-1">
                             <button class="btn btn-sm btn-outline-secondary">
                                     <i class="fas fa-undo-alt"></i> Listar todos
@@ -55,10 +55,28 @@ if(isset($_POST['btCad'])){}
                     <div class="form-row ">
                         <div class="form-group col-md-3">
                             <label for="txtUsuarioId">Usuario</label>
-                            <input type="text" class="form-control" id="txtUsuarioId" name="txtUsuarioId" placeholder="Usuario" required>
+                            <select class="form-control" name="txtUsuarioId" id="txtUsuarioId" required>
+                                <option value="">Usuario</option>
+                                
+                            </select>
 
                             <label for="txtJogoId">Jogo</label>
-                            <input type="text" class="form-control" id="txtJogoId" name="txtJogoId" placeholder="Jogo" required>
+                            <select class="form-control" name="txtJogoId" id="txtJogoId" required>
+                                <option value="">Jogo</option>
+                                
+                            </select>
+                        </div>                        
+                        <div class="form-group col-md-3">
+                            <label for="txtData">Data</label>
+                            <input type="date" class="form-control" id="txtData" name="txtData" placeholder="Data" required>
+
+                            <label for="txtPontos">Pontuação</label>
+                            <input type="number" class="form-control" id="txtPontos" name="txtPontos" placeholder="Pontos" required>
+                        </div>                        
+                        <div class="form-group col-md-3">
+                    
+                            <label for="txtTempoJogo">Tempo de Jogo</label>
+                            <input type="text" class="form-control" id="txtTempoJogo" name="txtTempoJogo" placeholder="Tempo de Jogo" required>
                         </div>                        
                     </div>
                     

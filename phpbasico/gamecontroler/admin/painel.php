@@ -161,7 +161,7 @@ $dalUsua = new DALUsuario($conexao);
                             <div class="card-body">
                                 <div class="row  align-items-center">
                                     <div class="col-7">
-                                        <h2>Jogos dos Usuarios</h2>
+                                        <h2>Jogo User</h2>
                                     </div>
                                     <div class="col-1">
                                         <i class="fas fa-stream fa-3x"></i>
