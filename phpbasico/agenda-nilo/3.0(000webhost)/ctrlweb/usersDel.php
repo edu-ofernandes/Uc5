@@ -3,7 +3,8 @@ require_once("../include/connectaBD.php");
 require_once("../include/validar.php");
 
 
-$idUser = $_GET['id'];
+$idUser = addslashes($_GET['id']); 
+$idUser = mysqli_real_escape_string($banco, $idUser);
 $sqlList = "SELECT * FROM contatos WHERE users_idusers=$idUser";
 $resultList = $banco->query($sqlList);
 

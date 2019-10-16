@@ -2,7 +2,8 @@
 require_once("../include/connectaBD.php");
 require_once("../include/validar.php");
 
-$id = $_GET['idUp'];
+$id = addslashes($_GET['idUp']);
+$id = mysqli_escape_string($banco, $id);
 $sql = "SELECT * FROM contatos WHERE idcontatos=".$id;
 $result = $banco->query($sql);
 $row = mysqli_fetch_array($result);

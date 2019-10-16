@@ -4,7 +4,8 @@ require_once("../include/validar.php");
 
 
 
-    $idUsers = $_GET['id'];
+    $idUsers = addslashes($_GET['id']);
+    $idUsers = mysqli_escape_string($banco, $idUsers);
     $sqlList = "SELECT * FROM users WHERE idusers=$idUsers";
     $resultList = $banco->query($sqlList);
     $rowList = mysqli_fetch_assoc($resultList);
@@ -15,7 +16,7 @@ require_once("../include/validar.php");
         $senha = md5(addslashes($_POST['txtSenha']));
         $nivel = $_POST['selNivel'];
 
-        $sql = "UPDATE users SET idusers=$idUsers, nome='$nome', login='$nomeUsuario', senha='$senha', nivel='$nivel' WHERE idusers=$idUsers";
+        $sql = "UPDATE users SET idusers=$idUsers, nome='$nome', login='$nomeUsuario', senha='$senha', nivel='$nivel' WHERE idusers='$idUsers'";
         $resultList = $banco->query($sql);
         header("location: users.php");
     }
@@ -64,7 +65,7 @@ require_once("../include/validar.php");
                     <input type="text" name="txtNomeUsuario" id="txtNomeUsuario" placeholder="Nome de usuario" value="<?php echo $rowList['login'];?>">
                     <input type="password" name="txtSenha" id="txtSenha" placeholder="Senha" value="<?php echo $rowList['senha'];?>">
 
-                    <?php if($rowList['nivel'] === 0){?>
+                    <?php if($rowList['nivel'] === '0'){?>
 
                     <!-- verificar os inputs radios para imprimir o que ja estao setado -->
                     <label for="selNivel">Comum</label>

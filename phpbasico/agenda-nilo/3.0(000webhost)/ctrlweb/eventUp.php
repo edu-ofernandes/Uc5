@@ -3,7 +3,8 @@ require_once("../include/connectaBD.php");
 require_once("../include/validar.php");
 
 if(isset($_GET['id'])){
-    $idagendamentos = $_GET['id'];
+    $idagendamentos = addslashes($_GET['id']);
+    $idagendamentos = mysqli_escape_string($banco, $idagendamentos);
     $sql = "SELECT * FROM agendamentos WHERE idagendamentos=".$idagendamentos;
     $result = $banco->query($sql);
     $row = mysqli_fetch_array($result);
@@ -18,7 +19,7 @@ if(isset($_GET['id'])){
         $obs = $_POST['obs'];
         $concluido = $_POST['selConcluido'];
 
-        $sql = "UPDATE agendamentos SET idagendamentos=".$idagendamentos.", titulo='".$titulo."', 
+        $sql = "UPDATE agendamentos SET titulo='".$titulo."', 
         data='".$data."', hora='".$hora."', local='".$local."', endereco='".$endereco."', obs='".$obs."', 
         concluido='".$concluido."', users_idusers=".$users_iduserss." WHERE idagendamentos=".$idagendamentos.";";
 
@@ -73,7 +74,7 @@ if(isset($_GET['id'])){
                     <input type="text" name="txtEnd" id="txtEnd" placeholder="Endereço" value="<?php echo $row['endereco'];?>">
                     <textarea name="obs" id="obs" cols="30" rows="10" placeholder="Observações"><?php echo $row['obs'];?></textarea>
                     <select name="selConcluido" id="selConcluido" >
-                        <option value="<?php echo $row['concluido'];?>"></option>
+                        <option value="<?php echo $row['concluido'];?>"><?php echo $row['concluido'];?></option>
                         <option value="0">Não</option>
                         <option value="1">Sim</option>
                     </select>

@@ -15,6 +15,13 @@ if(isset($_POST['btCad'])){
 
     $sql = "INSERT INTO agendamentos VALUES (NULL, '$titulo', '$data', '$hora', '$local', '$endereco', '$obs', '$concluido', $users_iduserss);";
     $result = $banco->query($sql);
+
+    // echo '<pre>';
+    // var_dump($sql);
+    // var_dump($result);
+    // echo '</pre>';
+
+    
 }
 
 ?>

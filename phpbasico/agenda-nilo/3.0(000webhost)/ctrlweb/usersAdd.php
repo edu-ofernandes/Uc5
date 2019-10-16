@@ -10,8 +10,10 @@ if(isset($_POST['btCad'])){
     $nivel = $_POST['selNivel'];
 
     $sql = "INSERT INTO users VALUES (null, '$nome', '$nomeUsuario', '$senha', '$nivel')";
+
+
     if(mysqli_query($banco, $sql)){
-        echo "<script>Alert('User adicionado com Sucesso');</script>";
+        
         header("location: users.php");
     }else{
         echo "erro ao cadastrar: ".mysqli_connect_error($banco);    
