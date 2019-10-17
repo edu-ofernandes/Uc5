@@ -14,9 +14,9 @@ if(isset($_POST['btBuscaNome'])){
     
     $nome = $_POST['txtBusca'];
 
-    $sql = "SELECT * FROM contatos WHERE nome LIKE '%".$nome."%';";
+    $sql = "SELECT * FROM contatos WHERE nome LIKE '%$nome%';";
     $resultBuscaNome = $banco->query($sql);
-
+    
     
     if(mysqli_affected_rows($resultBuscaNome)){
         $buscaNome = true;

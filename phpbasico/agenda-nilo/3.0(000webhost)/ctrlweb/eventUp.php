@@ -5,7 +5,7 @@ require_once("../include/validar.php");
 if(isset($_GET['id'])){
     $idagendamentos = addslashes($_GET['id']);
     $idagendamentos = mysqli_escape_string($banco, $idagendamentos);
-    $sql = "SELECT * FROM agendamentos WHERE idagendamentos=".$idagendamentos;
+    $sql = "SELECT * FROM agendamentos WHERE idagendamentos= $idagendamentos";
     $result = $banco->query($sql);
     $row = mysqli_fetch_array($result);
 

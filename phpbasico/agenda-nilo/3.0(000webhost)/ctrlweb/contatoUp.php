@@ -4,7 +4,7 @@ require_once("../include/validar.php");
 
 $id = addslashes($_GET['idUp']);
 $id = mysqli_escape_string($banco, $id);
-$sql = "SELECT * FROM contatos WHERE idcontatos=".$id;
+$sql = "SELECT * FROM contatos WHERE idcontatos= $id";
 $result = $banco->query($sql);
 $row = mysqli_fetch_array($result);
 
