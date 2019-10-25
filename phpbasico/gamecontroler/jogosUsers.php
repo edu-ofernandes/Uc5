@@ -143,12 +143,12 @@
             var tdId = document.createElement('td');
             var textoId = document.createTxtNode(str[0]);
             tdId.appendChild(tdId);
-            tr.appendChild(tdId);
+            tr.appendChild(textoId);
 
             var tdNome = document.createElement('td');
             var textoNome = document.createTxtNode(str[1]);       
             tdNome.appendChild(tdNome);
-            tr.appendChild(tdNome);
+            tr.appendChild(textoNome);
 
 
             document.getElementById('linhas').appendChild(tr);

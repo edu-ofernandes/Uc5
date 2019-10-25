@@ -15,6 +15,7 @@ $conexao = new Conexao();
 
 // DAL atividade
 $dalAtividade = new DALAtividade($conexao);
+
 // DAL jogo
 $dalJogo = new DALJogo($conexao);
 $listarJogo = $dalJogo->listarJogo();

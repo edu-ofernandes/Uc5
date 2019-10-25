@@ -68,7 +68,7 @@
 							</select>
 							<label for="jogo">Jogo</label>
                             	<select  name="jogo" class="form-control" required>
-								
+                                            
 									<?php
 								 		for($i=0; $i < count($resultJogo); $i++ ) {
 										$jogo = $resultJogo[$i];
@@ -138,12 +138,12 @@
             var tdId = document.createElement('td');
             var textoId = document.createTextNode(str[0]);
             tdId.appendChild(tdId);
-            tr.appendChild(tdId);
+            tr.appendChild(textoId);
 
             var tdNome = document.createElement('td');
             var textoNome = document.createTxtNode(str[1]);       
             tdNome.appendChild(tdNome);
-            tr.appendChild(tdNome);
+            tr.appendChild(textoNome);
 
 
             document.getElementById('linhas').appendChild(tr);
